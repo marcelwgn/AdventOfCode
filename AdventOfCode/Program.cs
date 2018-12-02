@@ -1,18 +1,38 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using AdventOfCode.Utils;
+using Solver = AdventOfCode.Solutions.Day1;
+
 
 namespace AdventOfCode {
-  class Program {
-    static void Main(string[] args) {
-      // The code provided will print ‘Hello World’ to the console.
-      // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-      Console.WriteLine("Hello World!");
+  internal class Program {
+
+    private static void Main(String[] args) {
+      string fileName = "";
+
+      //fileName = args[0];
+      fileName = @"D:\Projects\C#\AdventOfCode\AdventOfCode\Data\Day1.txt";
+
+      //Reading data
+      string[] data = ReadUtils.readDataFromFile(fileName);
+
+      //Converting result
+      var converted = Solver.convert(data);
+
+      //Calculating result
+      var resultOne = Solver.firstProblem(converted);
+
+      //Printing result
+      Console.WriteLine("First problem:");
+      Console.WriteLine(resultOne);
+
+      var resultTwo = Solver.secondProblem(converted);
+      
+      Console.WriteLine("Second problem:");
+      Console.WriteLine(resultTwo);
+      //Keep console open so result can be read
       Console.ReadKey();
 
-      // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
     }
+
   }
 }
