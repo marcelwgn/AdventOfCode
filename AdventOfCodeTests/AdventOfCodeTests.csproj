@@ -56,6 +56,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Solutions\Day3Tests.cs" />
     <Compile Include="Utils\ConverterUtilsTests.cs" />
     <Compile Include="Solutions\Day1Tests.cs" />
     <Compile Include="Solutions\Day2Tests.cs" />

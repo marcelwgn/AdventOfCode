@@ -14,7 +14,6 @@ namespace AdventOfCode.Utils {
       }
       return numbers;
     }
-
   }
 
 }
