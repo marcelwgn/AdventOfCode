@@ -42,9 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\day4.txt" />
     <Compile Include="Solutions\Day2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Solutions\Day3.cs" />
+    <Compile Include="Solutions\Day4.cs" />
     <Compile Include="Utils\DataHolder.cs" />
     <Compile Include="Utils\ReadUtils.cs" />
     <Compile Include="Utils\ConverterUtils.cs" />

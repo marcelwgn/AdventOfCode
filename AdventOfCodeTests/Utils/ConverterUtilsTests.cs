@@ -2,7 +2,7 @@
 using AdventOfCode.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Utils.Test {
+namespace AdventOfCode.Utils.Tests {
   [TestClass()]
   public class DataConverterTests {
     [TestMethod()]

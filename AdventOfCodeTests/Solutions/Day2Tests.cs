@@ -1,9 +1,15 @@
-﻿using AdventOfCode.Solutions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Solutions.Test {
+namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
   public class Day2Tests {
+    [TestMethod()]
+    public void convertTest() {
+      string[] data = { "Test", "test", "TeSt" };
+      string[] dataConverted = Day2.convert(data);
+
+      Assert.AreSame(data, dataConverted);
+    }
     [TestMethod()]
     public void firstProblemTest_Easy() {
       string[] data = {
@@ -34,7 +40,7 @@ namespace AdventOfCode.Solutions.Test {
 
       string result = Day2.secondProblem(data);
 
-      Assert.AreEqual("fgij",result);
+      Assert.AreEqual("fgij", result);
 
     }
   }

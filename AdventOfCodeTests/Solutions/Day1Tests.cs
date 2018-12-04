@@ -1,9 +1,19 @@
-﻿using AdventOfCode.Solutions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Solutions.Test {
+namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
-  public class ProgramTests {
+  public class Day1Tests {
+    [TestMethod()]
+    public void convertTest() {
+      string[] data = { "1", "-2", "3" };
+
+      int[] dataConverted = Day1.convert(data);
+
+      Assert.AreEqual(1, dataConverted[0]);
+      Assert.AreEqual(-2, dataConverted[1]);
+      Assert.AreEqual(3, dataConverted[2]);
+
+    }
     [TestMethod()]
     public void firstProblemTest_AllPositive() {
       int[] data = { 1, 1, 1 };
