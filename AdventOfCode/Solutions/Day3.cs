@@ -55,7 +55,7 @@ namespace AdventOfCode.Solutions {
       return sum;
     }
 
-    public static String secondProblem(Rectangle[] data) {
+    public static int secondProblem(Rectangle[] data) {
       int[,] field = generateField(data);
 
       //Finding rect that was not modified
@@ -74,7 +74,9 @@ namespace AdventOfCode.Solutions {
           intact = data[index];
         }
       }
-      return intact.rootData;
+      string resultString = intact.rootData.Split("@")[0];
+      int result = int.Parse(resultString.Substring(1));
+      return result;
     }
 
   }
