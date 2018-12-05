@@ -1,5 +1,4 @@
 using System;
-using AdventOfCode;
 using AdventOfCode.Utils;
 
 namespace AdventOfCode.Solutions {
@@ -44,6 +43,4 @@ namespace AdventOfCode.Solutions {
     }
 
   }
-
-
 }

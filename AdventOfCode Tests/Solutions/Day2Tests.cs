@@ -10,8 +10,9 @@ namespace AdventOfCode.Solutions.Tests {
 
       Assert.AreSame(data, dataConverted);
     }
+
     [TestMethod()]
-    public void firstProblemTest_Easy() {
+    public void firstProblemTest() {
       string[] data = {
                         "abcdef",
                         "bababc ",
@@ -27,7 +28,7 @@ namespace AdventOfCode.Solutions.Tests {
     }
 
     [TestMethod()]
-    public void secondProblemTest_Easy() {
+    public void secondProblemTest() {
       string[] data = {
                         "abcde",
                         "fghij",

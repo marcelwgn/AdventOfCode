@@ -13,7 +13,6 @@ namespace AdventOfCode.Solutions.Tests {
       Assert.AreEqual("a", converted);
     }
 
-
     [TestMethod()]
     public void polymerTest_aA() {
       string data = "aA";
@@ -45,34 +44,27 @@ namespace AdventOfCode.Solutions.Tests {
       Assert.AreEqual("aabAAB", changed);
     }
 
-
     [TestMethod()]
-    public void firstProblemTest_Simple(){
+    public void firstProblemTest_One(){
       string data = "dabAcCaCBAcCcaDA";
       int changed = Day5.firstProblem(data);
       Assert.AreEqual(10,changed);
     }   
-    
-    
     [TestMethod()]
-    public void firstProblemTest_Simple2(){
+    public void firstProblemTest_Two(){
       string data = "dbcCCBcCcD";
       int changed = Day5.firstProblem(data);
       Assert.AreEqual(6,changed);
     }   
-    
-    
     [TestMethod()]
-    public void firstProblemTest_Simple3(){
+    public void firstProblemTest_Three(){
       string data = "dabAaBAaDA";
       int changed = Day5.firstProblem(data);
       Assert.AreEqual(4,changed);
     }   
     
-    
-    
     [TestMethod()]
-    public void secondProblemTest_Simple(){
+    public void secondProblemTest(){
       string data = "dabAcCaCBAcCcaDA";
       int changed = Day5.secondProblem(data);
       Assert.AreEqual(4,changed);

@@ -37,6 +37,7 @@ namespace AdventOfCode.Solutions.Tests {
       Assert.AreEqual(30, second.minutesSlept);
 
     }
+
     [TestMethod()]
     public void firstProblemTest() {
       List<Guard> data = new List<Guard>();
@@ -65,6 +66,7 @@ namespace AdventOfCode.Solutions.Tests {
       Assert.AreEqual(240, result);
 
     }
+
     [TestMethod()]
     public void secondProblemTest() {
       List<Guard> data = new List<Guard>();

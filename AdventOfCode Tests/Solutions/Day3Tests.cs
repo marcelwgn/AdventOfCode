@@ -23,5 +23,6 @@ namespace AdventOfCode.Solutions.Tests {
       Assert.AreEqual(rects[0].height, 17);
       Assert.AreEqual(rects[0].rootData, data[0]);
       }
+
   }
 }

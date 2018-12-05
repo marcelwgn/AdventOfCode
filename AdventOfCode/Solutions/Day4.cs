@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using AdventOfCode.Utils;
 
 namespace AdventOfCode.Solutions {
   public class Day4 {
@@ -11,11 +10,9 @@ namespace AdventOfCode.Solutions {
 
       List<Guard> guards = new List<Guard>();
 
-
       for (int i = 0; i < data.Length; i++) {
         events[i] = new Event(data[i]);
         if (events[i].guardId > -1) {
-
           bool found = false;
           guards.ForEach(delegate (Guard guard) {
             if (guard.id == events[i].guardId) {
@@ -24,7 +21,6 @@ namespace AdventOfCode.Solutions {
           });
           if (!found) {
             guards.Add(new Guard(events[i].guardId));
-
           }
         }
       }
@@ -45,59 +41,35 @@ namespace AdventOfCode.Solutions {
 
         if (current.isSleepEnd) {
           //Finding right guard:
-
-          Guard affectedGuard = guards[0];
+          Guard guard = guards[0];
           for (int guardIndex = 0; guardIndex < guards.Count; guardIndex++) {
             if (guards[guardIndex].id == currentId) {
-              affectedGuard = guards[guardIndex];
+              guard = guards[guardIndex];
             }
           }
 
-          DateTime currentTime = current.timeEvent;
-          int minutes = (int)Math.Round(currentTime.Subtract(lastEvent).TotalMinutes);
-
-          int minuteStart = lastEvent.Minute;
-          if (lastEvent.Hour != 0) {
-            minuteStart = 0;
-          }
-
-          int minuteEnd = currentTime.Minute;
-          if (currentTime.Hour != 0) {
-            minuteEnd = 0;
-          }
-
-          for (int minuteIndex = minuteStart; minuteIndex < minuteEnd; minuteIndex++) {
-            affectedGuard.sleepingMinutes[minuteIndex]++;
-
-
-          }
-
-          affectedGuard.minutesSlept += minutes;
+          //Updating sleep times
+          guard.calculateSleepTimes(lastEvent, current.timeEvent);
 
         }
-
       }
-
 
       return guards;
     }
 
     public static int firstProblem(List<Guard> guards) {
-
       Guard mostSlept = guards[0];
       for (int i = 0; i < guards.Count; i++) {
         if (guards[i].minutesSlept > mostSlept.minutesSlept) {
           mostSlept = guards[i];
         }
       }
-
       int highestMinuteIndex = 0;
       for (int i = 0; i < mostSlept.sleepingMinutes.Length; i++) {
         if (mostSlept.sleepingMinutes[i] > mostSlept.sleepingMinutes[highestMinuteIndex]) {
           highestMinuteIndex = i;
         }
       }
-
       return mostSlept.id * highestMinuteIndex;
     }
 
@@ -105,7 +77,6 @@ namespace AdventOfCode.Solutions {
     public static int secondProblem(List<Guard> guards) {
       Guard mostSlept = guards[0];
       int highestMinuteIndex = 0;
-
 
       for (int i = 0; i < guards.Count; i++) {
         //Finding minute with highest sleep count
@@ -117,18 +88,10 @@ namespace AdventOfCode.Solutions {
         }
 
         if (guards[i].sleepingMinutes[localMax] > mostSlept.sleepingMinutes[highestMinuteIndex]) {
-
-
-
           mostSlept = guards[i];
           highestMinuteIndex = localMax;
-
         }
       }
-
-
-
-
 
       return mostSlept.id * highestMinuteIndex;
     }
@@ -177,5 +140,26 @@ namespace AdventOfCode.Solutions {
       this.id = id;
     }
 
+    public void calculateSleepTimes(DateTime start, DateTime end) {
+      //Calculating minutes slept
+      int minutes = (int)Math.Round(end.Subtract(start).TotalMinutes);
+
+      int minuteStart = start.Minute;
+      if (start.Hour != 0) {
+        minuteStart = 0;
+      }
+
+      int minuteEnd = end.Minute;
+      if (end.Hour != 0) {
+        minuteEnd = 0;
+      }
+
+      for (int minuteIndex = minuteStart; minuteIndex < minuteEnd; minuteIndex++) {
+        this.sleepingMinutes[minuteIndex]++;
+      }
+      this.minutesSlept += minutes;
+
+    }
   }
+
 }

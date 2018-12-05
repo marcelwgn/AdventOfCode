@@ -21,34 +21,33 @@ namespace AdventOfCode.Solutions {
       return rects;
     }
 
-    public static int firstProblem(Rectangle[] data) {
-      int[][] values = new int[1000][];
-
-      for (int i = 0; i < 1000; i++) {
-        values[i] = new int[1000];
-      }
-
+    private static int[,] generateField(Rectangle[] data) {
+      int[,] values = new int[1000, 1000];
       for (int index = 0; index < data.Length; index++) {
         Rectangle current = data[index];
         for (int i = current.x; i < current.x + current.width; i++) {
           for (int j = current.y; j < current.y + current.height; j++) {
-            if (values[i][j] != 0) {
-              values[i][j] = -1;
+            if (values[i, j] != 0) {
+              values[i, j] = -1;
             }
             else {
-              values[i][j] = 1;
+              values[i, j] = 1;
             }
           }
         }
-
-
       }
+
+      return values;
+    }
+
+    public static int firstProblem(Rectangle[] data) {
+      int[,] field = generateField(data);
 
 
       int sum = 0;
       for (int i = 0; i < 1000; i++) {
         for (int j = 00; j < 1000; j++) {
-          if (values[i][j] == -1) {
+          if (field[i, j] == -1) {
             sum++;
           }
         }
@@ -57,26 +56,7 @@ namespace AdventOfCode.Solutions {
     }
 
     public static String secondProblem(Rectangle[] data) {
-      int[][] values = new int[1000][];
-
-      for (int i = 0; i < 1000; i++) {
-        values[i] = new int[1000];
-      }
-
-      //Writing stuff
-      for (int index = 0; index < data.Length; index++) {
-        Rectangle current = data[index];
-        for (int i = current.x; i < current.x + current.width; i++) {
-          for (int j = current.y; j < current.y + current.height; j++) {
-            if (values[i][j] != 0) {
-              values[i][j] = -1;
-            }
-            else {
-              values[i][j] = 1;
-            }
-          }
-        }
-      }
+      int[,] field = generateField(data);
 
       //Finding rect that was not modified
       Rectangle intact = new Rectangle(0, 0, 0, 0, "Null");
@@ -85,7 +65,7 @@ namespace AdventOfCode.Solutions {
         bool damaged = false;
         for (int i = current.x; i < current.x + current.width; i++) {
           for (int j = current.y; j < current.y + current.height; j++) {
-            if (values[i][j] == -1) {
+            if (field[i, j] == -1) {
               damaged = true; ;
             }
           }

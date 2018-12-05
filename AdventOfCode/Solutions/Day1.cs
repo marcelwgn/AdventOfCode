@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using AdventOfCode.Utils;
 
@@ -25,22 +24,18 @@ namespace AdventOfCode.Solutions {
 
       int dataSize = data.Length;
       while (!freqDouble) {
-
         //Already found
         if (calcedFreqs.Contains(sum)) {
           freqDouble = true;
           break;
         }
+
         calcedFreqs.Add(sum);
-
         sum += data[index];
-
         index = (index + 1) % dataSize;
       }
       return sum;
     }
 
   }
-
-
 }
