@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace AdventOfCode.Solutions {
   public class Day5 {
@@ -13,7 +14,6 @@ namespace AdventOfCode.Solutions {
         char current = (char)i;
         char curUpper = Char.ToUpper(current);
         String act = new string(new char[] { current, curUpper });
-
 
         if (data.IndexOf(act) > -1) {
           data = data.Replace(act, "");
@@ -35,7 +35,6 @@ namespace AdventOfCode.Solutions {
 
     }
 
-
     public static int firstProblem(String data) {
       Tuple<String, bool> result = Day5.polymer(data);
 
@@ -51,19 +50,19 @@ namespace AdventOfCode.Solutions {
 
     public static int secondProblem(string data) {
       int result = data.Length;
-      for (int i = 97; i < 123; i++) {
-        char current = (char)i;
+      Parallel.For(97, 123, index => {
+        char current = (char)index;
         char curUpper = Char.ToUpper(current);
 
-        String newData = data.Replace(new String(new char[] { current }),"");
-        newData = newData.Replace(new String(new char[] { curUpper }),"");
+        String newData = data.Replace(new String(new char[] { current }), "");
+        newData = newData.Replace(new String(new char[] { curUpper }), "");
 
         int foldingTry = firstProblem(newData);
         if (result > foldingTry) {
           result = foldingTry;
         }
-      }
 
+      });
       return result;
 
     }
