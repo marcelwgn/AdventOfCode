@@ -14,7 +14,6 @@ namespace AdventOfCode.Model {
       this.name = (new Random().Next(0, 1000) + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()).ToString();
     }
 
-
     public Node(string name)
     {
       this.name = name;
@@ -63,6 +62,11 @@ namespace AdventOfCode.Model {
     public int CompareTo(Node<T> node)
     {
       return this.name.CompareTo(node.name);
+    }
+
+    internal int Aggregate()
+    {
+      throw new NotImplementedException();
     }
 
     public override string ToString()
