@@ -1,22 +1,45 @@
 ﻿using System;
 
 namespace AdventOfCode.Model {
-  public class Node : IComparable<Node> {
+  public class Node<T> : IComparable<Node<T>> {
     public string name;
-    public readonly NodeList parents = new NodeList();
-    public readonly NodeList children = new NodeList();
+    public readonly NodeList<T> parents = new NodeList<T>();
+    public readonly NodeList<T> children = new NodeList<T>();
+
+    public T data;
+
+    public Node()
+    {
+      //Should generate unigue names
+      this.name = (new Random().Next(0, 1000) + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()).ToString();
+    }
+
 
     public Node(string name)
     {
       this.name = name;
     }
 
-    public void addParent(Node nodeToAdd)
+    public Node(T data)
+    {
+      //Should generate unigue names
+      this.name = (new Random().Next(0, 1000) + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()).ToString();
+      this.data = data;
+    }
+
+    public Node(string name, T data)
+    {
+      this.name = name;
+      this.data = data;
+    }
+
+
+    public void addParent(Node<T> nodeToAdd)
     {
       this.parents.add(nodeToAdd);
     }
 
-    public void addChild(Node nodeToAdd)
+    public void addChild(Node<T> nodeToAdd)
     {
       this.children.add(nodeToAdd);
     }
@@ -27,7 +50,7 @@ namespace AdventOfCode.Model {
       {
         return false;
       }
-      Node node = obj as Node;
+      Node<T> node = obj as Node<T>;
 
       if (node == null)
       {
@@ -37,7 +60,7 @@ namespace AdventOfCode.Model {
       return this.name.Equals(node.name);
     }
 
-    public int CompareTo(Node node)
+    public int CompareTo(Node<T> node)
     {
       return this.name.CompareTo(node.name);
     }

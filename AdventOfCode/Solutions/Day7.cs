@@ -6,9 +6,9 @@ using System.Linq;
 namespace AdventOfCode.Solutions {
   public class Day7 {
 
-    public static NodeList convert(String[] data)
+    public static NodeList<String> convert(String[] data)
     {
-      NodeList list = new NodeList();
+      NodeList<String> list = new NodeList<String>();
       for (int i = 0; i < data.Length; i++)
       {
         string[] split = data[i].Split(" ");
@@ -16,15 +16,15 @@ namespace AdventOfCode.Solutions {
         string childName = split[7];
         if (!list.contains(childName))
         {
-          list.add(new Node(childName));
+          list.add(new Node<String>(childName));
         }
-        Node childNode = list.get(childName);
+        Node<String> childNode = list.get(childName);
 
         if (!list.contains(parentName))
         {
-          list.add(new Node(parentName));
+          list.add(new Node<String>(parentName));
         }
-        Node parentNode = list.get(parentName);
+        Node<String> parentNode = list.get(parentName);
         childNode.addParent(parentNode);
         parentNode.addChild(childNode);
       }
@@ -34,13 +34,13 @@ namespace AdventOfCode.Solutions {
 
 
     //Needs refactoring
-    public static string firstProblem(NodeList nodes)
+    public static string firstProblem(NodeList<String> nodes)
     {
       string result = "";
-      Node current = null;
+      Node<String> current = null;
 
-      NodeList nodesToClean = new NodeList();
-      NodeList alreadyAdded = new NodeList();
+      NodeList<String> nodesToClean = new NodeList<String>();
+      NodeList<String> alreadyAdded = new NodeList<String>();
 
       nodesToClean.add(nodes.getEntryPoints());
 
@@ -51,7 +51,7 @@ namespace AdventOfCode.Solutions {
         for (int i = 0; i < nodesToClean.Count; i++)
         {
           //Checking if prequisites are met
-          NodeList neededNodes = nodesToClean[i].parents;
+          NodeList<String> neededNodes = nodesToClean[i].parents;
           if (alreadyAdded.contains(neededNodes))
           {
             current = nodesToClean[i];
@@ -79,11 +79,11 @@ namespace AdventOfCode.Solutions {
     }
 
     //Needs even more refactoring !
-    public static int secondProblem(NodeList nodes)
+    public static int secondProblem(NodeList<String> nodes)
     {
 
-      NodeList nodesToClean = new NodeList();
-      NodeList alreadyAdded = new NodeList();
+      NodeList<String> nodesToClean = new NodeList<String>();
+      NodeList<String> alreadyAdded = new NodeList<String>();
 
       List<NodeProcessor> procs = new List<NodeProcessor>();
 
@@ -94,7 +94,7 @@ namespace AdventOfCode.Solutions {
       while (nodesToClean.Count != 0 || procs.Count != 0)
       {
         //Update workers
-        NodeList finished = new NodeList();
+        NodeList<String> finished = new NodeList<String>();
         for (int i = 0; i < procs.Count; i++)
         {
           procs[i].minutesToCompletion--;
@@ -125,11 +125,11 @@ namespace AdventOfCode.Solutions {
           int maxNodes = nodesToClean.Count;
           for (int i = procs.Count; i < procCount; i++)
           {
-            Node current = null;
+            Node<String> current = null;
             for (int j = 0; j < nodesToClean.Count; j++)
             {
               //Checking if prequisites are met
-              NodeList neededNodes = nodesToClean[j].parents;
+              NodeList<String> neededNodes = nodesToClean[j].parents;
               if (alreadyAdded.contains(neededNodes))
               {
                 current = nodesToClean[j];
@@ -158,9 +158,9 @@ namespace AdventOfCode.Solutions {
 
   public class NodeProcessor {
     public int minutesToCompletion;
-    public Node toProcess;
+    public Node<String> toProcess;
 
-    public NodeProcessor(Node toProcess)
+    public NodeProcessor(Node<String> toProcess)
     {
       int charOffset = toProcess.name[0] - 64;
       this.minutesToCompletion = 60 + charOffset;

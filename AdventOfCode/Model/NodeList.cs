@@ -6,10 +6,10 @@ namespace AdventOfCode.Model {
  
 
 
-  public class NodeList {
-    private readonly List<Node> nodeList = new List<Node>();
+  public class NodeList<T> {
+    private readonly List<Node<T>> nodeList = new List<Node<T>>();
 
-    public Node this[int index] {
+    public Node<T> this[int index] {
       get => this.nodeList[index];
       set => this.nodeList[index] = value;
     }
@@ -19,9 +19,9 @@ namespace AdventOfCode.Model {
       set { }
     }
 
-    public NodeList getEntryPoints()
+    public NodeList<T> getEntryPoints()
     {
-      NodeList entries = new NodeList();
+      NodeList<T> entries = new NodeList<T>();
       for (int i = 0; i < this.nodeList.Count; i++)
       {
         if (this.nodeList[i].parents.Count == 0)
@@ -32,7 +32,7 @@ namespace AdventOfCode.Model {
       return entries;
     }
 
-    public void add(NodeList nodes)
+    public void add(NodeList<T> nodes)
     {
       for (int i = 0; i < nodes.Count; i++)
       {
@@ -43,12 +43,12 @@ namespace AdventOfCode.Model {
       }
     }
 
-    public void add(Node node)
+    public void add(Node<T> node)
     {
       this.nodeList.Add(node);
     }
 
-    public Node get(String name)
+    public Node<T> get(String name)
     {
       for (int i = 0; i < this.nodeList.Count; i++)
       {
@@ -62,7 +62,7 @@ namespace AdventOfCode.Model {
 
     public bool contains(String nodeName)
     {
-      Node node = new Node(nodeName);
+      Node<T> node = new Node<T>(nodeName);
       for (int i = 0; i < this.nodeList.Count; i++)
       {
         if (this.nodeList.Contains(node))
@@ -73,12 +73,12 @@ namespace AdventOfCode.Model {
       return false;
     }
 
-    public bool contains(Node node)
+    public bool contains(Node<T> node)
     {
       return this.contains(node.name);
     }
 
-    public bool contains(NodeList nodes)
+    public bool contains(NodeList<T> nodes)
     {
       for (int i = 0; i < nodes.Count; i++)
       {
@@ -91,7 +91,7 @@ namespace AdventOfCode.Model {
       return true;
     }
 
-    public void remove(Node node)
+    public void remove(Node<T> node)
     {
       this.nodeList.Remove(node);
     }
