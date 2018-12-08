@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AdventOfCode.Model;
 using AdventOfCode.Utils;
 
 namespace AdventOfCode.Solutions {

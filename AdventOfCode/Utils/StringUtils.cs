@@ -30,7 +30,6 @@ namespace AdventOfCode.Utils {
       return exactlyTwice;
     }
 
-
     public static bool containsLetterExactlyThrice(this String str) {
       char[] chars = str.ToCharArray();
       Array.Sort(chars);

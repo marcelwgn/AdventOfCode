@@ -1,6 +1,6 @@
 ﻿using System;
 using AdventOfCode.Utils;
-using Solver = AdventOfCode.Solutions.Day6;
+using Solver = AdventOfCode.Solutions.Day7;
 
 
 namespace AdventOfCode {
@@ -10,7 +10,7 @@ namespace AdventOfCode {
       string fileName = "";
 
       //fileName = args[0];
-      fileName = @"D:\Projects\C#\AdventOfCode\AdventOfCode\Data\day6.txt";
+      fileName = @"..\..\..\Data\day7.txt";
 
       //Reading data
       string[] data = ReadUtils.readDataFromFile(fileName);
@@ -19,11 +19,11 @@ namespace AdventOfCode {
       var converted = Solver.convert(data);
 
       //Calculating result
-      var resultOne = Solver.firstProblem(converted);
+      //var resultOne = Solver.firstProblem(converted);
 
-      //Printing result
-      Console.WriteLine("First problem:");
-      Console.WriteLine(resultOne);
+      ////Printing result
+      //Console.WriteLine("First problem:");
+      //Console.WriteLine(resultOne);
 
       var resultTwo = Solver.secondProblem(converted);
 

@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Utils;
+﻿using AdventOfCode.Model;
+using AdventOfCode.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Solutions.Tests {
