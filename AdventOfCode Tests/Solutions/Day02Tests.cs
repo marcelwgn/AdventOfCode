@@ -2,11 +2,11 @@
 
 namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
-  public class Day2Tests {
+  public class Day02Tests {
     [TestMethod()]
     public void convertTest() {
       string[] data = { "Test", "test", "TeSt" };
-      string[] dataConverted = Day2.convert(data);
+      string[] dataConverted = Day02.convert(data);
 
       Assert.AreSame(data, dataConverted);
     }
@@ -21,7 +21,7 @@ namespace AdventOfCode.Solutions.Tests {
                         "aabcdd ",
                         "abcdee ",
                         "ababab " };
-      int checksum = Day2.firstProblem(data);
+      int checksum = Day02.firstProblem(data);
 
       Assert.AreEqual(12, checksum);
 
@@ -39,7 +39,7 @@ namespace AdventOfCode.Solutions.Tests {
                         "wvxyz"
                         };
 
-      string result = Day2.secondProblem(data);
+      string result = Day02.secondProblem(data);
 
       Assert.AreEqual("fgij", result);
 

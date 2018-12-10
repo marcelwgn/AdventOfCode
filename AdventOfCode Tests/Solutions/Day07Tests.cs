@@ -2,7 +2,7 @@
 
 namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
-  public class Day7Tests {
+  public class Day07Tests {
 
     [TestMethod()]
     public void convertTest()
@@ -17,7 +17,7 @@ namespace AdventOfCode.Solutions.Tests {
                         "Step F must be finished before step E can begin."
                         };
 
-      var converted = Day7.convert(data);
+      var converted = Day07.convert(data);
       converted.sort();
       Assert.AreEqual(6, converted.Count);
 
@@ -41,8 +41,8 @@ namespace AdventOfCode.Solutions.Tests {
                         "Step D must be finished before step E can begin.",
                         "Step F must be finished before step E can begin."
                         };
-      var converted = Day7.convert(data);
-      string value = Day7.firstProblem(converted);
+      var converted = Day07.convert(data);
+      string value = Day07.firstProblem(converted);
 
       Assert.AreEqual("CABDFE", value);
 
@@ -59,8 +59,8 @@ namespace AdventOfCode.Solutions.Tests {
                         "Step D must be finished before step E can begin.",
                         "Step F must be finished before step E can begin."
                         };
-      var converted = Day7.convert(data);
-      int value = Day7.secondProblem(converted);
+      var converted = Day07.convert(data);
+      int value = Day07.secondProblem(converted);
 
       Assert.AreEqual(253, value);
 

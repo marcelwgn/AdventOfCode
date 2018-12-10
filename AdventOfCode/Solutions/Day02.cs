@@ -2,7 +2,7 @@ using System;
 using AdventOfCode.Utils;
 
 namespace AdventOfCode.Solutions {
-  public class Day2 {
+  public class Day02 {
 
     public static string[] convert(string[] args) {
       return args;

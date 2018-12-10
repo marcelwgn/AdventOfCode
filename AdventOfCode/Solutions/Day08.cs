@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode.Solutions {
-  public class Day8 {
+  public class Day08 {
     public static Node<List<int>> convert(String[] data)
     {
       int[] parsed = ConverterUtils.getNumbers(data[0]);

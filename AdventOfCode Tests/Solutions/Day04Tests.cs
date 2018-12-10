@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
-  public class Day4Tests {
+  public class Day04Tests {
     [TestMethod()]
     public void convertTest() {
       string[] data = {"[1518-11-01 00:00] Guard #10 begins shift",
@@ -24,7 +24,7 @@ namespace AdventOfCode.Solutions.Tests {
                         "[1518-11-05 00:45] falls asleep",
                         "[1518-11-05 00:55] wakes up" };
 
-      List<Guard> converted = Day4.convert(data);
+      List<Guard> converted = Day04.convert(data);
 
       Assert.AreEqual(2, converted.Count);
       Guard first = converted[0];
@@ -61,7 +61,7 @@ namespace AdventOfCode.Solutions.Tests {
       data.Add(second);
 
 
-      int result = Day4.firstProblem(data);
+      int result = Day04.firstProblem(data);
 
       Assert.AreEqual(240, result);
 
@@ -90,7 +90,7 @@ namespace AdventOfCode.Solutions.Tests {
       data.Add(second);
 
 
-      int result = Day4.secondProblem(data);
+      int result = Day04.secondProblem(data);
 
       Assert.AreEqual(4455, result);
     }

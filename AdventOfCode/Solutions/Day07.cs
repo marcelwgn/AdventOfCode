@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode.Solutions {
-  public class Day7 {
+  public class Day07 {
 
     public static NodeList<String> convert(String[] data)
     {

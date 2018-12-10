@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 
 namespace AdventOfCode.Solutions {
-  public class Day5 {
+  public class Day05 {
 
     public static String convert(String[] data) {
       return data[0];
@@ -36,12 +36,12 @@ namespace AdventOfCode.Solutions {
     }
 
     public static int firstProblem(String data) {
-      Tuple<String, bool> result = Day5.polymer(data);
+      Tuple<String, bool> result = Day05.polymer(data);
 
       bool changed = result.Item2;
 
       while (changed) {
-        result = Day5.polymer(result.Item1);
+        result = Day05.polymer(result.Item1);
         changed = result.Item2;
       }
 

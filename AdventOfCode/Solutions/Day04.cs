@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace AdventOfCode.Solutions {
-  public class Day4 {
+  public class Day04 {
 
     public static List<Guard> convert(String[] data) {
       Event[] events = new Event[data.Length];

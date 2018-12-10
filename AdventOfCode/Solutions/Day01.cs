@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using AdventOfCode.Utils;
 
 namespace AdventOfCode.Solutions {
-  public class Day1 {
+  public class Day01 {
     public static int[] convert(string[] data) {
       return ConverterUtils.getNumbers(data);
     }

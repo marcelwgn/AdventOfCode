@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode.Solutions {
-  public class Day9 {
+  public class Day09 {
     public static Tuple<long[], int> convert(String[] data)
     {
       string[] split = data[0].Split(" ");

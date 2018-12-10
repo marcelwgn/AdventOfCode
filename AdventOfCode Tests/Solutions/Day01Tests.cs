@@ -2,12 +2,12 @@
 
 namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
-  public class Day1Tests {
+  public class Day01Tests {
     [TestMethod()]
     public void convertTest() {
       string[] data = { "1", "-2", "3" };
 
-      int[] dataConverted = Day1.convert(data);
+      int[] dataConverted = Day01.convert(data);
 
       Assert.AreEqual(1, dataConverted[0]);
       Assert.AreEqual(-2, dataConverted[1]);
@@ -18,7 +18,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void firstProblemTest_AllPositive() {
       int[] data = { 1, 1, 1 };
 
-      int result = Day1.firstProblem(data);
+      int result = Day01.firstProblem(data);
 
       Assert.AreEqual(3, result);
 
@@ -27,7 +27,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void firstProblemTest_PositiveAndNegative() {
       int[] data = { 1, 1, -2 };
 
-      int result = Day1.firstProblem(data);
+      int result = Day01.firstProblem(data);
 
       Assert.AreEqual(0, result);
 
@@ -36,7 +36,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void firstProblemTest_AllNegative() {
       int[] data = { -1, -2, -3 };
 
-      int result = Day1.firstProblem(data);
+      int result = Day01.firstProblem(data);
 
       Assert.AreEqual(-6, result);
 
@@ -46,7 +46,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void secondProblemTest_One() {
       int[] data = { 1, -2, 3, 1 };
 
-      int result = Day1.secondProblem(data);
+      int result = Day01.secondProblem(data);
 
 
       Assert.AreEqual(2, result);
@@ -55,7 +55,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void secondProblemTest_Two() {
       int[] data = { 1, -1 };
 
-      int result = Day1.secondProblem(data);
+      int result = Day01.secondProblem(data);
 
 
       Assert.AreEqual(0, result);
@@ -64,7 +64,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void secondProblemTest_Three() {
       int[] data = { 3, 3, 4, -2, -4 };
 
-      int result = Day1.secondProblem(data);
+      int result = Day01.secondProblem(data);
 
 
       Assert.AreEqual(10, result);
@@ -73,7 +73,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void secondProblemTest_Four() {
       int[] data = { -6, 3, 8, 5, -6 };
 
-      int result = Day1.secondProblem(data);
+      int result = Day01.secondProblem(data);
 
 
       Assert.AreEqual(5, result);
@@ -82,7 +82,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void secondProblemTest_Five() {
       int[] data = { 7, 7, -2, -7, -4 };
 
-      int result = Day1.secondProblem(data);
+      int result = Day01.secondProblem(data);
 
 
       Assert.AreEqual(14, result);

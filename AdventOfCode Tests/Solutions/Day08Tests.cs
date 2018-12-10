@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
-  public class Day8Tests {
+  public class Day08Tests {
 
     [TestMethod()]
     public void findMetaStartTest_NoChild()
     {
       int[] data = { 0, 3, 1, 2, 3 };
-      int result = Day8.findMetaData(data, 0);
+      int result = Day08.findMetaData(data, 0);
       Assert.AreEqual(2, result);
     }
 
@@ -19,14 +19,14 @@ namespace AdventOfCode.Solutions.Tests {
     public void findMetaStartTest_SingleChild()
     {
       int[] data = { 1, 3, 0, 1, 1, 1, 2, 3 };
-      int result = Day8.findMetaData(data, 0);
+      int result = Day08.findMetaData(data, 0);
       Assert.AreEqual(5, result);
     }
     [TestMethod()]
     public void findMetaStartTest_TowAdjacentChildren()
     {
       int[] data = { 2, 3, 0, 1, 1, 0, 1, 1, 1, 2, 3 };
-      int result = Day8.findMetaData(data, 0);
+      int result = Day08.findMetaData(data, 0);
       Assert.AreEqual(8, result);
     }
 
@@ -34,7 +34,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void findMetaStartTest_SingleSingleChildren()
     {
       int[] data = { 1, 3, 1, 1, 0, 1, 1, 1, 1, 2, 3 };
-      int result = Day8.findMetaData(data, 0);
+      int result = Day08.findMetaData(data, 0);
       Assert.AreEqual(8, result);
 
     }
@@ -42,7 +42,7 @@ namespace AdventOfCode.Solutions.Tests {
     public void findMetaStartTest_TowAdjacentChildren_OneIsDeep()
     {
       int[] data = { 2, 3, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 2, 3 };
-      int result = Day8.findMetaData(data, 0);
+      int result = Day08.findMetaData(data, 0);
       Assert.AreEqual(11, result);
     }
 
@@ -54,7 +54,7 @@ namespace AdventOfCode.Solutions.Tests {
     {
       int[] data = { 0, 3, 1, 2, 3 };
 
-      Node<List<int>> result = Day8.getNode(data, 0);
+      Node<List<int>> result = Day08.getNode(data, 0);
       result.data.Sort();
 
       int[] metaExpected = { 1, 2, 3 };
@@ -75,7 +75,7 @@ namespace AdventOfCode.Solutions.Tests {
     {
       int[] data = { 1, 3, 0, 1, 1, 1, 2, 3 };
 
-      Node<List<int>> result = Day8.getNode(data, 0);
+      Node<List<int>> result = Day08.getNode(data, 0);
       result.data.Sort();
 
       int[] metaExpected = { 1, 2, 3 };
@@ -99,7 +99,7 @@ namespace AdventOfCode.Solutions.Tests {
       int[] data = { 2, 3, 0, 1, 8, 0, 1, 9, 1, 2, 3 };
 
 
-      Node<List<int>> result = Day8.getNode(data, 0);
+      Node<List<int>> result = Day08.getNode(data, 0);
       result.data.Sort();
 
       int[] metaExpected = { 1, 2, 3 };
@@ -123,7 +123,7 @@ namespace AdventOfCode.Solutions.Tests {
     {
       String[] data = { "2 3 0 1 8 0 1 9 1 2 3" };
 
-      Node<List<int>> result = Day8.convert(data);
+      Node<List<int>> result = Day08.convert(data);
       result.data.Sort();
 
       int[] metaExpected = { 1, 2, 3 };
@@ -147,9 +147,9 @@ namespace AdventOfCode.Solutions.Tests {
     public void firstProblemTest_SingleNode()
     {
       int[] data = { 0, 3, 1, 2, 3 };
-      Node<List<int>> converted = Day8.getNode(data, 0);
+      Node<List<int>> converted = Day08.getNode(data, 0);
 
-      int result = Day8.firstProblem(converted);
+      int result = Day08.firstProblem(converted);
 
       Assert.AreEqual(6, result);
     }
@@ -157,9 +157,9 @@ namespace AdventOfCode.Solutions.Tests {
     public void firstProblemTest_SingleChild()
     {
       int[] data = { 1, 3, 0, 1, 9, 1, 2, 3 };
-      Node<List<int>> converted = Day8.getNode(data, 0);
+      Node<List<int>> converted = Day08.getNode(data, 0);
 
-      int result = Day8.firstProblem(converted);
+      int result = Day08.firstProblem(converted);
 
       Assert.AreEqual(15, result);
     }
@@ -167,9 +167,9 @@ namespace AdventOfCode.Solutions.Tests {
     public void firstProblemTest_TwoChildren()
     {
       int[] data = { 2, 3, 0, 1, 9, 0, 1, 9, 1, 2, 3 };
-      Node<List<int>> converted = Day8.getNode(data, 0);
+      Node<List<int>> converted = Day08.getNode(data, 0);
 
-      int result = Day8.firstProblem(converted);
+      int result = Day08.firstProblem(converted);
 
       Assert.AreEqual(24, result);
     }
@@ -177,9 +177,9 @@ namespace AdventOfCode.Solutions.Tests {
     [TestMethod()]
     public void secondProblemTest(){
       String[] data = { "2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2" };
-      var converted = Day8.convert(data);
+      var converted = Day08.convert(data);
 
-      int result = Day8.secondProblem(converted);
+      int result = Day08.secondProblem(converted);
 
       Assert.AreEqual(66,result);
     }

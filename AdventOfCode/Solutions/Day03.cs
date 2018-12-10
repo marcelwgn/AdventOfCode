@@ -3,7 +3,7 @@ using AdventOfCode.Model;
 using AdventOfCode.Utils;
 
 namespace AdventOfCode.Solutions {
-  public class Day3 {
+  public class Day03 {
     public static Rectangle[] convert(String[] data) {
       //Data  
       //#1 @ 236,827: 24x17

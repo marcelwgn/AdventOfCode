@@ -1,12 +1,18 @@
 ﻿using System;
 
 namespace AdventOfCode.Model {
-  public class Point {
+  public class Vector {
     public int x, y;
 
     public String name;
 
-    public Point(int x, int y, string name)
+    public Vector(int x, int y)
+    {
+      this.x = x;
+      this.y = y;
+    }
+
+    public Vector(int x, int y, string name)
     {
       this.x = x;
       this.y = y;

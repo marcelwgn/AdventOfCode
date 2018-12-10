@@ -4,13 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Solutions.Tests {
   [TestClass()]
-  public class Day3Tests {
+  public class Day03Tests {
     [TestMethod()]
     public void convertTest() {
       //#1 @ 236,827: 24x17
       string[] data = { "#1 @ 236,827: 24x17" };
 
-      Rectangle[] rects = Day3.convert(data);
+      Rectangle[] rects = Day03.convert(data);
 
       Assert.AreEqual(rects[0].x, 236);
       Assert.AreEqual(rects[0].y, 827);
@@ -25,9 +25,9 @@ namespace AdventOfCode.Solutions.Tests {
                      "#1 @ 1,3: 4x4",
                      "#2 @ 3,1: 4x4",
                      "#3 @ 5,5: 2x2"};
-      Rectangle[] converted = Day3.convert(data);
+      Rectangle[] converted = Day03.convert(data);
 
-      int result = Day3.firstProblem(converted);
+      int result = Day03.firstProblem(converted);
 
       Assert.AreEqual(4, result);
     }
@@ -38,9 +38,9 @@ namespace AdventOfCode.Solutions.Tests {
                      "#1 @ 1,3: 4x4",
                      "#2 @ 3,1: 4x4",
                      "#3 @ 5,5: 2x2"};
-      Rectangle[] converted = Day3.convert(data);
+      Rectangle[] converted = Day03.convert(data);
 
-      int result = Day3.secondProblem(converted);
+      int result = Day03.secondProblem(converted);
 
       Assert.AreEqual(3, result);
     }

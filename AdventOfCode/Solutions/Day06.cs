@@ -4,15 +4,15 @@ using AdventOfCode.Model;
 using AdventOfCode.Utils;
 
 namespace AdventOfCode.Solutions {
-  public class Day6 {
+  public class Day06 {
 
-    public static Tuple<Point[], String[,]> convert(String[] data) {
-      Point[] points = new Point[data.Length];
+    public static Tuple<Vector[], String[,]> convert(String[] data) {
+      Vector[] points = new Vector[data.Length];
       for (int i = 0; i < data.Length; i++) {
         String[] split = data[i].Split(",");
         int first = int.Parse(split[0]);
         int second = int.Parse(split[1]);
-        points[i] = new Point(first, second, i.ToString());
+        points[i] = new Vector(first, second, i.ToString());
 
       }
 
@@ -25,7 +25,7 @@ namespace AdventOfCode.Solutions {
           int pointsBest = 0;
           bool isUndecided = false;
           for (int pointsIndex = 0; pointsIndex < data.Length; pointsIndex++) {
-            Point current = points[pointsIndex];
+            Vector current = points[pointsIndex];
             int distance = current.getDistance(j, i);
             if (bestDistance == distance) {
               pointsBest = pointsIndex;
@@ -49,12 +49,12 @@ namespace AdventOfCode.Solutions {
         }
       }
 
-      return new Tuple<Point[], string[,]>(points, field);
+      return new Tuple<Vector[], string[,]>(points, field);
     }
 
 
-    public static int firstProblem(Tuple<Point[], string[,]> data) {
-      Point[] points = data.Item1;
+    public static int firstProblem(Tuple<Vector[], string[,]> data) {
+      Vector[] points = data.Item1;
       String[,] field = data.Item2;
 
       int fieldSize = (int)Math.Sqrt(field.Length);
@@ -94,8 +94,8 @@ namespace AdventOfCode.Solutions {
       return bestCount;
     }
 
-    public static int secondProblem(Tuple<Point[], String[,]> data) {
-      Point[] points = data.Item1;
+    public static int secondProblem(Tuple<Vector[], String[,]> data) {
+      Vector[] points = data.Item1;
       String[,] field = data.Item2;
 
       int fieldSize = (int)Math.Sqrt(field.Length);
