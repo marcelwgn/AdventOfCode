@@ -2,73 +2,63 @@ using System.Collections.Generic;
 
 namespace AdventOfCode.Model {
   public class CyclicList<T> {
-    public List<T> list = new List<T>();
+    private readonly LinkedList<T> list = new LinkedList<T>();
 
-    public void insertAfter(int index, T element)
+
+    public void addFirst(T elm)
     {
-      int insertionIndex = this.calculateCorrectIndex(index) + 1;
-      if (insertionIndex > this.list.Count)
-      {
-        this.list.Add(element);
-      }
-      else
-      {
-        this.list.Insert(insertionIndex, element);
-      }
+      this.list.AddFirst(elm);
     }
 
-    public int getIndex(T value)
-    {
-      return this.list.IndexOf(value);
-    }
-
-    public int Count {
+    public LinkedListNode<T> first {
       get {
-        return this.list.Count;
+        return this.list.First;
       }
     }
-
-    public void remove(T element)
-    {
-      this.list.Remove(element);
-    }
-
-    public void remove(int index)
-    {
-      this.list.RemoveAt(this.calculateCorrectIndex(index));
-    }
-
-    public T this[int index] {
+    public LinkedListNode<T> last {
       get {
-        int newIndex = this.calculateCorrectIndex(index);
-        return this.list[newIndex];
-
-      }
-      set {
-        int newIndex = this.calculateCorrectIndex(index);
-        this.list[newIndex] = value;
+        return this.list.Last;
       }
     }
 
-    private int calculateCorrectIndex(int index)
+    public void remove(LinkedListNode<T> node){
+      this.list.Remove(node);
+    }
+
+    public LinkedListNode<T> getNextNode(LinkedListNode<T> node)
     {
-      while (index < 0)
+      if (node.Next is null)
       {
-        index += this.list.Count + 1;
+        return this.list.First;
       }
-      if (this.list.Count == 0)
+
+      return node.Next;
+    }
+
+    public LinkedListNode<T> getPreviousNode(LinkedListNode<T> node)
+    {
+      if (node.Previous is null)
       {
-        return 0;
+        return this.list.Last;
       }
-      return (index % this.list.Count);
+
+      return node.Previous;
+    }
+
+    public void addAfter(LinkedListNode<T> node, T v)
+    {
+      this.list.AddAfter(node, v);
     }
 
     public override string ToString()
     {
       string result = "";
-      for (int i = 0; i < this.list.Count; i++)
+      var node = this.list.First;
+      result += node.Value;
+      while (node.Next != null)
       {
-        result += this.list[i] + ",";
+        result += "," + node.Next.Value;
+        node = node.Next;
       }
       return result;
     }
