@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace AdventOfCode.Solutions {
-  internal class Day12 {
+  public class Day12 {
 
     public const int offset = 100;
 
@@ -120,10 +120,6 @@ namespace AdventOfCode.Solutions {
       return sum;
     }
 
-
-
-
-
     public static void print(bool[] flowers, int offset, int max)
     {
       Console.WriteLine();
@@ -142,10 +138,8 @@ namespace AdventOfCode.Solutions {
     }
   }
 
-
-
   public class PatternMatcher {
-    private readonly bool[] values = new bool[5];
+    public readonly bool[] values = new bool[5];
     public readonly bool result = false;
 
     public PatternMatcher(string label)

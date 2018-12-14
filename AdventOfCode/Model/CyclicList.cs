@@ -3,7 +3,16 @@ using System.Collections.Generic;
 namespace AdventOfCode.Model {
   public class CyclicList<T> {
     private readonly LinkedList<T> list = new LinkedList<T>();
+    public int count { 
+      get{
+        return this.list.Count;
+      }
+      set{ }
+    }
 
+    public void addLast(T elm){
+      this.list.AddLast(elm);
+    }
 
     public void addFirst(T elm)
     {

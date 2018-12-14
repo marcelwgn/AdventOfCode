@@ -1,6 +1,6 @@
 ﻿using System;
 using AdventOfCode.Utils;
-using Solver = AdventOfCode.Solutions.Day11;
+using Solver = AdventOfCode.Solutions.Day14;
 
 
 namespace AdventOfCode {
@@ -10,7 +10,7 @@ namespace AdventOfCode {
       string fileName = "";
 
       //fileName = args[0];
-      fileName = @"..\..\..\Data\day11.txt";
+      fileName = @"..\..\..\Data\day14.txt";
 
       //Reading data
       string[] data = ReadUtils.readDataFromFile(fileName);
