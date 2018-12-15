@@ -66,6 +66,42 @@ namespace AdventOfCode.Solutions.Tests {
       Assert.AreEqual("5941429882", result);
     }
 
+    [TestMethod()]
+    public void secondProblemTest_51589()
+    {
+      string[] data = { "37", "51589" };
+
+      var converted = Day14.convert(data);
+
+      int result = Day14.secondProblem(converted);
+
+      Assert.AreEqual(9, result);
+    }
+
+
+    [TestMethod()]
+    public void secondProblemTest_92510()
+    {
+      string[] data = { "37", "92510" };
+
+      var converted = Day14.convert(data);
+
+      int result = Day14.secondProblem(converted);
+
+      Assert.AreEqual(18, result);
+    }
+    [TestMethod()]
+    public void secondProblemTest_59414()
+    {
+      string[] data = { "37", "59414" };
+
+      var converted = Day14.convert(data);
+
+      int result = Day14.secondProblem(converted);
+
+      Assert.AreEqual(2018, result);
+    }
+
 
   }
 }

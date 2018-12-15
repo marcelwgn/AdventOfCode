@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AdventOfCode.Model {
+namespace AdventOfCode.Model.Tests {
   [TestClass()]
   public class CyclicListTests {
   

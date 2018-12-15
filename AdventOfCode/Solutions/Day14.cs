@@ -64,9 +64,94 @@ namespace AdventOfCode.Solutions {
       return result;
     }
 
-    public static string secondProblem(Tuple<CyclicList<int>, int> list)
+
+    //Creates over 1 gig of objects
+    public static int secondProblem(Tuple<CyclicList<int>, int> data)
     {
-      return "";
+      CyclicList<int> list = data.Item1;
+
+      LinkedListNode<int> firstPointer = list.first;
+      LinkedListNode<int> secondPointer = list.first.Next;
+
+      int offset = list.count;
+
+      int sequenceLength = data.Item2.ToString().Length;
+
+      int elementsToTheLeft = -sequenceLength - 2;
+
+
+      int[] sequenceValues = new int[sequenceLength];
+      for (int i = 0; i < sequenceLength; i++)
+      {
+        sequenceValues[i] = int.Parse(data.Item2.ToString()[i].ToString());
+      }
+
+      for (int preperationIndex = 0; preperationIndex < sequenceLength; preperationIndex++)
+      {
+        int currentSum = firstPointer.Value + secondPointer.Value;
+        if (currentSum >= 10)
+        {
+          list.addLast(1);
+          elementsToTheLeft++;
+        }
+        elementsToTheLeft++;
+        list.addLast(currentSum % 10);
+        int firstIterations = firstPointer.Value;
+        int secondIterations = secondPointer.Value;
+        for (int i = 0; i < firstIterations + 1; i++)
+        {
+          firstPointer = list.getNextNode(firstPointer);
+        }
+        for (int i = 0; i < secondIterations + 1; i++)
+        {
+          secondPointer = list.getNextNode(secondPointer);
+        }
+      }
+
+      LinkedListNode<int> startOfSequenceToCheck = list.first;
+
+      bool found = false;
+
+
+      while (!found)
+      {
+        int currentSum = firstPointer.Value + secondPointer.Value;
+
+        if (currentSum >= 10)
+        {
+          list.addLast(1);
+          elementsToTheLeft++;
+          startOfSequenceToCheck = startOfSequenceToCheck.Next;
+        }
+        list.addLast(currentSum % 10);
+        elementsToTheLeft++;
+        startOfSequenceToCheck = startOfSequenceToCheck.Next;
+
+
+        int firstIterations = firstPointer.Value;
+        int secondIterations = secondPointer.Value;
+        for (int i = 0; i < firstIterations + 1; i++)
+        {
+          firstPointer = list.getNextNode(firstPointer);
+        }
+        for (int i = 0; i < secondIterations + 1; i++)
+        {
+          secondPointer = list.getNextNode(secondPointer);
+        }
+        found = true;
+        LinkedListNode<int> walkerNode = startOfSequenceToCheck;
+        for (int i = 0; i < sequenceLength; i++)
+        {
+          if (walkerNode.Value != sequenceValues[i])
+          {
+            found = false;
+          }
+          walkerNode = walkerNode.Next;
+        }
+
+      }
+
+      return elementsToTheLeft;
     }
 
   }
