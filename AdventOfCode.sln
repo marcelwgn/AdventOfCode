@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.136
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode", "AdventOfCode\AdventOfCode.csproj", "{D6F473F8-1FCC-49FE-815E-26F10DCC243A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2018", "2018", "{AC2373D8-F408-475A-B52D-64857CDEFB2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode Tests", "AdventOfCode Tests\AdventOfCode Tests.csproj", "{78EE4645-34ED-49DC-8B80-DB97F84F8467}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2019", "2019", "{6D379817-C0E3-4AF7-82A8-69478EEEFC1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilsTest", "UtilsTest\UtilsTest.csproj", "{0424B54A-2859-45BE-A2D5-BE48B9CF7EB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedUtils", "SharedUtils\SharedUtils.csproj", "{8C637BCB-5049-47D9-A701-BCB4AE835DE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode", "2018\AdventOfCode\AdventOfCode.csproj", "{9B9CD71A-A356-4608-9731-C3CB2A10A5BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode Tests", "2018\AdventOfCode Tests\AdventOfCode Tests.csproj", "{75B7D0CB-E1B7-443E-8540-BD8DD1218B49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +21,29 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D6F473F8-1FCC-49FE-815E-26F10DCC243A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6F473F8-1FCC-49FE-815E-26F10DCC243A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6F473F8-1FCC-49FE-815E-26F10DCC243A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6F473F8-1FCC-49FE-815E-26F10DCC243A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78EE4645-34ED-49DC-8B80-DB97F84F8467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78EE4645-34ED-49DC-8B80-DB97F84F8467}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78EE4645-34ED-49DC-8B80-DB97F84F8467}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78EE4645-34ED-49DC-8B80-DB97F84F8467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0424B54A-2859-45BE-A2D5-BE48B9CF7EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0424B54A-2859-45BE-A2D5-BE48B9CF7EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0424B54A-2859-45BE-A2D5-BE48B9CF7EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0424B54A-2859-45BE-A2D5-BE48B9CF7EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C637BCB-5049-47D9-A701-BCB4AE835DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C637BCB-5049-47D9-A701-BCB4AE835DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C637BCB-5049-47D9-A701-BCB4AE835DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C637BCB-5049-47D9-A701-BCB4AE835DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9CD71A-A356-4608-9731-C3CB2A10A5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9CD71A-A356-4608-9731-C3CB2A10A5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9CD71A-A356-4608-9731-C3CB2A10A5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9CD71A-A356-4608-9731-C3CB2A10A5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75B7D0CB-E1B7-443E-8540-BD8DD1218B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B7D0CB-E1B7-443E-8540-BD8DD1218B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B7D0CB-E1B7-443E-8540-BD8DD1218B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B7D0CB-E1B7-443E-8540-BD8DD1218B49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B9CD71A-A356-4608-9731-C3CB2A10A5BA} = {AC2373D8-F408-475A-B52D-64857CDEFB2F}
+		{75B7D0CB-E1B7-443E-8540-BD8DD1218B49} = {AC2373D8-F408-475A-B52D-64857CDEFB2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03DC9BFC-4506-44A6-8EF3-C444E690B3A2}
