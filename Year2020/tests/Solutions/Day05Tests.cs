@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Principal;
+using System.Text;
+using System.Threading.Tasks;
+using AdventOfCode.Year2020.Solutions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace AdventOfCode.Year2020.Tests.Solutions
+{
+    [TestClass]
+    public class Day05Tests
+    {
+        [DataTestMethod]
+        [DataRow("BFFFBBFRRR",567)]
+        [DataRow("FFFBBBFRRR", 119)]
+        [DataRow("BBFFBBFRLL", 820)]
+        public void VerifyPassID(string data, int id)
+        {
+            Assert.AreEqual(id, Day05.GetBoardingPassID(data));
+        }
+
+        [TestMethod]
+        public void VerifyFirstProblem()
+        {
+            var data = new string[]
+            {
+                "BFFFBBFRRR",
+                "FFFBBBFRRR",
+                "BBFFBBFRLL"
+            };
+
+            Assert.AreEqual(820, Day05.FirstProblem(data));
+        }
+    }
+}

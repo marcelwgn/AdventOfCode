@@ -1,0 +1,8 @@
+﻿<Project>
+  <!-- Packages needed in every project -->
+  <ItemGroup>
+    <!-- Code analyzer -->
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.1">
+    </PackageReference>
+  </ItemGroup>
+</Project>
