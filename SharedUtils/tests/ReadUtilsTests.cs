@@ -27,9 +27,9 @@ namespace AdventOfCode.SharedUtils.tests
         }
 
         [TestMethod]
-        public void VerifyReadsIntDataCorrectly()
+        public void VerifyReadsLongDataCorrectly()
         {
-            var expected = new int[]
+            var expected = new long[]
             {
                 1,
                 2,
@@ -38,7 +38,7 @@ namespace AdventOfCode.SharedUtils.tests
                 5
             };
 
-            CollectionAssert.AreEqual(expected, ReadUtils.ReadLongDataFromFile("MockData/IntTestData.txt"));
+            CollectionAssert.AreEqual(expected, ReadUtils.ReadLongDataFromFile("MockData/LongTestData.txt"));
         }
 
     }
