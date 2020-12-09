@@ -38,7 +38,7 @@ namespace AdventOfCode.SharedUtils.tests
                 5
             };
 
-            CollectionAssert.AreEqual(expected, ReadUtils.ReadIntDataFromFile("MockData/IntTestData.txt"));
+            CollectionAssert.AreEqual(expected, ReadUtils.ReadLongDataFromFile("MockData/IntTestData.txt"));
         }
 
     }
