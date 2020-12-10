@@ -32,13 +32,29 @@ namespace AdventOfCode.SharedUtils.tests
             var expected = new long[]
             {
                 1,
-                2,
+                -2,
                 3,
-                4,
-                5
+                -4,
+                5,
+                21474836472
             };
 
             CollectionAssert.AreEqual(expected, ReadUtils.ReadLongDataFromFile("MockData/LongTestData.txt"));
+        }
+
+        [TestMethod]
+        public void VerifyReadsIntDataCorrectly()
+        {
+            var expected = new int[]
+            {
+                1,
+                -2,
+                3,
+                -4,
+                5
+            };
+
+            CollectionAssert.AreEqual(expected, ReadUtils.ReadIntDataFromFile("MockData/IntTestData.txt"));
         }
 
     }
