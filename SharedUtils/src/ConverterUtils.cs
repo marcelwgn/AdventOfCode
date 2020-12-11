@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace AdventOfCode.SharedUtils
 {
@@ -21,6 +22,11 @@ namespace AdventOfCode.SharedUtils
 #pragma warning restore CA1031 // Do not catch general exception types
             }
             return numbers;
+        }
+
+        public static char[][] ToCharArray(this string[] data)
+        {
+            return data.Select(item => item.ToArray()).ToArray();
         }
 
         public static int[] GetNumbers(string data)
