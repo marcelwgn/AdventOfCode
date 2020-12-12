@@ -8,8 +8,8 @@ namespace AdventOfCode.Year2020
     {
         public static void Main(string[] _)
         {
-            var rawData = ReadUtils.ReadDataFromFile("data.txt").ToCharArray();
-            var result = Day11.SecondProblem(rawData);
+            var rawData = ReadUtils.ReadDataFromFile("data.txt");
+            var result = Day12.SecondProblem(rawData);
             Console.WriteLine(result);
             Debug.WriteLine(result);
 
