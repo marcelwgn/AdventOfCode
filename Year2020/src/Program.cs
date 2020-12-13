@@ -9,7 +9,7 @@ namespace AdventOfCode.Year2020
         public static void Main(string[] _)
         {
             var rawData = ReadUtils.ReadDataFromFile("data.txt");
-            var result = Day12.SecondProblem(rawData);
+            var result = Day13.SecondProblem(rawData[1]);
             Console.WriteLine(result);
             Debug.WriteLine(result);
 
