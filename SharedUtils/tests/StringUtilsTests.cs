@@ -1,5 +1,4 @@
-﻿using AdventOfCode.SharedUtils;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.SharedUtils.Tests
 {

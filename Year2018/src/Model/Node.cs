@@ -4,7 +4,7 @@ namespace AdventOfCode.Year2018.Model
 {
     public class Node<T> : IComparable<Node<T>>
     {
-        public string Name { get; set ; }
+        public string Name { get; set; }
         public NodeList<T> Parents => parents;
         public NodeList<T> Children => children;
         public T Data { get; set; }
@@ -32,8 +32,8 @@ namespace AdventOfCode.Year2018.Model
 
         public Node(string name, T data)
         {
-            this.Name = name;
-            this.Data = data;
+            Name = name;
+            Data = data;
         }
 
 

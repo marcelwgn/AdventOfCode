@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2020.Solutions
 {
@@ -46,7 +43,7 @@ namespace AdventOfCode.Year2020.Solutions
             {
                 foreach (var character in item)
                 {
-                    if(dict.ContainsKey(character))
+                    if (dict.ContainsKey(character))
                     {
                         dict[character]++;
                     }
@@ -57,7 +54,8 @@ namespace AdventOfCode.Year2020.Solutions
                 }
             }
 
-            return dict.Keys.Count(key => {
+            return dict.Keys.Count(key =>
+            {
                 return dict[key] == rows.Length;
             });
         }

@@ -41,14 +41,14 @@ namespace AdventOfCode.Year2020.Solutions
                 var largest = data[i];
                 var endIndex = i;
                 var sum = data[i];
-                while(sum < invalidNumber)
+                while (sum < invalidNumber)
                 {
                     endIndex++;
                     sum += data[endIndex];
                     smallest = Math.Min(smallest, data[endIndex]);
                     largest = Math.Max(largest, data[endIndex]);
                 }
-                if(sum == invalidNumber)
+                if (sum == invalidNumber)
                 {
                     return smallest + largest;
                 }

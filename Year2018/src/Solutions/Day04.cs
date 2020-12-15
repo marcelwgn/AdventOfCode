@@ -168,9 +168,9 @@ namespace AdventOfCode.Year2018.Solutions
 
         public Guard(int id)
         {
-            this.Id = id;
+            Id = id;
         }
-                public void CalculateSleepTimes(DateTime start, DateTime end)
+        public void CalculateSleepTimes(DateTime start, DateTime end)
         {
             //Calculating minutes slept
             int minutes = (int)Math.Round(end.Subtract(start).TotalMinutes);

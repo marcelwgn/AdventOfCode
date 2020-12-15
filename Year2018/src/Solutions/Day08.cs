@@ -1,7 +1,7 @@
-﻿using AdventOfCode.Year2018.Model;
-using AdventOfCode.SharedUtils;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode.SharedUtils;
+using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions
 {
@@ -92,12 +92,12 @@ namespace AdventOfCode.Year2018.Solutions
         {
             int result = start;
 
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
             int newIndex = start + 2;
 
             if (data[start] == 0)

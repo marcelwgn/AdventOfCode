@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode.Year2018.Solutions;
+﻿using AdventOfCode.Year2018.Solutions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2018.Tests.Solutions
 {
@@ -33,8 +33,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             System.Tuple<bool[], PatternMatcher[]> converted = Day12.Convert(data);
 
 
-            bool[] correctFlowers = new bool[] { true, false, false, true, false, true, false, false, true, true, 
-                false, false, false, false, false, false, true, 
+            bool[] correctFlowers = new bool[] { true, false, false, true, false, true, false, false, true, true,
+                false, false, false, false, false, false, true,
                 true, true, false, false, false, true, true, true };
             //Not good but good enough
             for (int i = 100; i < correctFlowers.Length; i++)

@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
 using AdventOfCode.Year2018.Solutions;
-using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2018.Tests.Solutions
 {
@@ -27,7 +27,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "[1518-11-04 00:46] wakes up",
                 "[1518-11-05 00:03] Guard #99 begins shift",
                 "[1518-11-05 00:45] falls asleep",
-                "[1518-11-05 00:55] wakes up" 
+                "[1518-11-05 00:55] wakes up"
             };
 
             List<Guard> converted = Day04.Convert(data);

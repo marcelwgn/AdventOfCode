@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2020.Solutions
 {
@@ -11,11 +8,11 @@ namespace AdventOfCode.Year2020.Solutions
         public static long FirstProblem(string[] data)
         {
             var mask = data[0].Split(" ")[2].ToCharArray();
-            var result = new Dictionary<int,long>();
+            var result = new Dictionary<int, long>();
 
             for (int i = 0; i < data.Length; i++)
             {
-                if(data[i].Contains("mask"))
+                if (data[i].Contains("mask"))
                 {
                     // Update mask
                     mask = data[i].Split(" ")[2].ToCharArray();

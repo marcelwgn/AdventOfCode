@@ -1,8 +1,8 @@
-﻿using AdventOfCode.Year2018.Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using AdventOfCode.Year2018.Solutions;
+﻿using System;
 using System.Collections.Generic;
+using AdventOfCode.Year2018.Model;
+using AdventOfCode.Year2018.Solutions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2018.Tests.Solutions
 {

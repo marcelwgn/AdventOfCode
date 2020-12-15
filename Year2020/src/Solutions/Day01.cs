@@ -27,7 +27,7 @@
                 {
                     for (int l = 0; l < numbers.Length; l++)
                     {
-                        if (numbers[i] + numbers[j] + numbers[l]== 2020)
+                        if (numbers[i] + numbers[j] + numbers[l] == 2020)
                         {
                             return numbers[i] * numbers[j] * numbers[l];
                         }

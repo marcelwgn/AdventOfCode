@@ -1,6 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using AdventOfCode.Year2018.Solutions;
+﻿using AdventOfCode.Year2018.Solutions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AdventOfCode.Year2018.Tests.Solutions
 {
     [TestClass()]

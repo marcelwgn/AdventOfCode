@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2020.Solutions
 {
@@ -28,7 +24,7 @@ namespace AdventOfCode.Year2020.Solutions
             {
                 // Just iterate over all the possible switch positions and check if we reach the end
                 // Not the best solution but it works and is not over engineered.
-                if(GotValidPermutation(i))
+                if (GotValidPermutation(i))
                 {
                     int value = 0;
                     int nextPos = 0;
@@ -38,7 +34,7 @@ namespace AdventOfCode.Year2020.Solutions
                         ProcessLine(copied[nextPos], ref value, ref nextPos);
                         copied[curPos] = string.Empty;
                     }
-                    if(nextPos == data.Length)
+                    if (nextPos == data.Length)
                     {
                         return value;
                     }
@@ -48,7 +44,7 @@ namespace AdventOfCode.Year2020.Solutions
 
             bool GotValidPermutation(int pos)
             {
-                if(data[pos][0..3] == "nop" || data[pos][0..3] == "jmp")
+                if (data[pos][0..3] == "nop" || data[pos][0..3] == "jmp")
                 {
                     Array.Copy(data, copied, data.Length);
                     if (copied[pos][0..3] == "nop")

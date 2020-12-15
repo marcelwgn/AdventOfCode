@@ -1,5 +1,5 @@
-﻿using AdventOfCode.Year2018.Model;
-using AdventOfCode.SharedUtils;
+﻿using AdventOfCode.SharedUtils;
+using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions
 {

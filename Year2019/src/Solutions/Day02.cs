@@ -47,7 +47,7 @@ namespace AdventOfCode.Year2019.Solutions
             {
                 for (int j = 0; j < 100; j++)
                 {
-                    Array.Copy(data,dataCopied,data.Length);
+                    Array.Copy(data, dataCopied, data.Length);
                     var result = FirstProblem(dataCopied, true, i, j);
                     if (result == 19690720)
                     {

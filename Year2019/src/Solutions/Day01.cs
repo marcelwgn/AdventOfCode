@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-
-namespace AdventOfCode.Year2019.Solutions
+﻿namespace AdventOfCode.Year2019.Solutions
 {
     public static class Day01
     {
@@ -37,7 +32,7 @@ namespace AdventOfCode.Year2019.Solutions
         {
             int fuelRequired = 0;
             int prevFuel = CalculateFuelFirstProblem(mass);
-            while ( prevFuel > 0)
+            while (prevFuel > 0)
             {
                 fuelRequired += prevFuel;
                 prevFuel = CalculateFuelFirstProblem(prevFuel);

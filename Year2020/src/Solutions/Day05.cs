@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 
 namespace AdventOfCode.Year2020.Solutions
 {
@@ -16,7 +15,7 @@ namespace AdventOfCode.Year2020.Solutions
             seatIDs.Sort();
             for (int i = 0; i < seatIDs.Count - 1; i++)
             {
-                if(seatIDs[i] == seatIDs[i + 1] - 2)
+                if (seatIDs[i] == seatIDs[i + 1] - 2)
                 {
                     return seatIDs[i] + 1;
                 }
