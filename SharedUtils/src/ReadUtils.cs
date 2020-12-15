@@ -38,5 +38,10 @@ namespace AdventOfCode.SharedUtils
 
             return data;
         }
+
+        public static int[] ReadIntDataFromFileSingleLine(string fileName)
+        {
+            return ReadDataFromFile(fileName)[0].Split(',').Select(line => int.Parse(line)).ToArray();
+        }
     }
 }

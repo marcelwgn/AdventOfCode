@@ -57,5 +57,20 @@ namespace AdventOfCode.SharedUtils.tests
             CollectionAssert.AreEqual(expected, ReadUtils.ReadIntDataFromFile("MockData/IntTestData.txt"));
         }
 
+        [TestMethod]
+        public void VerifyReadsIntDataSingleLineCorrectly()
+        {
+            var expected = new int[]
+            {
+                1,
+                -2,
+                3,
+                -4,
+                5
+            };
+
+            CollectionAssert.AreEqual(expected, ReadUtils.ReadIntDataFromFileSingleLine("MockData/IntTestDataSingleLine.txt"));
+        }
+
     }
 }
