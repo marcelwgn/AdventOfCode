@@ -8,10 +8,10 @@ namespace AdventOfCode.Year2020
     {
         public static void Main(string[] _)
         {
-            var rawData = ReadUtils.ReadIntDataFromFileSingleLine("data.txt");
+            var rawData = ReadUtils.ReadDataFromFile("data.txt");
             var stopWatch = new Stopwatch();
             stopWatch.Start();
-            var result = Day15.Algorithm(rawData, 30000000);
+            var result = Day16.SecondProblem(rawData);
             stopWatch.Stop();
             Console.WriteLine(result);
             Console.WriteLine(stopWatch.Elapsed.ToString());

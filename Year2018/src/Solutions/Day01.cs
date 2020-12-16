@@ -7,7 +7,7 @@ namespace AdventOfCode.Year2018.Solutions
     {
         public static int[] Convert(string[] data)
         {
-            return ConverterUtils.GetNumbers(data);
+            return data.ToIntArray();
         }
 
         public static int FirstProblem(int[] data)

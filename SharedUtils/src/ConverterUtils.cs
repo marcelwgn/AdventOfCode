@@ -5,7 +5,7 @@ namespace AdventOfCode.SharedUtils
 {
     public static class ConverterUtils
     {
-        public static int[] GetNumbers(string[] data)
+        public static int[] ToIntArray(this string[] data)
         {
             int[] numbers = new int[data.Length];
             for (int i = 0; i < data.Length; i++)
@@ -36,7 +36,7 @@ namespace AdventOfCode.SharedUtils
 
         public static int[] GetNumbers(string data, string delimeter)
         {
-            return GetNumbers(data.Split(new string[] { delimeter }, StringSplitOptions.None));
+            return data.Split(new string[] { delimeter }, StringSplitOptions.None).ToIntArray();
         }
     }
 

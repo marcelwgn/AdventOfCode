@@ -10,7 +10,7 @@ namespace AdventOfCode.SharedUtils.Tests
         {
             string[] data = { "1", "-2", "+3" };
 
-            int[] result = ConverterUtils.GetNumbers(data);
+            int[] result = data.ToIntArray();
 
             int[] expected = { 1, -2, 3 };
 

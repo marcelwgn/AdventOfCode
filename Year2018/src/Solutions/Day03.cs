@@ -16,16 +16,13 @@ namespace AdventOfCode.Year2018.Solutions
                 modified = modified.Replace(':', ',');
                 modified = modified.Replace('x', ',');
 
-                string[] splitString = modified.Split(',');
-                int[] values = ConverterUtils.GetNumbers(splitString);
+                int[] values = modified.Split(',').ToIntArray();
                 rects[i] = new Rectangle(values[0], values[1], values[2], values[3], data[i]);
-
             }
 
             return rects;
         }
 
-#pragma warning disable CA1814
         private static int[,] GenerateField(Rectangle[] data)
         {
             int[,] values = new int[1000, 1000];
@@ -50,7 +47,6 @@ namespace AdventOfCode.Year2018.Solutions
 
             return values;
         }
-#pragma warning restore CA1814
 
         public static int FirstProblem(Rectangle[] data)
         {
