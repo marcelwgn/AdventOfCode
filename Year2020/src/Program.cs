@@ -2,16 +2,17 @@
 using System.Diagnostics;
 using AdventOfCode.SharedUtils;
 using AdventOfCode.Year2020.Solutions;
+
 namespace AdventOfCode.Year2020
 {
-    public static class Program
+    public class Program
     {
         public static void Main(string[] _)
         {
             var rawData = ReadUtils.ReadDataFromFile("data.txt");
             var stopWatch = new Stopwatch();
             stopWatch.Start();
-            var result = Day16.SecondProblem(rawData);
+            var result = Day17.SecondProblem(rawData);
             stopWatch.Stop();
             Console.WriteLine(result);
             Console.WriteLine(stopWatch.Elapsed.ToString());
