@@ -12,7 +12,7 @@ namespace AdventOfCode.Year2020
             var rawData = ReadUtils.ReadDataFromFile("data.txt");
             var stopWatch = new Stopwatch();
             stopWatch.Start();
-            var result = Day18.CalculateSolution(rawData, true);
+            var result = Day19.CalculateSolution(rawData,true);
             stopWatch.Stop();
             Console.WriteLine(result);
             Console.WriteLine(stopWatch.Elapsed.ToString());
