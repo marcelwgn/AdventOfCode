@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdventOfCode.SharedUtils
+namespace AdventOfCode.Common
 {
     public static class StringUtils
     {

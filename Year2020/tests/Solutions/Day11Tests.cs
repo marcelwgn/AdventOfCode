@@ -1,4 +1,4 @@
-﻿using AdventOfCode.SharedUtils;
+﻿using AdventOfCode.Common;
 using AdventOfCode.Year2020.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

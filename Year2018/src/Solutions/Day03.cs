@@ -1,4 +1,4 @@
-﻿using AdventOfCode.SharedUtils;
+﻿using AdventOfCode.Common;
 using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions

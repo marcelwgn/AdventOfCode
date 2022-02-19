@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace AdventOfCode.SharedUtils
+namespace AdventOfCode.Common
 {
-    public static class ConverterUtils
+    public static class Converters
     {
         public static int[] ToIntArray(this string[] data)
         {
@@ -12,14 +12,29 @@ namespace AdventOfCode.SharedUtils
             {
                 try
                 {
-                    numbers[i] = Convert.ToInt32(data[i]);
+                    numbers[i] = int.Parse(data[i]);
                 }
-#pragma warning disable CA1031 // Do not catch general exception types
                 catch (FormatException)
                 {
                     numbers[i] = 0;
                 }
-#pragma warning restore CA1031 // Do not catch general exception types
+            }
+            return numbers;
+        }
+
+        public static long[] ToLongArray(this string[] data)
+        {
+            long[] numbers = new long[data.Length];
+            for (int i = 0; i < data.Length; i++)
+            {
+                try
+                {
+                    numbers[i] = long.Parse(data[i]);
+                }
+                catch (FormatException)
+                {
+                    numbers[i] = 0;
+                }
             }
             return numbers;
         }

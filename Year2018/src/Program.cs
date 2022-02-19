@@ -1,5 +1,5 @@
 ﻿using System;
-using AdventOfCode.SharedUtils;
+using AdventOfCode.Common;
 using Solver = AdventOfCode.Year2018.Solutions.Day14;
 
 

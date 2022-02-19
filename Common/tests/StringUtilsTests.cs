@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.SharedUtils.Tests
+namespace AdventOfCode.Common.Tests
 {
     [TestClass()]
     public class StringUtilsTests
@@ -9,6 +9,16 @@ namespace AdventOfCode.SharedUtils.Tests
         public void LetterIsInTwiceTestContainsALetterTwice()
         {
             string test = "bababc";
+
+            bool result = test.ContainsLetterExactlyTwice();
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod()]
+        public void LetterIsInTwiceTestContainsALetterTwiceAtEnd()
+        {
+            string test = "bacc";
 
             bool result = test.ContainsLetterExactlyTwice();
 
@@ -43,6 +53,16 @@ namespace AdventOfCode.SharedUtils.Tests
             bool result = test.ContainsLetterExactlyThrice();
 
             Assert.IsFalse(result);
+        }
+
+        [TestMethod()]
+        public void LetterIsInThriceTestContainsALetterThriceAtEnd()
+        {
+            string test = "abcefhiklmnnopqqrstuvwxyzzz";
+
+            bool result = test.ContainsLetterExactlyThrice();
+
+            Assert.IsTrue(result);
         }
 
         [TestMethod()]

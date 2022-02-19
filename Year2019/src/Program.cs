@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using AdventOfCode.SharedUtils;
+using AdventOfCode.Common;
 using AdventOfCode.Year2019.Solutions;
 
 namespace AdventOfCode.Year2019

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using AdventOfCode.SharedUtils;
+using AdventOfCode.Common;
 using AdventOfCode.Year2020.Solutions;
 
 namespace AdventOfCode.Year2020

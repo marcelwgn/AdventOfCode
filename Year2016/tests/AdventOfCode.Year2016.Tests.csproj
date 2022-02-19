@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\src\AdventOfCode.Common.csproj" />
-    <ProjectReference Include="..\src\AdventOfCode.Year2018.csproj" />
+    <ProjectReference Include="..\src\AdventOfCode.Year2016.csproj" />
   </ItemGroup>
 </Project>

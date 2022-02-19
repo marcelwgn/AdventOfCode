@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using AdventOfCode.SharedUtils;
+using AdventOfCode.Common;
 
 namespace AdventOfCode.Year2018.Solutions
 {

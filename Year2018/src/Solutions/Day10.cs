@@ -1,5 +1,5 @@
 ﻿using System;
-using AdventOfCode.SharedUtils;
+using AdventOfCode.Common;
 using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions
@@ -15,7 +15,7 @@ namespace AdventOfCode.Year2018.Solutions
                 result = result.Replace(" velocity=", "");
                 result = result.Replace(">", "");
                 result = result.Replace("<", ",");
-                int[] split = ConverterUtils.GetNumbers(result, ",");
+                int[] split = Converters.GetNumbers(result, ",");
                 vectors[i] = new ChangingVector(split[0], split[1], split[2], split[3]);
             }
 

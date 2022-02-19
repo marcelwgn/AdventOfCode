@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.SharedUtils;
+using AdventOfCode.Common;
 using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions
@@ -9,7 +9,7 @@ namespace AdventOfCode.Year2018.Solutions
     {
         public static Node<List<int>> Convert(string[] data)
         {
-            int[] parsed = ConverterUtils.GetNumbers(data[0]);
+            int[] parsed = Converters.GetNumbers(data[0]);
 
             Node<List<int>> root = GetNode(parsed, 0);
 
