@@ -1,4 +1,4 @@
 ﻿using AdventOfCode.Common;
 using AdventOfCode.Year2016.Solutions;
 
-SolutionRunner.RunSolution(typeof(Day09));
+SolutionRunner.RunSolution(typeof(Day12));
