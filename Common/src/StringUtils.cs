@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace AdventOfCode.Common
 {
@@ -94,6 +95,13 @@ namespace AdventOfCode.Common
                 }
             }
             return result;
+        }
+
+        public static char[] GetColumn(this string[] matrix, int columnNumber)
+        {
+            return Enumerable.Range(0, matrix.Length)
+                    .Select(x => matrix[x][columnNumber])
+                    .ToArray();
         }
     }
 }
