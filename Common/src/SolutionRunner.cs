@@ -28,7 +28,12 @@ namespace AdventOfCode.Common
             object rawDataActual = rawData;
             if (classType.GetMethod(ConvertFunctionName) != null)
             {
+                var convertStopwatch = new Stopwatch();
+                convertStopwatch.Start();
                 rawDataActual = classType.GetMethod(ConvertFunctionName)!.Invoke(null, new object[] { rawData })!;
+                convertStopwatch.Stop();
+                Console.WriteLine($"Converting data took {convertStopwatch.Elapsed}");
+                Debug.WriteLine($"Converting data took {convertStopwatch.Elapsed}");
             }
 
             var (firstResult, firstResultTime) = SolveProblem(classType, rawDataActual, FirstProblemName);
