@@ -25,40 +25,16 @@ namespace AdventOfCode.Year2016.Solutions
             var currentNumber = 5;
             while (currentNumber < num)
             {
-                if (currentNumber % 2 == 0)
-                {
-                    if (currentIndex >= (currentNumber / 2))
-                    {
-                        currentIndex += 2;
-                    }
-                    else
-                    {
-                        currentIndex++;
-                    }
-                }
-                else
-                {
-                    if (currentIndex >= (currentNumber / 2) + 1)
-                    {
-                        currentIndex += 2;
-                    }
-                    else
-                    {
-                        currentIndex++;
-                    }
-                }
-                if (currentIndex > currentNumber)
-                {
-                    if(currentIndex == currentNumber + 1)
-                    {
-                        currentIndex = currentNumber;
-                    }
-                    else
-                    {
-                        currentIndex = 1;
-                    }
-                }
                 currentNumber++;
+                if(currentIndex >= currentNumber / 2){
+                    currentIndex+=2;
+                }else{
+                    currentIndex++;
+                }
+
+                if(currentIndex > currentNumber){
+                    currentIndex = 1;
+                }
             }
             return currentIndex;
         }
