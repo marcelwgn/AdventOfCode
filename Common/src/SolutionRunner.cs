@@ -37,11 +37,11 @@ namespace AdventOfCode.Common
             }
 
             var (firstResult, firstResultTime) = SolveProblem(classType, rawDataActual, FirstProblemName);
-            var (secondResult, secondResultTime) = SolveProblem(classType, rawDataActual, SecondProblemName);
-
             Console.WriteLine($"First problem solution {firstResult} , execution time: {firstResultTime}");
-            Console.WriteLine($"Second problem solution {secondResult} , execution time: {secondResultTime}");
             Debug.WriteLine($"First problem solution {firstResult} , execution time: {firstResultTime}");
+
+            var (secondResult, secondResultTime) = SolveProblem(classType, rawDataActual, SecondProblemName);
+            Console.WriteLine($"Second problem solution {secondResult} , execution time: {secondResultTime}");
             Debug.WriteLine($"Second problem solution {secondResult} , execution time: {secondResultTime}");
 
             return (firstResult, secondResult);
