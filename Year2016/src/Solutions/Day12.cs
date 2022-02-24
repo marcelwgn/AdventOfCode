@@ -42,7 +42,7 @@ namespace AdventOfCode.Year2016.Solutions
                         instructionPointer++;
                         break;
                     case "jnz":
-                        if (resolveValue(currentInstruction[4..]) != 0)
+                        if (ResolveValue(currentInstruction[4..]) != 0)
                         {
                             instructionPointer += int.Parse(currentInstruction.Split(" ")[2]);
                         }
@@ -54,7 +54,7 @@ namespace AdventOfCode.Year2016.Solutions
                     case "cpy":
                         var firstParam = currentInstruction.Split(" ")[1];
                         var register = currentInstruction.Split(" ")[2];
-                        registers[register[0]] = resolveValue(firstParam);
+                        registers[register[0]] = ResolveValue(firstParam);
                         instructionPointer++;
                         break;
                 }
@@ -62,7 +62,7 @@ namespace AdventOfCode.Year2016.Solutions
 
             return registers['a'];
 
-            int resolveValue(string value)
+            int ResolveValue(string value)
             {
                 var number = 0;
                 if (int.TryParse(value.Split(" ")[0], out number))
