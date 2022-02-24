@@ -24,7 +24,8 @@ namespace AdventOfCode.Year2016.Tests.Solutions
             {
                 (null,null),
                 (3,null),
-                (2,5)
+                (2,5),
+                (null,null)
             };
 
             CollectionAssert.AreEqual(expected, Day10.GenerateBots(instructions));
@@ -43,7 +44,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
             var bots = Day10.GenerateBots(instructions);
             var expectedOutput = new int?[]
             {
-                5,2,3
+                5,2,3, null
             };
             var actual = Day10.ProcessInput(instructions, bots, (-1, -1)).Outputs;
             CollectionAssert.AreEqual(expectedOutput, actual);
