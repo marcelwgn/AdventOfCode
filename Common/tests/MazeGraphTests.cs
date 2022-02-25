@@ -58,7 +58,7 @@ namespace AdventOfCode.Common.Tests
         [DataRow(0, 0, 0, 1, 1)]
         [DataRow(0, 0, 0, 3, 3)]
         [DataRow(2, 0, 2, 3, 3)]
-        [DataRow(0, 0, 3, 0, -1)]
+        [DataRow(0, 0, 3, 0, -2147483648)]
         public void VerifyCalculatedDistances(int firstX, int firstY, int secX, int secY, int distance)
         {
             var maze = new char[][]
