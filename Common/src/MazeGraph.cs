@@ -93,17 +93,20 @@ namespace AdventOfCode.Common
                 var next = remainingVertices.Select(v => (Vertex: v, Distance : GetDist(v))).OrderBy(x => x.Distance).First().Vertex;
                 remainingVertices.Remove(next);
 
-                foreach (var neighbor in Neighbors[next])
+                if (Neighbors.ContainsKey(next))
                 {
-                    var altDist = GetDist(next) + 1;
-                    if(altDist < GetDist(neighbor))
+                    foreach (var neighbor in Neighbors[next])
                     {
-                        distDictionary[neighbor] = altDist;
-                        prevVertices[neighbor] = next;
-                    }
-                    if(neighbor == p2)
-                    {
-                        return distDictionary[neighbor];
+                        var altDist = GetDist(next) + 1;
+                        if(altDist < GetDist(neighbor))
+                        {
+                            distDictionary[neighbor] = altDist;
+                            prevVertices[neighbor] = next;
+                        }
+                        if(neighbor == p2)
+                        {
+                            return distDictionary[neighbor];
+                        }
                     }
                 }
             }
