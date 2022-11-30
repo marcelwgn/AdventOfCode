@@ -1,8 +1,5 @@
 ﻿<Project>
-  <!-- Packages needed in every project -->
-  <ItemGroup>
-    <!-- Code analyzer -->
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
-    </PackageReference>
-  </ItemGroup>
+  <PropertyGroup>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
 </Project>
