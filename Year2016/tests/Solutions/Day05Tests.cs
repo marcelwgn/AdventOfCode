@@ -9,7 +9,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void FirstProblemTest()
         {
-            Assert.AreEqual("18f47a30",Day05.FirstProblem(new string[] { "abc" }));
+            Assert.AreEqual("18f47a30", Day05.FirstProblem(new string[] { "abc" }));
         }
 
         [TestMethod]

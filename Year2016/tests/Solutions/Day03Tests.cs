@@ -20,10 +20,10 @@ namespace AdventOfCode.Year2016.Tests.Solutions
 
             var converted = Day03.Convert(data);
 
-            CollectionAssert.AreEqual(new int[] {1,2,3} , converted[0]);
-            CollectionAssert.AreEqual(new int[] {10,-1,20}, converted[1]);
-            CollectionAssert.AreEqual(new int[] {10,-1,20}, converted[2]);
-            CollectionAssert.AreEqual(new int[] {10,-1,20}, converted[3]);
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, converted[0]);
+            CollectionAssert.AreEqual(new int[] { 10, -1, 20 }, converted[1]);
+            CollectionAssert.AreEqual(new int[] { 10, -1, 20 }, converted[2]);
+            CollectionAssert.AreEqual(new int[] { 10, -1, 20 }, converted[3]);
         }
 
         [TestMethod]

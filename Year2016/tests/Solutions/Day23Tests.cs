@@ -7,10 +7,10 @@ namespace AdventOfCode.Year2016.Tests.Solutions
     public class Day23Tests
     {
         [TestMethod]
-        [DataRow('i',false,'d')]
-        [DataRow('d',false,'i')]
-        [DataRow('m',true,'j')]
-        [DataRow('j',true,'c')]
+        [DataRow('i', false, 'd')]
+        [DataRow('d', false, 'i')]
+        [DataRow('m', true, 'j')]
+        [DataRow('j', true, 'c')]
         public void ToggleInstructionTest(char instructionInitial, bool hasTwoParams, char expected)
         {
             Assert.AreEqual(expected, Day23.ToggleInstruction(instructionInitial, hasTwoParams));

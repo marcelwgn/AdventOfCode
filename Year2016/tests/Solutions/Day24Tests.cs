@@ -38,7 +38,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void GetNumbersTest()
         {
-            var expectedPositions = new (int,int)[]
+            var expectedPositions = new (int, int)[]
             {
                 (1,1),(1,3),(1,9),(3,9),(3,1)
             };

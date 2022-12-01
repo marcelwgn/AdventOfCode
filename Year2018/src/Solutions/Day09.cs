@@ -68,7 +68,7 @@ namespace AdventOfCode.Year2018.Solutions
                 }
 
                 //Increase playerIndex
-                currentPlayerIndex = (currentPlayerIndex + 1) % (playerScores.Length);
+                currentPlayerIndex = (currentPlayerIndex + 1) % playerScores.Length;
             }
 
             return playerScores.Max();

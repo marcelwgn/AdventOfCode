@@ -42,13 +42,13 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int FirstProblem(string data)
         {
-            Tuple<string, bool> result = Day05.Polymer(data);
+            Tuple<string, bool> result = Polymer(data);
 
             bool changed = result.Item2;
 
             while (changed)
             {
-                result = Day05.Polymer(result.Item1);
+                result = Polymer(result.Item1);
                 changed = result.Item2;
             }
 

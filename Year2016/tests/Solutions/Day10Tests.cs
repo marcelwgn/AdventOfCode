@@ -35,7 +35,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         public void FindsComparisonCorrectlyWorks()
         {
             var bots = Day10.GenerateBots(instructions);
-            Assert.AreEqual(2, Day10.ProcessInput(instructions, bots, (5,2)).FoundComparison);
+            Assert.AreEqual(2, Day10.ProcessInput(instructions, bots, (5, 2)).FoundComparison);
         }
 
         [TestMethod]

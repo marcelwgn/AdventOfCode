@@ -31,7 +31,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void SecondProblemTest()
         {
-            var data = new (string,int, string)[]
+            var data = new (string, int, string)[]
             {
                 ("ihex-hucxvm-lmhktzx-",267, ""),
                 ("aaa-zixadsamtkozy-i22vhz-",213, "")
