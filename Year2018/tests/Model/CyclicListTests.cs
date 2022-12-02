@@ -1,5 +1,4 @@
-﻿using AdventOfCode.Model;
-using AdventOfCode.Year2018.Model;
+﻿using AdventOfCode.Year2018.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2018.Tests.Model

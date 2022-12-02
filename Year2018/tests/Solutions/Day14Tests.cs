@@ -1,4 +1,5 @@
 ﻿using AdventOfCode.Year2018.Solutions;
+using AdventOfCode.Year2018.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AdventOfCode.Year2018.Tests.Solutions
 {
@@ -11,7 +12,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "8" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             //Killing demeter's law with one line at a time
             Assert.AreEqual(3, converted.Item1.First.Value);
@@ -25,7 +26,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "9" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             string result = Day14.FirstProblem(converted);
 
@@ -37,7 +38,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "5" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             string result = Day14.FirstProblem(converted);
 
@@ -49,7 +50,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "18" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             string result = Day14.FirstProblem(converted);
 
@@ -61,7 +62,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "2018" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             string result = Day14.FirstProblem(converted);
 
@@ -73,7 +74,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "51589" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             int result = Day14.SecondProblem(converted);
 
@@ -85,7 +86,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "92510" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             int result = Day14.SecondProblem(converted);
 
@@ -97,7 +98,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "37", "59414" };
 
-            System.Tuple<Model.CyclicList<int>, int> converted = Day14.Convert(data);
+            System.Tuple<CyclicList<int>, int> converted = Day14.Convert(data);
 
             int result = Day14.SecondProblem(converted);
 
