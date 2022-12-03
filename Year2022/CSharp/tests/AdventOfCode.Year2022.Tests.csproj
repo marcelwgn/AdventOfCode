@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\src\AdventOfCode.Common.csproj" />
+    <ProjectReference Include="..\..\..\Common\CSharp\src\AdventOfCode.Common.csproj" />
     <ProjectReference Include="..\src\AdventOfCode.Year2022.csproj" />
   </ItemGroup>
 
