@@ -1,10 +1,21 @@
 ﻿using System;
+using System.Linq;
 
 namespace AdventOfCode.Year2019.Solutions
 {
     public static class Day02
     {
-        public static int FirstProblem(int[] data, bool dataModification = false, int noun = 12, int verb = 2)
+        public static int[] Convert(string[] data)
+        {
+            return data[0].Split(",").Select(str => int.Parse(str)).ToArray();
+        }
+        
+        public static int FirstProblem(int[] data)
+        {
+            return FirstProblemAlgorithm(data);
+        }
+
+        public static int FirstProblemAlgorithm(int[] data, bool dataModification = false, int noun = 12, int verb = 2)
         {
             if (dataModification)
             {
@@ -48,7 +59,7 @@ namespace AdventOfCode.Year2019.Solutions
                 for (int j = 0; j < 100; j++)
                 {
                     Array.Copy(data, dataCopied, data.Length);
-                    var result = FirstProblem(dataCopied, true, i, j);
+                    var result = FirstProblemAlgorithm(dataCopied, true, i, j);
                     if (result == 19690720)
                     {
                         return i * 100 + j;
