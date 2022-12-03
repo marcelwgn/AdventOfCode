@@ -12,7 +12,7 @@ namespace AdventOfCode.Year2022
             var rawData = ReadUtils.ReadDataFromFile("data.txt");
             var stopWatch = new Stopwatch();
             stopWatch.Start();
-            var result = Day02.SecondProblem(rawData);
+            var result = Day03.SecondProblem(rawData);
             stopWatch.Stop();
             Console.WriteLine(result);
             Console.WriteLine(stopWatch.Elapsed.ToString());
