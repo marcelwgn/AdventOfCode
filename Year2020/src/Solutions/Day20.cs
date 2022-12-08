@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 
 namespace AdventOfCode.Year2020.Solutions
 {
@@ -36,12 +37,16 @@ namespace AdventOfCode.Year2020.Solutions
             }
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
+            if(obj is null)
+            {
+                return false;
+            }
             var bordersEqual = true;
             for (int i = 0; i < Borders.Length; i++)
             {
-                if((obj as Tile).Borders[i] != Borders[i])
+                if((obj as Tile)!.Borders[i] != Borders[i])
                 {
                     bordersEqual = false;
                 }

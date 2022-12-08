@@ -16,7 +16,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
 
             //Killing demeter's law with one line at a time
             Assert.AreEqual(3, converted.Item1.First.Value);
-            Assert.AreEqual(7, converted.Item1.First.Next.Value);
+            Assert.AreEqual(7, converted.Item1.First.Next!.Value);
 
             Assert.AreEqual(8, converted.Item2);
         }

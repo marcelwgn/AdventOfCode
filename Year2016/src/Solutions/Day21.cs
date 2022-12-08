@@ -132,15 +132,15 @@ namespace AdventOfCode.Year2016.Solutions
             switch (instruction.Operation)
             {
                 case "MOVE":
-                    var cutIndex = instruction.FirstIndex.Value;
-                    var insertIndex = instruction.SecondIndex.Value;
+                    var cutIndex = instruction.FirstIndex!.Value;
+                    var insertIndex = instruction.SecondIndex!.Value;
                     var asList = charArray.ToList();
                     asList.RemoveAt(cutIndex);
                     asList.Insert(insertIndex, charArray[cutIndex]);
                     charArray = asList.ToArray();
                     break;
                 case "ROTATE":
-                    var rotateValue = instruction.IndexBased ? instruction.FirstIndex.Value : data.IndexOf(instruction.FirstChar.Value) + 1;
+                    var rotateValue = instruction.IndexBased ? instruction.FirstIndex!.Value : data.IndexOf(instruction.FirstChar!.Value) + 1;
                     RotateCharArray(charArray, rotateValue);
                     if (rotateValue >= 5 && !instruction.IndexBased)
                     {
@@ -148,19 +148,19 @@ namespace AdventOfCode.Year2016.Solutions
                     }
                     break;
                 case "REVERSE":
-                    Array.Reverse(charArray, instruction.FirstIndex.Value, instruction.SecondIndex.Value - instruction.FirstIndex.Value + 1);
+                    Array.Reverse(charArray, instruction.FirstIndex!.Value, instruction.SecondIndex!.Value - instruction.FirstIndex.Value + 1);
                     break;
                 case "SWAP":
                     if (instruction.IndexBased)
                     {
-                        var prevFirst = charArray[instruction.FirstIndex.Value];
-                        charArray[instruction.FirstIndex.Value] = charArray[instruction.SecondIndex.Value];
+                        var prevFirst = charArray[instruction.FirstIndex!.Value];
+                        charArray[instruction.FirstIndex.Value] = charArray[instruction.SecondIndex!.Value];
                         charArray[instruction.SecondIndex.Value] = prevFirst;
                     }
                     else
                     {
-                        var firstIndex = data.IndexOf(instruction.FirstChar.Value);
-                        var secondIndex = data.IndexOf(instruction.SecondChar.Value);
+                        var firstIndex = data.IndexOf(instruction.FirstChar!.Value);
+                        var secondIndex = data.IndexOf(instruction.SecondChar!.Value);
                         charArray[firstIndex] = instruction.SecondChar.Value;
                         charArray[secondIndex] = instruction.FirstChar.Value;
                     }

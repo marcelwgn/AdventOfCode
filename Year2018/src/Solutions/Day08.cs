@@ -20,7 +20,7 @@ namespace AdventOfCode.Year2018.Solutions
         {
             int start = 0;
 
-            start += rootNode.Data.Aggregate((a, b) => { return a + b; });
+            start += rootNode.Data!.Aggregate((a, b) => { return a + b; });
             if (rootNode.Children.Count != 0)
             {
                 for (int i = 0; i < rootNode.Children.Count; i++)
@@ -37,13 +37,13 @@ namespace AdventOfCode.Year2018.Solutions
             if (childCount == 0)
             {
                 //Just add metadata values
-                return rootNode.Data.Aggregate((a, b) => { return a + b; });
+                return rootNode.Data!.Aggregate((a, b) => { return a + b; });
             }
             else
             {
                 //Deal with childern bullshittery
                 int sum = 0;
-                for (int i = 0; i < rootNode.Data.Count; i++)
+                for (int i = 0; i < rootNode.Data!.Count; i++)
                 {
                     int index = rootNode.Data[i] - 1;
                     if (index <= childCount - 1)
@@ -68,7 +68,7 @@ namespace AdventOfCode.Year2018.Solutions
             //Adding metadata
             for (int i = 0; i < metaCount; i++)
             {
-                rootNode.Data.Add(data[metaStart + i]);
+                rootNode.Data!.Add(data[metaStart + i]);
             }
 
             //Checking children

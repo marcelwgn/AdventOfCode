@@ -8,6 +8,7 @@
     <GeneratedFilesDir>..\..\artifacts\intermediates\$(Platform)\$(MSBuildProjectName)\Generated Files\</GeneratedFilesDir>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <Nullable>enable</Nullable>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
   </PropertyGroup>
 </Project>

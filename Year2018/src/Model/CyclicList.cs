@@ -17,8 +17,8 @@ namespace AdventOfCode.Year2018.Model
             list.AddFirst(elm);
         }
 
-        public LinkedListNode<T> First => list.First;
-        public LinkedListNode<T> Last => list.Last;
+        public LinkedListNode<T> First => list.First!;
+        public LinkedListNode<T> Last => list.Last!;
 
         public void Remove(LinkedListNode<T> node)
         {
@@ -29,7 +29,7 @@ namespace AdventOfCode.Year2018.Model
         {
             if (node.Next is null)
             {
-                return list.First;
+                return list.First!;
             }
 
             return node.Next;
@@ -39,7 +39,7 @@ namespace AdventOfCode.Year2018.Model
         {
             if (node.Previous is null)
             {
-                return list.Last;
+                return list.Last!;
             }
 
             return node.Previous;
@@ -53,7 +53,7 @@ namespace AdventOfCode.Year2018.Model
         public override string ToString()
         {
             string result = "";
-            LinkedListNode<T> node = list.First;
+            LinkedListNode<T> node = list.First!;
             result += node.Value;
             while (node.Next != null)
             {

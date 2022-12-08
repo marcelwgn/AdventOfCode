@@ -26,7 +26,7 @@ namespace AdventOfCode.Year2018.Solutions
             CyclicList<int> list = data.Item1;
 
             LinkedListNode<int> firstPointer = list.First;
-            LinkedListNode<int> secondPointer = list.First.Next;
+            LinkedListNode<int> secondPointer = list.First.Next!;
 
             for (int iterations = 0; iterations < data.Item2 + 10; iterations++)
             {
@@ -71,7 +71,7 @@ namespace AdventOfCode.Year2018.Solutions
             CyclicList<int> list = data.Item1;
 
             LinkedListNode<int> firstPointer = list.First;
-            LinkedListNode<int> secondPointer = list.First.Next;
+            LinkedListNode<int> secondPointer = list.First.Next!;
 
             int sequenceLength = data.Item2.ToString().Length;
 
@@ -118,11 +118,11 @@ namespace AdventOfCode.Year2018.Solutions
                 {
                     list.AddLast(1);
                     elementsToTheLeft++;
-                    startOfSequenceToCheck = startOfSequenceToCheck.Next;
+                    startOfSequenceToCheck = startOfSequenceToCheck.Next!;
                 }
                 list.AddLast(currentSum % 10);
                 elementsToTheLeft++;
-                startOfSequenceToCheck = startOfSequenceToCheck.Next;
+                startOfSequenceToCheck = startOfSequenceToCheck.Next!;
 
 
                 int firstIterations = firstPointer.Value;
@@ -139,11 +139,11 @@ namespace AdventOfCode.Year2018.Solutions
                 LinkedListNode<int> walkerNode = startOfSequenceToCheck;
                 for (int i = 0; i < sequenceLength; i++)
                 {
-                    if (walkerNode.Value != sequenceValues[i])
+                    if (walkerNode!.Value != sequenceValues[i])
                     {
                         found = false;
                     }
-                    walkerNode = walkerNode.Next;
+                    walkerNode = walkerNode.Next!;
                 }
 
             }

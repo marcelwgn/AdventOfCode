@@ -34,7 +34,7 @@ namespace AdventOfCode.Year2020.Solutions
             return GetPathsToZero(data, data.Length - 1, new long[data.Length]);
         }
 
-        public static long GetPathsToZero(int[] data, int index, long[] cacheArray)
+        public static long GetPathsToZero(int[] data, int index, long[]? cacheArray)
         {
             var predecessors = GetValidPredecessorsIndices(data, index);
             var pathsCount = 0L;

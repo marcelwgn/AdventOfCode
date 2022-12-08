@@ -19,13 +19,13 @@ namespace AdventOfCode.Year2018.Solutions
                 {
                     list.Add(new Node<string>(childName));
                 }
-                Node<string> childNode = list.Get(childName);
+                Node<string> childNode = list.Get(childName)!;
 
                 if (!list.Contains(parentName))
                 {
                     list.Add(new Node<string>(parentName));
                 }
-                Node<string> parentNode = list.Get(parentName);
+                Node<string> parentNode = list.Get(parentName)!;
                 childNode.AddParent(parentNode);
                 parentNode.AddChild(childNode);
             }
@@ -38,7 +38,7 @@ namespace AdventOfCode.Year2018.Solutions
         public static string FirstProblem(NodeList<string> nodes)
         {
             string result = "";
-            Node<string> current = null;
+            Node<string>? current = null;
 
             NodeList<string> nodesToClean = new NodeList<string>();
             NodeList<string> alreadyAdded = new NodeList<string>();
@@ -61,14 +61,14 @@ namespace AdventOfCode.Year2018.Solutions
                 }
 
                 //Skip if was already added to solution
-                if (alreadyAdded.Contains(current))
+                if (current != null && alreadyAdded.Contains(current))
                 {
                     nodesToClean.Remove(current);
                 }
                 //Process node
                 else
                 {
-                    result += current.Name;
+                    result += current!.Name;
                     alreadyAdded.Add(current);
                     nodesToClean.Remove(current);
                     nodesToClean.Add(current.Children);
@@ -126,7 +126,7 @@ namespace AdventOfCode.Year2018.Solutions
                     int maxNodes = nodesToClean.Count;
                     for (int i = procs.Count; i < procCount; i++)
                     {
-                        Node<string> current = null;
+                        Node<string>? current = null;
                         for (int j = 0; j < nodesToClean.Count; j++)
                         {
                             //Checking if prequisites are met

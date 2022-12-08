@@ -71,11 +71,11 @@ namespace AdventOfCode.Year2016.Solutions
                 switch (instructions[instructionPointer])
                 {
                     case 'i':
-                        registers[charParams[instructionPointer, 0].Value] = registers[charParams[instructionPointer, 0].Value] + 1;
+                        registers[charParams[instructionPointer, 0]!.Value] = registers[charParams[instructionPointer, 0]!.Value] + 1;
                         instructionPointer++;
                         break;
                     case 'd':
-                        registers[charParams[instructionPointer, 0].Value] = registers[charParams[instructionPointer, 0].Value] - 1;
+                        registers[charParams[instructionPointer, 0]!.Value] = registers[charParams[instructionPointer, 0]!.Value] - 1;
                         instructionPointer++;
                         break;
                     case 'j':
@@ -112,7 +112,7 @@ namespace AdventOfCode.Year2016.Solutions
 
             int ResolveValue(int? numValue, char? register)
             {
-                return numValue ?? registers[register.Value];
+                return numValue ?? registers[register!.Value];
             }
 
         }

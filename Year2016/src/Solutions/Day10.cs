@@ -17,7 +17,7 @@ namespace AdventOfCode.Year2016.Solutions
         {
             var bots = GenerateBots(data);
             var outputs = ProcessInput(data, bots, (-1, -1)).Outputs;
-            return outputs[0].Value * outputs[1].Value * outputs[2].Value;
+            return outputs[0]!.Value * outputs[1]!.Value * outputs[2]!.Value;
         }
 
         private static void Insert(ref this (int?, int?) tuple, int value)
@@ -81,7 +81,7 @@ namespace AdventOfCode.Year2016.Solutions
                 }
                 else
                 {
-                    bots[firstIndex].Insert(bots[twoEntrybot].Item1.Value);
+                    bots[firstIndex].Insert(bots[twoEntrybot].Item1!.Value);
                 }
                 if (SecondIsOutput)
                 {
@@ -89,7 +89,7 @@ namespace AdventOfCode.Year2016.Solutions
                 }
                 else
                 {
-                    bots[secondIndex].Insert(bots[twoEntrybot].Item2.Value);
+                    bots[secondIndex].Insert(bots[twoEntrybot].Item2!.Value);
                 }
                 bots[twoEntrybot] = (null, null);
                 twoEntrybot = FindTwoEntryBot(bots);

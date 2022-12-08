@@ -46,13 +46,13 @@ namespace AdventOfCode.Year2022.Solutions
                 {
                     if (keepOrder)
                     {
-                        var nextItem = tempStack.Last;
+                        var nextItem = tempStack.Last!;
                         tempStack.RemoveLast();
                         toStack.AddLast(nextItem);
                     }
                     else
                     {
-                        var nextItem = tempStack.First;
+                        var nextItem = tempStack.First!;
                         tempStack.RemoveFirst();
                         toStack.AddLast(nextItem);
                     }

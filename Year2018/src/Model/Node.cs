@@ -7,7 +7,7 @@ namespace AdventOfCode.Year2018.Model
         public string Name { get; set; }
         public NodeList<T> Parents => parents;
         public NodeList<T> Children => children;
-        public T Data { get; set; }
+        public T? Data { get; set; }
 
         private readonly NodeList<T> parents = new();
         private readonly NodeList<T> children = new();
@@ -47,7 +47,7 @@ namespace AdventOfCode.Year2018.Model
             Children.Add(nodeToAdd);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null)
             {
@@ -62,9 +62,9 @@ namespace AdventOfCode.Year2018.Model
             return Name.Equals(node.Name);
         }
 
-        public int CompareTo(Node<T> node)
+        public int CompareTo(Node<T>? node)
         {
-            return Name.CompareTo(node.Name);
+            return node is null ? -1 : Name.CompareTo(node.Name);
         }
 
         internal int Aggregate()
@@ -82,7 +82,7 @@ namespace AdventOfCode.Year2018.Model
             return HashCode.Combine(Name);
         }
 
-        public static bool operator ==(Node<T> left, Node<T> right)
+        public static bool operator ==(Node<T>? left, Node<T>? right)
         {
             if (ReferenceEquals(left, null))
             {
@@ -92,27 +92,27 @@ namespace AdventOfCode.Year2018.Model
             return left.Equals(right);
         }
 
-        public static bool operator !=(Node<T> left, Node<T> right)
+        public static bool operator !=(Node<T>? left, Node<T>? right)
         {
             return !(left == right);
         }
 
-        public static bool operator <(Node<T> left, Node<T> right)
+        public static bool operator <(Node<T>? left, Node<T>? right)
         {
             return left is null ? right is not null : left.CompareTo(right) < 0;
         }
 
-        public static bool operator <=(Node<T> left, Node<T> right)
+        public static bool operator <=(Node<T>? left, Node<T>? right)
         {
             return left is null || left.CompareTo(right) <= 0;
         }
 
-        public static bool operator >(Node<T> left, Node<T> right)
+        public static bool operator >(Node<T>? left, Node<T>? right)
         {
             return left is not null && left.CompareTo(right) > 0;
         }
 
-        public static bool operator >=(Node<T> left, Node<T> right)
+        public static bool operator >=(Node<T>? left, Node<T>? right)
         {
             return left is null ? right is null : left.CompareTo(right) >= 0;
         }

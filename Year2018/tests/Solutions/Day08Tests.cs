@@ -55,7 +55,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             int[] data = { 0, 3, 1, 2, 3 };
 
             Node<List<int>> result = Day08.GetNode(data, 0);
-            result.Data.Sort();
+            result.Data!.Sort();
 
             int[] metaExpected = { 1, 2, 3 };
 
@@ -75,7 +75,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             int[] data = { 1, 3, 0, 1, 1, 1, 2, 3 };
 
             Node<List<int>> result = Day08.GetNode(data, 0);
-            result.Data.Sort();
+            result.Data!.Sort();
 
             int[] metaExpected = { 1, 2, 3 };
 
@@ -88,7 +88,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 Assert.AreEqual(metaExpected[i], metaFromCalculation[i]);
             }
 
-            Assert.AreEqual(1, result.Children[0].Data[0]);
+            Assert.AreEqual(1, result.Children[0].Data![0]);
         }
 
         [TestMethod()]
@@ -97,7 +97,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             int[] data = { 2, 3, 0, 1, 8, 0, 1, 9, 1, 2, 3 };
 
             Node<List<int>> result = Day08.GetNode(data, 0);
-            result.Data.Sort();
+            result.Data!.Sort();
 
             int[] metaExpected = { 1, 2, 3 };
             int[] metaFromCalculation = result.Data.ToArray();
@@ -106,8 +106,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             {
                 Assert.AreEqual(metaExpected[i], metaFromCalculation[i]);
             }
-            Assert.AreEqual(8, result.Children[0].Data[0]);
-            Assert.AreEqual(9, result.Children[1].Data[0]);
+            Assert.AreEqual(8, result.Children[0].Data![0]);
+            Assert.AreEqual(9, result.Children[1].Data![0]);
         }
 
         [TestMethod()]
@@ -116,7 +116,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             string[] data = { "2 3 0 1 8 0 1 9 1 2 3" };
 
             Node<List<int>> result = Day08.Convert(data);
-            result.Data.Sort();
+            result.Data!.Sort();
 
             int[] metaExpected = { 1, 2, 3 };
             int[] metaFromCalculation = result.Data.ToArray();
@@ -125,8 +125,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             {
                 Assert.AreEqual(metaExpected[i], metaFromCalculation[i]);
             }
-            Assert.AreEqual(8, result.Children[0].Data[0]);
-            Assert.AreEqual(9, result.Children[1].Data[0]);
+            Assert.AreEqual(8, result.Children[0].Data![0]);
+            Assert.AreEqual(9, result.Children[1].Data![0]);
         }
 
         [TestMethod()]

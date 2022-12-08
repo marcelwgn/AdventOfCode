@@ -51,7 +51,7 @@ namespace AdventOfCode.Year2018.Model
             nodeList.Add(node);
         }
 
-        public Node<T> Get(string name)
+        public Node<T>? Get(string name)
         {
             for (int i = 0; i < nodeList.Count; i++)
             {
