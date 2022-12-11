@@ -1,7 +1,6 @@
 ﻿using AdventOfCode.Year2022.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AdventOfCode.Year2022.Tests.Solutions
 {
@@ -50,7 +49,6 @@ namespace AdventOfCode.Year2022.Tests.Solutions
 
             Assert.AreEqual(95437, Day07.FirstProblem(node));
         }
-
 
         [TestMethod]
         public void VerifySecondProblem()

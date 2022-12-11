@@ -12,7 +12,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "18" };
 
-            int[,] converted = Day11.Convert(data);
+            var converted = Day11.Convert(data);
 
             Assert.AreEqual(4, converted[32, 44]);
             Assert.AreEqual(-2, converted[31, 43]);
@@ -24,22 +24,21 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "18" };
 
-            int[,] converted = Day11.Convert(data);
+            var converted = Day11.Convert(data);
 
-            string result = Day11.FirstProblem(converted);
+            var result = Day11.FirstProblem(converted);
 
             Assert.AreEqual("BestX: 33 BestY: 45", result);
         }
-
 
         [TestMethod()]
         public void SecondProblemTest()
         {
             string[] data = { "9445" };
 
-            int[,] converted = Day11.Convert(data);
+            var converted = Day11.Convert(data);
 
-            string result = "BestX: 231 BestY: 107 BestSquare: 14";
+            var result = "BestX: 231 BestY: 107 BestSquare: 14";
 
             //Comment in next line to run real test
             //result = Day11.SecondProblem(converted);

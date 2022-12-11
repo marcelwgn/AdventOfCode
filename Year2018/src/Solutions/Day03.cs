@@ -9,14 +9,14 @@ namespace AdventOfCode.Year2018.Solutions
         {
             //Data  
             //#1 @ 236,827: 24x17
-            Rectangle[] rects = new Rectangle[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            var rects = new Rectangle[data.Length];
+            for (var i = 0; i < data.Length; i++)
             {
-                string modified = data[i].Split('@')[1];
+                var modified = data[i].Split('@')[1];
                 modified = modified.Replace(':', ',');
                 modified = modified.Replace('x', ',');
 
-                int[] values = modified.Split(',').ToIntArray();
+                var values = modified.Split(',').ToIntArray();
                 rects[i] = new Rectangle(values[0], values[1], values[2], values[3], data[i]);
             }
 
@@ -25,13 +25,13 @@ namespace AdventOfCode.Year2018.Solutions
 
         private static int[,] GenerateField(Rectangle[] data)
         {
-            int[,] values = new int[1000, 1000];
-            for (int index = 0; index < data.Length; index++)
+            var values = new int[1000, 1000];
+            for (var index = 0; index < data.Length; index++)
             {
-                Rectangle current = data[index];
-                for (int i = current.X; i < current.X + current.Width; i++)
+                var current = data[index];
+                for (var i = current.X; i < current.X + current.Width; i++)
                 {
-                    for (int j = current.Y; j < current.Y + current.Height; j++)
+                    for (var j = current.Y; j < current.Y + current.Height; j++)
                     {
                         if (values[i, j] != 0)
                         {
@@ -50,13 +50,12 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int FirstProblem(Rectangle[] data)
         {
-            int[,] field = GenerateField(data);
+            var field = GenerateField(data);
 
-
-            int sum = 0;
-            for (int i = 0; i < 1000; i++)
+            var sum = 0;
+            for (var i = 0; i < 1000; i++)
             {
-                for (int j = 00; j < 1000; j++)
+                for (var j = 00; j < 1000; j++)
                 {
                     if (field[i, j] == -1)
                     {
@@ -69,21 +68,22 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int SecondProblem(Rectangle[] data)
         {
-            int[,] field = GenerateField(data);
+            var field = GenerateField(data);
 
             //Finding rect that was not modified
-            Rectangle intact = new Rectangle(0, 0, 0, 0, "Null");
-            for (int index = 0; index < data.Length; index++)
+            var intact = new Rectangle(0, 0, 0, 0, "Null");
+            for (var index = 0; index < data.Length; index++)
             {
-                Rectangle current = data[index];
-                bool damaged = false;
-                for (int i = current.X; i < current.X + current.Width; i++)
+                var current = data[index];
+                var damaged = false;
+                for (var i = current.X; i < current.X + current.Width; i++)
                 {
-                    for (int j = current.Y; j < current.Y + current.Height; j++)
+                    for (var j = current.Y; j < current.Y + current.Height; j++)
                     {
                         if (field[i, j] == -1)
                         {
-                            damaged = true; ;
+                            damaged = true;
+                            ;
                         }
                     }
                 }
@@ -92,8 +92,8 @@ namespace AdventOfCode.Year2018.Solutions
                     intact = data[index];
                 }
             }
-            string resultString = intact.RootData.Split("@")[0];
-            int result = int.Parse(resultString[1..]);
+            var resultString = intact.RootData.Split("@")[0];
+            var result = int.Parse(resultString[1..]);
             return result;
         }
 

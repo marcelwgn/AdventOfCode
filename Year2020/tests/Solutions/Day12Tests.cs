@@ -67,7 +67,6 @@ namespace AdventOfCode.Year2020.Tests.Solutions
             Assert.AreEqual(286, Day12.SecondProblem(data));
         }
 
-
         [TestMethod]
         public void VerifySecondProblemCase2()
         {

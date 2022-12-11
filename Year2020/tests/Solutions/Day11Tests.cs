@@ -86,10 +86,10 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 secondData, thirdData, fourthData, fifthData
             };
 
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
                 Assert.IsTrue(Day11.TransformFirstProblem(firstData));
-                for (int j = 0; j < expectedData[i].Length; j++)
+                for (var j = 0; j < expectedData[i].Length; j++)
                 {
                     CollectionAssert.AreEqual(expectedData[i][j], firstData[j]);
                 }
@@ -174,10 +174,10 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 secondData, thirdData, fourthData, fifthData
             };
 
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
                 Assert.IsTrue(Day11.TransformSecondProblem(firstData));
-                for (int j = 0; j < expectedData[i].Length; j++)
+                for (var j = 0; j < expectedData[i].Length; j++)
                 {
                     CollectionAssert.AreEqual(expectedData[i][j], firstData[j]);
                 }

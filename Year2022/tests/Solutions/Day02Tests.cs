@@ -3,34 +3,34 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2022.Tests.Solutions
 {
-	[TestClass]
-	public class Day02Tests
-	{
+    [TestClass]
+    public class Day02Tests
+    {
 
-		[TestMethod]
-		public void VerifyFirstProblem()
-		{
-			var numbers = new string[]
-			{
+        [TestMethod]
+        public void VerifyFirstProblem()
+        {
+            var numbers = new string[]
+            {
                 "A Y",
                 "B X",
                 "C Z",
-			};
+            };
 
-			Assert.AreEqual(15, Day02.FirstProblem(numbers));
-		}
+            Assert.AreEqual(15, Day02.FirstProblem(numbers));
+        }
 
-		[TestMethod]
-		public void VerifySecondProblem()
-		{
-			var numbers = new string[]
-			{
+        [TestMethod]
+        public void VerifySecondProblem()
+        {
+            var numbers = new string[]
+            {
                 "A Y",
                 "B X",
                 "C Z",
-			};
+            };
 
-			Assert.AreEqual(12, Day02.SecondProblem(numbers));
-		}
-	}
+            Assert.AreEqual(12, Day02.SecondProblem(numbers));
+        }
+    }
 }

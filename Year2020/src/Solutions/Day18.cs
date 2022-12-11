@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace AdventOfCode.Year2020.Solutions
@@ -22,8 +20,8 @@ namespace AdventOfCode.Year2020.Solutions
         {
             while (expression.Split('(').Length > 1)
             {
-                int closest = expression.Length - 1;
-                for (int i = expression.Length - 1; i >= 0; i--)
+                var closest = expression.Length - 1;
+                for (var i = expression.Length - 1; i >= 0; i--)
                 {
                     if (expression[i] == ')')
                     {
@@ -31,8 +29,8 @@ namespace AdventOfCode.Year2020.Solutions
                     }
                     else if (expression[i] == '(')
                     {
-                        string group = expression.Substring(i + 1, closest - i - 1);
-                        string total = ProcessString(group, plusHasPrecedence);
+                        var group = expression.Substring(i + 1, closest - i - 1);
+                        var total = ProcessString(group, plusHasPrecedence);
                         expression = expression.Replace($"({group})", total.ToString());
                         break;
                     }
@@ -55,7 +53,7 @@ namespace AdventOfCode.Year2020.Solutions
             long total = 0;
             var lastOperand = -1;
             var lastExpressionWasAdd = true;
-            for (int i = 0; i < expression.Length; i++)
+            for (var i = 0; i < expression.Length; i++)
             {
                 if (expression[i] == '+')
                 {
@@ -94,20 +92,20 @@ namespace AdventOfCode.Year2020.Solutions
             var parts = expression.Split(' ');
             var numbers = new Stack<long>(parts.Length);
             numbers.Push(long.Parse(parts[0]));
-            for (int i = 0; i < parts.Length - 2; i += 2)
+            for (var i = 0; i < parts.Length - 2; i += 2)
             {
-                if(parts[i + 1] == "+")
+                if (parts[i + 1] == "+")
                 {
                     var lastNumber = numbers.Pop();
                     numbers.Push(lastNumber + long.Parse(parts[i + 2]));
                 }
                 else
                 {
-                    numbers.Push(long.Parse(parts[i+2]));
+                    numbers.Push(long.Parse(parts[i + 2]));
                 }
             }
             var result = 1L;
-            foreach(var item in numbers)
+            foreach (var item in numbers)
             {
                 result *= item;
             }

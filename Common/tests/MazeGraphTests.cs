@@ -35,12 +35,11 @@ namespace AdventOfCode.Common.Tests
                 }
             };
 
-
             Assert.AreEqual(7, graph.Vertices.Count);
 
-            for (int i = 0; i < maze.Length; i++)
+            for (var i = 0; i < maze.Length; i++)
             {
-                for (int j = 0; j < maze[i].Length; j++)
+                for (var j = 0; j < maze[i].Length; j++)
                 {
                     if (graph.Neighbors.ContainsKey((i, j)))
                     {

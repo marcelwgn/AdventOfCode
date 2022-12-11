@@ -7,9 +7,9 @@ namespace AdventOfCode.Year2019.Solutions
     {
         public static int[] Convert(string[] data)
         {
-            return data[0].Split(",").Select(str => int.Parse(str)).ToArray();
+            return data[0].Split(",").Select(int.Parse).ToArray();
         }
-        
+
         public static int FirstProblem(int[] data)
         {
             return FirstProblemAlgorithm(data);
@@ -23,17 +23,17 @@ namespace AdventOfCode.Year2019.Solutions
                 data[2] = verb;
             }
 
-            for (int i = 0; i < data.Length; i += 4)
+            for (var i = 0; i < data.Length; i += 4)
             {
-                int opCode = data[i];
+                var opCode = data[i];
                 if (opCode == 99)
                 {
                     return data[0];
                 }
 
-                int firstPosition = data[i + 1];
-                int secondPosition = data[i + 2];
-                int targetPosition = data[i + 3];
+                var firstPosition = data[i + 1];
+                var secondPosition = data[i + 2];
+                var targetPosition = data[i + 3];
 
                 if (opCode == 1)
                 {
@@ -53,10 +53,10 @@ namespace AdventOfCode.Year2019.Solutions
 
         public static int SecondProblem(int[] data)
         {
-            int[] dataCopied = new int[data.Length];
-            for (int i = 0; i < 100; i++)
+            var dataCopied = new int[data.Length];
+            for (var i = 0; i < 100; i++)
             {
-                for (int j = 0; j < 100; j++)
+                for (var j = 0; j < 100; j++)
                 {
                     Array.Copy(data, dataCopied, data.Length);
                     var result = FirstProblemAlgorithm(dataCopied, true, i, j);

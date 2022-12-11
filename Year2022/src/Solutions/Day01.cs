@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AdventOfCode.Year2022.Solutions
 {
@@ -25,7 +24,7 @@ namespace AdventOfCode.Year2022.Solutions
         {
             var sortedNumbers = new SortedSet<long>();
             var curNum = 0L;
-            for (int i = 0; i < numbers.Length; i++)
+            for (var i = 0; i < numbers.Length; i++)
             {
                 if (numbers[i] != "")
                 {

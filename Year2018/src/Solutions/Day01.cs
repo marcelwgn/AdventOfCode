@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using AdventOfCode.Common;
+using System.Collections.Generic;
 
 namespace AdventOfCode.Year2018.Solutions
 {
@@ -12,8 +12,8 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int FirstProblem(int[] data)
         {
-            int sum = 0;
-            foreach (int s in data)
+            var sum = 0;
+            foreach (var s in data)
             {
                 sum += s;
             }
@@ -22,13 +22,13 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int SecondProblem(int[] data)
         {
-            List<int> calcedFreqs = new List<int>();
-            bool freqDouble = false;
+            var calcedFreqs = new List<int>();
+            var freqDouble = false;
 
-            int index = 0;
-            int sum = 0;
+            var index = 0;
+            var sum = 0;
 
-            int dataSize = data.Length;
+            var dataSize = data.Length;
             while (!freqDouble)
             {
                 //Already found

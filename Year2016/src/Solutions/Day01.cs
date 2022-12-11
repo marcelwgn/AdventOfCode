@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -45,14 +43,13 @@ namespace AdventOfCode.Year2016.Solutions
             return Math.Abs(lastPos.Item1) + Math.Abs(lastPos.Item2);
         }
 
-
         public static (int, int, int)[] GenerateNextPosition(string instruction, (int posX, int posY, int direction) lastPos)
         {
             lastPos.direction = (lastPos.direction + (instruction[0] == 'R' ? 1 : -1) + 4) % 4;
             var increment = int.Parse(instruction[1..]);
             var data = new (int, int, int)[increment];
 
-            for (int i = 1; i <= increment; i++)
+            for (var i = 1; i <= increment; i++)
             {
                 switch (lastPos.direction)
                 {

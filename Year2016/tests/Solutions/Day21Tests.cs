@@ -152,7 +152,6 @@ namespace AdventOfCode.Year2016.Tests.Solutions
             Assert.AreEqual("abcde", Day21.ProcessInstruction("edcba", completeStringReverse));
         }
 
-
         [TestMethod]
         public void ProcessInstructionsRotateTest()
         {

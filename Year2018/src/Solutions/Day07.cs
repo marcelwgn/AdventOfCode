@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using AdventOfCode.Year2018.Model;
+using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions
 {
@@ -9,23 +9,23 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static NodeList<string> Convert(string[] data)
         {
-            NodeList<string> list = new NodeList<string>();
-            for (int i = 0; i < data.Length; i++)
+            var list = new NodeList<string>();
+            for (var i = 0; i < data.Length; i++)
             {
-                string[] split = data[i].Split(" ");
-                string parentName = split[1];
-                string childName = split[7];
+                var split = data[i].Split(" ");
+                var parentName = split[1];
+                var childName = split[7];
                 if (!list.Contains(childName))
                 {
                     list.Add(new Node<string>(childName));
                 }
-                Node<string> childNode = list.Get(childName)!;
+                var childNode = list.Get(childName)!;
 
                 if (!list.Contains(parentName))
                 {
                     list.Add(new Node<string>(parentName));
                 }
-                Node<string> parentNode = list.Get(parentName)!;
+                var parentNode = list.Get(parentName)!;
                 childNode.AddParent(parentNode);
                 parentNode.AddChild(childNode);
             }
@@ -33,15 +33,14 @@ namespace AdventOfCode.Year2018.Solutions
             return list;
         }
 
-
         //Needs refactoring
         public static string FirstProblem(NodeList<string> nodes)
         {
-            string result = "";
+            var result = "";
             Node<string>? current = null;
 
-            NodeList<string> nodesToClean = new NodeList<string>();
-            NodeList<string> alreadyAdded = new NodeList<string>();
+            var nodesToClean = new NodeList<string>();
+            var alreadyAdded = new NodeList<string>();
 
             nodesToClean.Add(nodes.GetEntryPoints());
 
@@ -49,10 +48,10 @@ namespace AdventOfCode.Year2018.Solutions
             {
                 nodesToClean.Sort();
                 //Finding suitable node
-                for (int i = 0; i < nodesToClean.Count; i++)
+                for (var i = 0; i < nodesToClean.Count; i++)
                 {
                     //Checking if prequisites are met
-                    NodeList<string> neededNodes = nodesToClean[i].Parents;
+                    var neededNodes = nodesToClean[i].Parents;
                     if (alreadyAdded.Contains(neededNodes))
                     {
                         current = nodesToClean[i];
@@ -83,20 +82,20 @@ namespace AdventOfCode.Year2018.Solutions
         public static int SecondProblem(NodeList<string> nodes)
         {
 
-            NodeList<string> nodesToClean = new NodeList<string>();
-            NodeList<string> alreadyAdded = new NodeList<string>();
+            var nodesToClean = new NodeList<string>();
+            var alreadyAdded = new NodeList<string>();
 
-            List<NodeProcessor> procs = new List<NodeProcessor>();
+            var procs = new List<NodeProcessor>();
 
-            int procCount = 6;
-            int minuteCount = -1;
+            var procCount = 6;
+            var minuteCount = -1;
             nodesToClean.Add(nodes.GetEntryPoints());
 
             while (nodesToClean.Count != 0 || procs.Count != 0)
             {
                 //Update workers
-                NodeList<string> finished = new NodeList<string>();
-                for (int i = 0; i < procs.Count; i++)
+                var finished = new NodeList<string>();
+                for (var i = 0; i < procs.Count; i++)
                 {
                     procs[i].MinutesToCompletion--;
                     if (procs[i].MinutesToCompletion == 0)
@@ -118,19 +117,19 @@ namespace AdventOfCode.Year2018.Solutions
                 else
                 {
                     //Add finished nodes to add list and add their children for availability
-                    for (int i = 0; i < finished.Count; i++)
+                    for (var i = 0; i < finished.Count; i++)
                     {
                         alreadyAdded.Add(finished[i]);
                         nodesToClean.Add(finished[i].Children);
                     }
-                    int maxNodes = nodesToClean.Count;
-                    for (int i = procs.Count; i < procCount; i++)
+                    var maxNodes = nodesToClean.Count;
+                    for (var i = procs.Count; i < procCount; i++)
                     {
                         Node<string>? current = null;
-                        for (int j = 0; j < nodesToClean.Count; j++)
+                        for (var j = 0; j < nodesToClean.Count; j++)
                         {
                             //Checking if prequisites are met
-                            NodeList<string> neededNodes = nodesToClean[j].Parents;
+                            var neededNodes = nodesToClean[j].Parents;
                             if (alreadyAdded.Contains(neededNodes))
                             {
                                 current = nodesToClean[j];
@@ -144,7 +143,7 @@ namespace AdventOfCode.Year2018.Solutions
                             break;
                         }
 
-                        NodeProcessor proc = new NodeProcessor(current);
+                        var proc = new NodeProcessor(current);
                         procs.Add(proc);
                         nodesToClean.Remove(current);
                     }
@@ -164,7 +163,7 @@ namespace AdventOfCode.Year2018.Solutions
 
         public NodeProcessor(Node<string> toProcess)
         {
-            int charOffset = toProcess.Name[0] - 64;
+            var charOffset = toProcess.Name[0] - 64;
             MinutesToCompletion = 60 + charOffset;
             ToProcess = toProcess;
         }

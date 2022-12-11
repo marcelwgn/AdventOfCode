@@ -1,7 +1,5 @@
-﻿using AdventOfCode.Common;
-using System;
+﻿using System;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -97,7 +95,7 @@ namespace AdventOfCode.Year2016.Solutions
 
             static int FindTwoEntryBot((int?, int?)[] curBots)
             {
-                for (int i = 0; i < curBots.Length; i++)
+                for (var i = 0; i < curBots.Length; i++)
                 {
                     if (curBots[i].Item1.HasValue && curBots[i].Item2.HasValue)
                     {

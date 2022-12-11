@@ -1,8 +1,4 @@
-﻿using AdventOfCode.Common;
-using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -13,9 +9,9 @@ namespace AdventOfCode.Year2016.Solutions
         /// </summary>
         public static int FirstProblem(string[] data)
         {
-            int num = int.Parse(data[0]);
-            int maxPowerOf2 = (int)Math.Log2(num);
-            int remainder = num - (int)Math.Pow(2, maxPowerOf2);
+            var num = int.Parse(data[0]);
+            var maxPowerOf2 = (int)Math.Log2(num);
+            var remainder = num - (int)Math.Pow(2, maxPowerOf2);
             return 2 * remainder + 1;
         }
 
@@ -43,13 +39,17 @@ namespace AdventOfCode.Year2016.Solutions
             while (currentNumber < num)
             {
                 currentNumber++;
-                if(currentIndex >= currentNumber / 2){
-                    currentIndex+=2;
-                }else{
+                if (currentIndex >= currentNumber / 2)
+                {
+                    currentIndex += 2;
+                }
+                else
+                {
                     currentIndex++;
                 }
 
-                if(currentIndex > currentNumber){
+                if (currentIndex > currentNumber)
+                {
                     currentIndex = 1;
                 }
             }

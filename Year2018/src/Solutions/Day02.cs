@@ -12,9 +12,9 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int FirstProblem(string[] data)
         {
-            int sumLettersTwice = 0;
-            int sumLettersThrice = 0;
-            for (int i = 0; i < data.Length; i++)
+            var sumLettersTwice = 0;
+            var sumLettersThrice = 0;
+            for (var i = 0; i < data.Length; i++)
             {
                 if (data[i].ContainsLetterExactlyTwice())
                 {
@@ -31,12 +31,12 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static string SecondProblem(string[] data)
         {
-            string first = data[0];
-            string second = data[1];
-            int difference = first.NumberOfLettersDifferent(second);
-            for (int i = 0; i < data.Length - 1; i++)
+            var first = data[0];
+            var second = data[1];
+            var difference = first.NumberOfLettersDifferent(second);
+            for (var i = 0; i < data.Length - 1; i++)
             {
-                for (int j = i + 1; j < data.Length; j++)
+                for (var j = i + 1; j < data.Length; j++)
                 {
                     if (data[i].NumberOfLettersDifferent(data[j]) < difference)
                     {

@@ -6,7 +6,7 @@ namespace AdventOfCode.Year2020.Solutions
     {
         public static long FirstProblem(long[] data)
         {
-            for (int i = 25; i < data.Length; i++)
+            for (var i = 25; i < data.Length; i++)
             {
                 if (!HasSum(data[(i - 25)..i], data[i]))
                 {
@@ -16,11 +16,11 @@ namespace AdventOfCode.Year2020.Solutions
 
             return 0;
 
-            bool HasSum(long[] range, long number)
+            static bool HasSum(long[] range, long number)
             {
-                for (int i = 0; i < range.Length; i++)
+                for (var i = 0; i < range.Length; i++)
                 {
-                    for (int j = 0; j < range.Length; j++)
+                    for (var j = 0; j < range.Length; j++)
                     {
                         if (range[i] + range[j] == number)
                         {
@@ -35,7 +35,7 @@ namespace AdventOfCode.Year2020.Solutions
         public static long SecondProblem(long[] data)
         {
             var invalidNumber = FirstProblem(data);
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 var smallest = data[i];
                 var largest = data[i];

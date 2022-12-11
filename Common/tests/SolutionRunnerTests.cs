@@ -38,7 +38,6 @@ namespace AdventOfCode.Common.Tests
             }
         }
 
-
         [TestMethod]
         public void VerifyRunnerDoesNotCrashWithMissingFunctions()
         {

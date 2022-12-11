@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2022.Solutions
 {
@@ -31,7 +28,7 @@ namespace AdventOfCode.Year2022.Solutions
             var rootNode = new FileSystemNode();
             var currentNode = rootNode;
 
-            for (int i = 1; i < data.Length; i++)
+            for (var i = 1; i < data.Length; i++)
             {
                 // Skipping those entries
                 if (data[i] == "$ ls" || data[i] == "$ cd /" || data[i].StartsWith("dir"))

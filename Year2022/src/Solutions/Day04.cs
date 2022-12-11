@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2022.Solutions
 {
@@ -24,10 +21,10 @@ namespace AdventOfCode.Year2022.Solutions
             }
         }
 
-        public static IEnumerable<Tuple<Range,Range>> Convert(string[] items)
+        public static IEnumerable<Tuple<Range, Range>> Convert(string[] items)
         {
             {
-                var ranges = new List<Tuple<Range,Range>>();
+                var ranges = new List<Tuple<Range, Range>>();
                 foreach (var item in items)
                 {
                     var split = item.Split(",");
@@ -47,13 +44,13 @@ namespace AdventOfCode.Year2022.Solutions
                 return ranges;
             }
         }
-        
+
         public static long FirstProblem(IEnumerable<Tuple<Range, Range>> items)
         {
             long score = 0;
             foreach (var item in items)
             {
-                if(item.Item1.ContainsRange(item.Item2) ||
+                if (item.Item1.ContainsRange(item.Item2) ||
                     item.Item2.ContainsRange(item.Item1))
                 {
                     score++;

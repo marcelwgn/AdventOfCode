@@ -17,7 +17,7 @@ namespace AdventOfCode.Year2020.Solutions
 
             foreach (var item in data)
             {
-                int value = int.Parse(item[1..].ToString());
+                var value = int.Parse(item[1..].ToString());
                 switch (item[0])
                 {
                     case 'N':
@@ -57,7 +57,7 @@ namespace AdventOfCode.Year2020.Solutions
             var wayPoint = new Point(10, 1);
             foreach (var item in data)
             {
-                int value = int.Parse(item[1..].ToString());
+                var value = int.Parse(item[1..].ToString());
                 switch (item[0])
                 {
                     case 'N':
@@ -92,7 +92,7 @@ namespace AdventOfCode.Year2020.Solutions
         {
             // Using this way of rotating a point since the angles will become more and more imprecise due
             // to doubles limited precision which sooner or later will result in faulty values.
-            int oldX = pt.X;
+            var oldX = pt.X;
             if (degrees == 90)
             {
                 pt.X = pt.Y;

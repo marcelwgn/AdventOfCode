@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Security.Cryptography;
-
-namespace AdventOfCode.Year2016.Solutions
+﻿namespace AdventOfCode.Year2016.Solutions
 {
     public static class Day23
     {
@@ -20,7 +14,7 @@ namespace AdventOfCode.Year2016.Solutions
 
         private static long RunProgram(string[] data, short initialAValue)
         {
-            int instructionPointer = 0;
+            var instructionPointer = 0;
             // We are preprocessing everything to minimize CPU cost of every instruction.
             // Char comparison is a lot faster than string comparison
             var instructions = new char[data.Length];
@@ -28,7 +22,7 @@ namespace AdventOfCode.Year2016.Solutions
             var numParams = new int?[data.Length, 2];
             // Store registers for the instructions
             var charParams = new char?[data.Length, 2];
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 var split = data[i].Split(" ");
                 instructions[i] = split[0][0];
@@ -37,7 +31,7 @@ namespace AdventOfCode.Year2016.Solutions
                 charParams[i, 0] = null;
                 charParams[i, 1] = null;
 
-                if (int.TryParse(split[1], out int numOne))
+                if (int.TryParse(split[1], out var numOne))
                 {
                     numParams[i, 0] = numOne;
                 }
@@ -48,18 +42,18 @@ namespace AdventOfCode.Year2016.Solutions
                 };
                 if (split.Length == 3)
                 {
-                    if (int.TryParse(split[2], out int numTwo))
+                    if (int.TryParse(split[2], out var numTwo))
                     {
                         numParams[i, 1] = numTwo;
                     }
                     else
                     {
-                    // Offsetting to array index, a->0,b->1,...
-                        charParams[i, 1] = (char)( split[2][0] - 97);
+                        // Offsetting to array index, a->0,b->1,...
+                        charParams[i, 1] = (char)(split[2][0] - 97);
                     };
                 }
             }
-            
+
             // Array since accessing arrays is faster than most other ways of storing data
             var registers = new int[]
             {
@@ -114,7 +108,6 @@ namespace AdventOfCode.Year2016.Solutions
             {
                 return numValue ?? registers[register!.Value];
             }
-
         }
         public static char ToggleInstruction(char instructionInitial, bool hasSecondParam)
         {

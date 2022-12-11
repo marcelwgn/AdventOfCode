@@ -10,7 +10,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         public void ConvertTest()
         {
             string[] data = { "Test", "test", "TeSt" };
-            string[] dataConverted = Day02.Convert(data);
+            var dataConverted = Day02.Convert(data);
 
             Assert.AreSame(data, dataConverted);
         }
@@ -27,7 +27,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "abcdee ",
                 "ababab "
             };
-            int checksum = Day02.FirstProblem(data);
+            var checksum = Day02.FirstProblem(data);
 
             Assert.AreEqual(12, checksum);
         }
@@ -45,7 +45,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "wvxyz"
             };
 
-            string result = Day02.SecondProblem(data);
+            var result = Day02.SecondProblem(data);
 
             Assert.AreEqual("fgij", result);
         }

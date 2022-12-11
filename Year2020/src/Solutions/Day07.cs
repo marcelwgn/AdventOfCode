@@ -34,11 +34,11 @@ namespace AdventOfCode.Year2020.Solutions
                 var dataSplit = newLine.Split(" ");
                 var bag = dictionary[dataSplit[0] + " " + dataSplit[1]];
                 var split = dataSplit[3..];
-                for (int i = 0; i < split.Length && split.Length > 2; i += 3)
+                for (var i = 0; i < split.Length && split.Length > 2; i += 3)
                 {
-                    int amount = int.Parse(split[i]);
-                    string name = split[i + 1] + " " + split[i + 2];
-                    for (int j = 0; j < amount; j++)
+                    var amount = int.Parse(split[i]);
+                    var name = split[i + 1] + " " + split[i + 2];
+                    for (var j = 0; j < amount; j++)
                     {
                         bag.AddBag(dictionary[name]);
                     }

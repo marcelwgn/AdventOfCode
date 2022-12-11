@@ -25,7 +25,7 @@ namespace AdventOfCode.Common.Tests
             var actual = SetUtils.FastPowerSet(new int[] { 1, 2, 3 }).OrderBy(x => x.Length).ToArray();
 
             Assert.AreEqual(expected.Length, actual.Length);
-            for (int i = 0; i < expected.Length; i++)
+            for (var i = 0; i < expected.Length; i++)
             {
                 CollectionAssert.AreEqual(expected[i], actual[i]);
             }
@@ -44,10 +44,10 @@ namespace AdventOfCode.Common.Tests
                 new int[]{3,2,1}
             };
 
-            var actual = SetUtils.GetPermutations(new int[] { 1, 2, 3 },3).ToArray();
+            var actual = SetUtils.GetPermutations(new int[] { 1, 2, 3 }, 3).ToArray();
 
             Assert.AreEqual(expected.Length, actual.Length);
-            for (int i = 0; i < expected.Length; i++)
+            for (var i = 0; i < expected.Length; i++)
             {
                 CollectionAssert.AreEqual(expected[i], actual[i].ToArray());
             }

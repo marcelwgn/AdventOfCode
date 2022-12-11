@@ -1,5 +1,4 @@
-﻿using AdventOfCode.Year2018.Model;
-using AdventOfCode.Year2018.Solutions;
+﻿using AdventOfCode.Year2018.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2018.Tests.Solutions
@@ -13,7 +12,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "position=< 9,  1> velocity=< 0,  2>" };
 
-            ChangingVector[] converted = Day10.Convert(data);
+            var converted = Day10.Convert(data);
 
             Assert.AreEqual(9, converted[0].Location.X);
             Assert.AreEqual(1, converted[0].Location.Y);
@@ -59,7 +58,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "position=<14,  7> velocity=<-2,  0>",
                 "position=<-3,  6> velocity=< 2, -1>"
             };
-            ChangingVector[] _ = Day10.Convert(data);
+            var _ = Day10.Convert(data);
 
             //Comment in next line to run real test 
             //since it takes way to long to run for a unit test
@@ -104,7 +103,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "position=<14,  7> velocity=<-2,  0>",
                 "position=<-3,  6> velocity=< 2, -1>"
             };
-            ChangingVector[] _ = Day10.Convert(data);
+            var _ = Day10.Convert(data);
 
             //Comment in next line to run real test 
             //since it takes way to long to run for a unit test

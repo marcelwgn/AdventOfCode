@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AdventOfCode.Year2020.Solutions;
+﻿using AdventOfCode.Year2020.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 
 namespace AdventOfCode.Year2020.Tests.Solutions
 {
@@ -49,7 +48,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 0,4,12,51,52,53,54,55,56,57,58,59
             };
 
-            for (int i = 0; i < 60; i++)
+            for (var i = 0; i < 60; i++)
             {
                 Assert.AreEqual(!notValids.Contains(i), validNumbers.Contains(i), $"Missmatch for {i}");
             }

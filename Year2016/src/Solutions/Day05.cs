@@ -1,11 +1,5 @@
-﻿using AdventOfCode.Common;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -19,14 +13,14 @@ namespace AdventOfCode.Year2016.Solutions
             long index = 0;
             while (result.Length < 8)
             {
-                byte[] inputBytes = Encoding.ASCII.GetBytes(data[0] + index);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
+                var inputBytes = Encoding.ASCII.GetBytes(data[0] + index);
+                var hashBytes = md5.ComputeHash(inputBytes);
 
                 if (hashBytes[0] == 0 && hashBytes[1] == 0)
                 {
                     // Convert the byte array to hexadecimal string
-                    StringBuilder sb = new StringBuilder();
-                    for (int j = 0; j < hashBytes.Length; j++)
+                    var sb = new StringBuilder();
+                    for (var j = 0; j < hashBytes.Length; j++)
                     {
                         sb.Append(hashBytes[j].ToString("X2"));
                     }
@@ -46,18 +40,18 @@ namespace AdventOfCode.Year2016.Solutions
             var md5 = System.Security.Cryptography.MD5.Create();
 
             long index = 0;
-            char?[] password = new char?[] { null, null, null, null, null, null, null, null };
+            var password = new char?[] { null, null, null, null, null, null, null, null };
             short fillCount = 0;
             while (fillCount < 8)
             {
-                byte[] inputBytes = Encoding.ASCII.GetBytes(data[0] + index);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
+                var inputBytes = Encoding.ASCII.GetBytes(data[0] + index);
+                var hashBytes = md5.ComputeHash(inputBytes);
 
                 if (hashBytes[0] == 0 && hashBytes[1] == 0)
                 {
                     // Convert the byte array to hexadecimal string
-                    StringBuilder sb = new StringBuilder();
-                    for (int j = 0; j < hashBytes.Length; j++)
+                    var sb = new StringBuilder();
+                    for (var j = 0; j < hashBytes.Length; j++)
                     {
                         sb.Append(hashBytes[j].ToString("X2"));
                     }
@@ -71,7 +65,8 @@ namespace AdventOfCode.Year2016.Solutions
                                 fillCount++;
                                 password[insertIndex] = sb.ToString()[6];
                             }
-                        } catch(Exception) { }
+                        }
+                        catch (Exception) { }
                     }
                 }
                 index++;

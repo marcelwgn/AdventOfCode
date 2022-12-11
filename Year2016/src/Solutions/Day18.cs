@@ -1,7 +1,4 @@
-﻿using AdventOfCode.Common;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -22,7 +19,7 @@ namespace AdventOfCode.Year2016.Solutions
         public static int CountSaveTiles(bool[] start, int iterations)
         {
             var saveTileCount = start.Where(x => !x).Count();
-            for (int i = 0; i < iterations; i++)
+            for (var i = 0; i < iterations; i++)
             {
                 start = GenerateNextRow(start);
                 saveTileCount += start.Where(x => !x).Count();
@@ -34,7 +31,7 @@ namespace AdventOfCode.Year2016.Solutions
         {
             var result = new bool[input.Length];
             result[0] = input[1];
-            for (int i = 1; i < input.Length - 1; i++)
+            for (var i = 1; i < input.Length - 1; i++)
             {
                 result[i] = (!input[i - 1] && !input[i] && input[i + 1]) ||
                             (input[i - 1] && !input[i] && !input[i + 1]) ||

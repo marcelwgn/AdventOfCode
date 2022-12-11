@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -21,7 +18,7 @@ namespace AdventOfCode.Year2016.Solutions
         public static TextInstruction[] Convert(string[] data)
         {
             var result = new TextInstruction[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 var split = data[i].Split(' ');
                 if (split[0] == "swap")
@@ -112,7 +109,7 @@ namespace AdventOfCode.Year2016.Solutions
 
             string generateRandomPassword()
             {
-                Random rnd = new Random();
+                var rnd = new Random();
                 return string.Join(null, "abcdefgh".OrderBy(x => rnd.Next()).ToArray());
             }
 

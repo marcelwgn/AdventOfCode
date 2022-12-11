@@ -6,11 +6,11 @@ namespace AdventOfCode.Year2020.Solutions
     {
         public static int FirstProblem(string[] data)
         {
-            int value = 0;
-            int nextPos = 0;
+            var value = 0;
+            var nextPos = 0;
             while (data[nextPos].Length > 0)
             {
-                int curPos = nextPos;
+                var curPos = nextPos;
                 ProcessLine(data[nextPos], ref value, ref nextPos);
                 data[curPos] = string.Empty;
             }
@@ -20,17 +20,17 @@ namespace AdventOfCode.Year2020.Solutions
         public static int SecondProblem(string[] data)
         {
             var copied = new string[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 // Just iterate over all the possible switch positions and check if we reach the end
                 // Not the best solution but it works and is not over engineered.
                 if (GotValidPermutation(i))
                 {
-                    int value = 0;
-                    int nextPos = 0;
+                    var value = 0;
+                    var nextPos = 0;
                     while (nextPos < data.Length && copied[nextPos].Length > 0)
                     {
-                        int curPos = nextPos;
+                        var curPos = nextPos;
                         ProcessLine(copied[nextPos], ref value, ref nextPos);
                         copied[curPos] = string.Empty;
                     }

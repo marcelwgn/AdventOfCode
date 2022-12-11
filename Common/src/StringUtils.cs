@@ -7,14 +7,14 @@ namespace AdventOfCode.Common
     {
         public static bool ContainsLetterExactlyTwice(this string str)
         {
-            char[] chars = str.ToCharArray();
+            var chars = str.ToCharArray();
             Array.Sort(chars);
 
-            char c = chars[0];
-            int curCount = 1;
+            var c = chars[0];
+            var curCount = 1;
 
-            bool exactlyTwice = false;
-            for (int i = 1; i < chars.Length; i++)
+            var exactlyTwice = false;
+            for (var i = 1; i < chars.Length; i++)
             {
                 if (c == chars[i])
                 {
@@ -40,14 +40,14 @@ namespace AdventOfCode.Common
 
         public static bool ContainsLetterExactlyThrice(this string str)
         {
-            char[] chars = str.ToCharArray();
+            var chars = str.ToCharArray();
             Array.Sort(chars);
 
-            char c = chars[0];
-            int curCount = 1;
+            var c = chars[0];
+            var curCount = 1;
 
-            bool exactlyThrice = false;
-            for (int i = 1; i < chars.Length; i++)
+            var exactlyThrice = false;
+            for (var i = 1; i < chars.Length; i++)
             {
                 if (c == chars[i])
                 {
@@ -73,8 +73,8 @@ namespace AdventOfCode.Common
 
         public static int NumberOfLettersDifferent(this string str, string input)
         {
-            int count = 0;
-            for (int i = 0; i < str.Length && i < input.Length; i++)
+            var count = 0;
+            for (var i = 0; i < str.Length && i < input.Length; i++)
             {
                 if (str[i] != input[i])
                 {
@@ -86,8 +86,8 @@ namespace AdventOfCode.Common
 
         public static string GetCommonLetters(this string str, string input)
         {
-            string result = "";
-            for (int i = 0; i < str.Length && i < input.Length; i++)
+            var result = "";
+            for (var i = 0; i < str.Length && i < input.Length; i++)
             {
                 if (str[i] == input[i])
                 {

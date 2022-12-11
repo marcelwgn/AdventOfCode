@@ -1,7 +1,4 @@
-﻿using AdventOfCode.Common;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -19,7 +16,7 @@ namespace AdventOfCode.Year2016.Solutions
 
         private static long RunProgram(string[] data, int initalCValue)
         {
-            int instructionPointer = 0;
+            var instructionPointer = 0;
             var registers = new Dictionary<char, int>()
             {
                 {'a',0 },
@@ -64,8 +61,7 @@ namespace AdventOfCode.Year2016.Solutions
 
             int ResolveValue(string value)
             {
-                var number = 0;
-                if (int.TryParse(value.Split(" ")[0], out number))
+                if (int.TryParse(value.Split(" ")[0], out var number))
                 {
                     return number;
                 }

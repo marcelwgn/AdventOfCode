@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using AdventOfCode.Year2018.Solutions;
+﻿using AdventOfCode.Year2018.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace AdventOfCode.Year2018.Tests.Solutions
 {
@@ -30,11 +30,11 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "[1518-11-05 00:55] wakes up"
             };
 
-            List<Guard> converted = Day04.Convert(data);
+            var converted = Day04.Convert(data);
 
             Assert.AreEqual(2, converted.Count);
-            Guard first = converted[0];
-            Guard second = converted[1];
+            var first = converted[0];
+            var second = converted[1];
 
             Assert.AreEqual(10, first.Id);
             Assert.AreEqual(50, first.MinutesSlept);
@@ -46,8 +46,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest()
         {
-            List<Guard> data = new List<Guard>();
-            Guard first = new Guard(10)
+            var data = new List<Guard>();
+            var first = new Guard(10)
             {
                 MinutesSlept = 50,
                 SleepingMinutes = new int[]{
@@ -55,7 +55,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 }
             };
 
-            Guard second = new Guard(99)
+            var second = new Guard(99)
             {
                 MinutesSlept = 24,
                 SleepingMinutes = new int[]{
@@ -66,7 +66,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             data.Add(first);
             data.Add(second);
 
-            int result = Day04.FirstProblem(data);
+            var result = Day04.FirstProblem(data);
 
             Assert.AreEqual(240, result);
         }
@@ -74,8 +74,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest()
         {
-            List<Guard> data = new List<Guard>();
-            Guard first = new Guard(10)
+            var data = new List<Guard>();
+            var first = new Guard(10)
             {
                 MinutesSlept = 50,
                 SleepingMinutes = new int[]{
@@ -83,7 +83,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 }
             };
 
-            Guard second = new Guard(99)
+            var second = new Guard(99)
             {
                 MinutesSlept = 24,
                 SleepingMinutes = new int[]{
@@ -94,7 +94,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             data.Add(first);
             data.Add(second);
 
-            int result = Day04.SecondProblem(data);
+            var result = Day04.SecondProblem(data);
 
             Assert.AreEqual(4455, result);
         }

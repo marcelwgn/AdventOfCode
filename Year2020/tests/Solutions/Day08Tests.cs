@@ -18,8 +18,8 @@ namespace AdventOfCode.Year2020.Tests.Solutions
         [DataRow("acc +6", 6, 1)]
         public void VerifyLineProcessing(string line, int expectedValue, int expectedNextpos)
         {
-            int value = 0;
-            int nextPos = 0;
+            var value = 0;
+            var nextPos = 0;
 
             Day08.ProcessLine(line, ref value, ref nextPos);
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Common
 {
@@ -15,9 +13,9 @@ namespace AdventOfCode.Common
         public MazeGraph(char[][] grid, char wallCharacter = '#')
         {
             Vertices = new HashSet<(int X, int Y)>();
-            for (int i = 0; i < grid.Length; i++)
+            for (var i = 0; i < grid.Length; i++)
             {
-                for (int j = 0; j < grid[i].Length; j++)
+                for (var j = 0; j < grid[i].Length; j++)
                 {
                     var currentCell = grid[i][j];
 
@@ -37,7 +35,6 @@ namespace AdventOfCode.Common
                         try
                         {
                             var topNode = grid[i][j - 1];
-
 
                             if (topNode != wallCharacter)
                             {
@@ -88,9 +85,9 @@ namespace AdventOfCode.Common
 
             var prevVertices = new Dictionary<(int, int), (int, int)>();
 
-            while(remainingVertices.Count > 0)
+            while (remainingVertices.Count > 0)
             {
-                var next = remainingVertices.Select(v => (Vertex: v, Distance : GetDist(v))).OrderBy(x => x.Distance).First().Vertex;
+                var next = remainingVertices.Select(v => (Vertex: v, Distance: GetDist(v))).OrderBy(x => x.Distance).First().Vertex;
                 remainingVertices.Remove(next);
 
                 if (Neighbors.ContainsKey(next))
@@ -98,12 +95,12 @@ namespace AdventOfCode.Common
                     foreach (var neighbor in Neighbors[next])
                     {
                         var altDist = GetDist(next) + 1;
-                        if(altDist < GetDist(neighbor))
+                        if (altDist < GetDist(neighbor))
                         {
                             distDictionary[neighbor] = altDist;
                             prevVertices[neighbor] = next;
                         }
-                        if(neighbor == p2)
+                        if (neighbor == p2)
                         {
                             return distDictionary[neighbor];
                         }
@@ -113,7 +110,7 @@ namespace AdventOfCode.Common
 
             return -1;
 
-            int GetDist((int,int) vertex)
+            int GetDist((int, int) vertex)
             {
                 if (distDictionary.ContainsKey(vertex))
                 {

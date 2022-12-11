@@ -7,7 +7,7 @@ namespace AdventOfCode.Common
     {
         public static string[] ReadDataFromFile(string fileName)
         {
-            FileStream fileToRead = File.Open(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
+            var fileToRead = File.Open(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
 
             var data = File.ReadLines(fileName).ToArray();
             fileToRead.Close();

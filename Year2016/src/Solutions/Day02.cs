@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -20,7 +17,7 @@ namespace AdventOfCode.Year2016.Solutions
             }
             return result;
 
-            bool IsValidPosition((int posX, int posY) position)
+            static bool IsValidPosition((int posX, int posY) position)
             {
                 return position.posX >= 0 && position.posX <= 2 && position.posY >= 0 && position.posY <= 2;
             }

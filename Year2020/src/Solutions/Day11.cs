@@ -4,13 +4,15 @@
     {
         public static int FirstProblem(char[][] data)
         {
-            while (TransformFirstProblem(data)) { }
-
-            int sum = 0;
-
-            for (int i = 0; i < data.Length; i++)
+            while (TransformFirstProblem(data))
             {
-                for (int j = 0; j < data[i].Length; j++)
+            }
+
+            var sum = 0;
+
+            for (var i = 0; i < data.Length; i++)
+            {
+                for (var j = 0; j < data[i].Length; j++)
                 {
                     if (data[i][j] == '#')
                     {
@@ -24,13 +26,15 @@
 
         public static int SecondProblem(char[][] data)
         {
-            while (TransformSecondProblem(data)) { }
-
-            int sum = 0;
-
-            for (int i = 0; i < data.Length; i++)
+            while (TransformSecondProblem(data))
             {
-                for (int j = 0; j < data[i].Length; j++)
+            }
+
+            var sum = 0;
+
+            for (var i = 0; i < data.Length; i++)
+            {
+                for (var j = 0; j < data[i].Length; j++)
                 {
                     if (data[i][j] == '#')
                     {
@@ -44,12 +48,12 @@
 
         public static bool TransformFirstProblem(char[][] data)
         {
-            bool modified = false;
-            for (int i = 0; i < data.Length; i++)
+            var modified = false;
+            for (var i = 0; i < data.Length; i++)
             {
-                for (int j = 0; j < data[i].Length; j++)
+                for (var j = 0; j < data[i].Length; j++)
                 {
-                    int neighbors = 0;
+                    var neighbors = 0;
                     neighbors += SeatCount(i - 1, j - 1);
                     neighbors += SeatCount(i - 1, j);
                     neighbors += SeatCount(i - 1, j + 1);
@@ -71,9 +75,9 @@
                 }
             }
 
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
-                for (int j = 0; j < data[i].Length; j++)
+                for (var j = 0; j < data[i].Length; j++)
                 {
                     if (data[i][j] == '*')
                     {
@@ -102,12 +106,12 @@
         }
         public static bool TransformSecondProblem(char[][] data)
         {
-            bool modified = false;
-            for (int i = 0; i < data.Length; i++)
+            var modified = false;
+            for (var i = 0; i < data.Length; i++)
             {
-                for (int j = 0; j < data[i].Length; j++)
+                for (var j = 0; j < data[i].Length; j++)
                 {
-                    int neighbors = 0;
+                    var neighbors = 0;
                     neighbors += SeatCount(i, j, -1, 0);
                     neighbors += SeatCount(i, j, -1, 1);
                     neighbors += SeatCount(i, j, 0, 1);
@@ -129,9 +133,9 @@
                 }
             }
 
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
-                for (int j = 0; j < data[i].Length; j++)
+                for (var j = 0; j < data[i].Length; j++)
                 {
                     if (data[i][j] == '*')
                     {
@@ -148,8 +152,8 @@
 
             int SeatCount(int xPos, int yPos, int modifierX, int modifierY)
             {
-                int xPosLocal = xPos;
-                int yPosLocal = yPos;
+                var xPosLocal = xPos;
+                var yPosLocal = yPos;
                 do
                 {
                     xPosLocal += modifierX;

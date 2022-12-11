@@ -4,7 +4,7 @@ namespace AdventOfCode.Year2018.Model
 {
     public class CyclicList<T>
     {
-        private readonly LinkedList<T> list = new LinkedList<T>();
+        private readonly LinkedList<T> list = new();
         public int Count => list.Count;
 
         public void AddLast(T elm)
@@ -52,8 +52,8 @@ namespace AdventOfCode.Year2018.Model
 
         public override string ToString()
         {
-            string result = "";
-            LinkedListNode<T> node = list.First!;
+            var result = "";
+            var node = list.First!;
             result += node.Value;
             while (node.Next != null)
             {

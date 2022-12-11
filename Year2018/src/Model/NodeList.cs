@@ -3,12 +3,9 @@
 namespace AdventOfCode.Year2018.Model
 {
 
-
-
-
     public class NodeList<T>
     {
-        private readonly List<Node<T>> nodeList = new List<Node<T>>();
+        private readonly List<Node<T>> nodeList = new();
 
         public Node<T> this[int index]
         {
@@ -24,8 +21,8 @@ namespace AdventOfCode.Year2018.Model
 
         public NodeList<T> GetEntryPoints()
         {
-            NodeList<T> entries = new NodeList<T>();
-            for (int i = 0; i < nodeList.Count; i++)
+            var entries = new NodeList<T>();
+            for (var i = 0; i < nodeList.Count; i++)
             {
                 if (nodeList[i].Parents.Count == 0)
                 {
@@ -37,7 +34,7 @@ namespace AdventOfCode.Year2018.Model
 
         public void Add(NodeList<T> nodes)
         {
-            for (int i = 0; i < nodes.Count; i++)
+            for (var i = 0; i < nodes.Count; i++)
             {
                 if (!Contains(nodes[i]))
                 {
@@ -53,7 +50,7 @@ namespace AdventOfCode.Year2018.Model
 
         public Node<T>? Get(string name)
         {
-            for (int i = 0; i < nodeList.Count; i++)
+            for (var i = 0; i < nodeList.Count; i++)
             {
                 if (nodeList[i].Name.Equals(name))
                 {
@@ -65,8 +62,8 @@ namespace AdventOfCode.Year2018.Model
 
         public bool Contains(string nodeName)
         {
-            Node<T> node = new Node<T>(nodeName);
-            for (int i = 0; i < nodeList.Count; i++)
+            var node = new Node<T>(nodeName);
+            for (var i = 0; i < nodeList.Count; i++)
             {
                 if (nodeList.Contains(node))
                 {
@@ -83,7 +80,7 @@ namespace AdventOfCode.Year2018.Model
 
         public bool Contains(NodeList<T> nodes)
         {
-            for (int i = 0; i < nodes.Count; i++)
+            for (var i = 0; i < nodes.Count; i++)
             {
                 if (!Contains(nodes[i]))
                 {
@@ -106,8 +103,8 @@ namespace AdventOfCode.Year2018.Model
 
         public override string ToString()
         {
-            string result = "";
-            for (int i = 0; i < nodeList.Count; i++)
+            var result = "";
+            for (var i = 0; i < nodeList.Count; i++)
             {
                 result += "," + nodeList[i];
             }

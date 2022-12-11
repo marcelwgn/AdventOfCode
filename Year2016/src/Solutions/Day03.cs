@@ -1,9 +1,5 @@
 ﻿using AdventOfCode.Common;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -13,15 +9,15 @@ namespace AdventOfCode.Year2016.Solutions
 
         public static int FirstProblem(int[][] data)
         {
-            return data.Where(x => IsValidTriangle(x)).Count();
+            return data.Where(IsValidTriangle).Count();
         }
 
         public static int SecondProblem(int[][] data)
         {
-            int validCount = 0;
-            for (int i = 0; i < data.Length - 2; i += 3)
+            var validCount = 0;
+            for (var i = 0; i < data.Length - 2; i += 3)
             {
-                for (int j = 0; j < data[i].Length; j++)
+                for (var j = 0; j < data[i].Length; j++)
                 {
                     if (IsValidTriangle(new int[] { data[i][j], data[i + 1][j], data[i + 2][j] }))
                     {

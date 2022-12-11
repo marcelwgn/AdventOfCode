@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2022.Solutions
 {
@@ -37,12 +34,12 @@ namespace AdventOfCode.Year2022.Solutions
                 var fromStack = stacks[from];
                 var toStack = stacks[to];
                 var tempStack = new LinkedList<char>();
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
                     tempStack.AddLast(fromStack.Last());
                     fromStack.RemoveLast();
                 }
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
                     if (keepOrder)
                     {
@@ -65,7 +62,7 @@ namespace AdventOfCode.Year2022.Solutions
         {
             var stacks = new Stacks();
 
-            for (int i = 0; i < rows.Length; i++)
+            for (var i = 0; i < rows.Length; i++)
             {
                 if (!rows[i].Contains('['))
                 {
@@ -73,7 +70,7 @@ namespace AdventOfCode.Year2022.Solutions
                 }
 
                 var column = 0;
-                for (int j = 0; j < rows[i].Length; j += 4)
+                for (var j = 0; j < rows[i].Length; j += 4)
                 {
                     if (rows[i][j] == '[')
                     {
@@ -89,7 +86,7 @@ namespace AdventOfCode.Year2022.Solutions
         {
             return CoreAlgorithm(items, false);
         }
-        
+
         public static string SecondProblem(string[] items)
         {
             return CoreAlgorithm(items, true);
@@ -98,9 +95,9 @@ namespace AdventOfCode.Year2022.Solutions
         private static string CoreAlgorithm(string[] items, bool moveKeepOrder)
         {
             var stacks = CreateStack(items);
-            var moveSetEntry = Array.FindIndex(items, x => string.IsNullOrEmpty(x));
+            var moveSetEntry = Array.FindIndex(items, string.IsNullOrEmpty);
 
-            for (int i = moveSetEntry + 1; i < items.Length; i++)
+            for (var i = moveSetEntry + 1; i < items.Length; i++)
             {
                 var commands = items[i].Split(' ');
                 var count = int.Parse(commands[1]);
@@ -110,7 +107,7 @@ namespace AdventOfCode.Year2022.Solutions
             }
 
             var answer = "";
-            for (int i = 0; i < stacks.Count; i++)
+            for (var i = 0; i < stacks.Count; i++)
             {
                 answer += stacks[i];
             }

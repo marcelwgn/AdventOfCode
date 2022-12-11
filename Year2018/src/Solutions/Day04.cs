@@ -8,17 +8,17 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static List<Guard> Convert(string[] data)
         {
-            GuardEvent[] events = new GuardEvent[data.Length];
+            var events = new GuardEvent[data.Length];
             Array.Sort(data);
 
-            List<Guard> guards = new List<Guard>();
+            var guards = new List<Guard>();
 
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 events[i] = new GuardEvent(data[i]);
                 if (events[i].GuardId > -1)
                 {
-                    bool found = false;
+                    var found = false;
                     guards.ForEach(delegate (Guard guard)
                     {
                         if (guard.Id == events[i].GuardId)
@@ -33,11 +33,11 @@ namespace AdventOfCode.Year2018.Solutions
                 }
             }
 
-            DateTime lastEvent = new DateTime();
-            int currentId = -1;
-            for (int i = 0; i < events.Length; i++)
+            var lastEvent = new DateTime();
+            var currentId = -1;
+            for (var i = 0; i < events.Length; i++)
             {
-                GuardEvent current = events[i];
+                var current = events[i];
                 if (current.GuardId > -1)
                 {
                     currentId = current.GuardId;
@@ -53,8 +53,8 @@ namespace AdventOfCode.Year2018.Solutions
                 if (current.IsSleepEnd)
                 {
                     //Finding right guard:
-                    Guard guard = guards[0];
-                    for (int guardIndex = 0; guardIndex < guards.Count; guardIndex++)
+                    var guard = guards[0];
+                    for (var guardIndex = 0; guardIndex < guards.Count; guardIndex++)
                     {
                         if (guards[guardIndex].Id == currentId)
                         {
@@ -73,16 +73,16 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int FirstProblem(List<Guard> guards)
         {
-            Guard mostSlept = guards[0];
-            for (int i = 0; i < guards.Count; i++)
+            var mostSlept = guards[0];
+            for (var i = 0; i < guards.Count; i++)
             {
                 if (guards[i].MinutesSlept > mostSlept.MinutesSlept)
                 {
                     mostSlept = guards[i];
                 }
             }
-            int highestMinuteIndex = 0;
-            for (int i = 0; i < mostSlept.SleepingMinutes.Length; i++)
+            var highestMinuteIndex = 0;
+            for (var i = 0; i < mostSlept.SleepingMinutes.Length; i++)
             {
                 if (mostSlept.SleepingMinutes[i] > mostSlept.SleepingMinutes[highestMinuteIndex])
                 {
@@ -92,17 +92,16 @@ namespace AdventOfCode.Year2018.Solutions
             return mostSlept.Id * highestMinuteIndex;
         }
 
-
         public static int SecondProblem(List<Guard> guards)
         {
-            Guard mostSlept = guards[0];
-            int highestMinuteIndex = 0;
+            var mostSlept = guards[0];
+            var highestMinuteIndex = 0;
 
-            for (int i = 0; i < guards.Count; i++)
+            for (var i = 0; i < guards.Count; i++)
             {
                 //Finding minute with highest sleep count
-                int localMax = 0;
-                for (int j = 0; j < guards[i].SleepingMinutes.Length; j++)
+                var localMax = 0;
+                for (var j = 0; j < guards[i].SleepingMinutes.Length; j++)
                 {
                     if (guards[i].SleepingMinutes[j] > guards[i].SleepingMinutes[localMax])
                     {
@@ -131,16 +130,16 @@ namespace AdventOfCode.Year2018.Solutions
 
         public GuardEvent(string eventString)
         {
-            string date = eventString.Substring(1, 16);
+            var date = eventString.Substring(1, 16);
             date = date.Replace("-", "/");
 
             TimeEvent = DateTime.Parse(date);
 
-            string actualEvent = eventString[19..];
+            var actualEvent = eventString[19..];
             if (actualEvent.IndexOf("#") > -1)
             {
-                string guardIdWithHashtag = actualEvent.Split(" ")[1];
-                string guardId = guardIdWithHashtag[1..];
+                var guardIdWithHashtag = actualEvent.Split(" ")[1];
+                var guardId = guardIdWithHashtag[1..];
                 GuardId = int.Parse(guardId);
             }
             else
@@ -173,21 +172,21 @@ namespace AdventOfCode.Year2018.Solutions
         public void CalculateSleepTimes(DateTime start, DateTime end)
         {
             //Calculating minutes slept
-            int minutes = (int)Math.Round(end.Subtract(start).TotalMinutes);
+            var minutes = (int)Math.Round(end.Subtract(start).TotalMinutes);
 
-            int minuteStart = start.Minute;
+            var minuteStart = start.Minute;
             if (start.Hour != 0)
             {
                 minuteStart = 0;
             }
 
-            int minuteEnd = end.Minute;
+            var minuteEnd = end.Minute;
             if (end.Hour != 0)
             {
                 minuteEnd = 0;
             }
 
-            for (int minuteIndex = minuteStart; minuteIndex < minuteEnd; minuteIndex++)
+            for (var minuteIndex = minuteStart; minuteIndex < minuteEnd; minuteIndex++)
             {
                 SleepingMinutes[minuteIndex]++;
             }

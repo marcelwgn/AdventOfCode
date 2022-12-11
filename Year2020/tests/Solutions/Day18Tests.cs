@@ -1,5 +1,4 @@
-﻿using System.Collections.Specialized;
-using AdventOfCode.Year2020.Solutions;
+﻿using AdventOfCode.Year2020.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2020.Tests.Solutions

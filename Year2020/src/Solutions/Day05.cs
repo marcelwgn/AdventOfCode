@@ -6,14 +6,14 @@ namespace AdventOfCode.Year2020.Solutions
     {
         public static int FirstProblem(string[] data)
         {
-            return data.Max(pass => GetBoardingPassID(pass));
+            return data.Max(GetBoardingPassID);
         }
 
         public static int SecondProblem(string[] data)
         {
-            var seatIDs = data.Select(item => GetBoardingPassID(item)).ToList();
+            var seatIDs = data.Select(GetBoardingPassID).ToList();
             seatIDs.Sort();
-            for (int i = 0; i < seatIDs.Count - 1; i++)
+            for (var i = 0; i < seatIDs.Count - 1; i++)
             {
                 if (seatIDs[i] == seatIDs[i + 1] - 2)
                 {
@@ -25,10 +25,10 @@ namespace AdventOfCode.Year2020.Solutions
 
         public static int GetBoardingPassID(string data)
         {
-            int row = 0;
-            int rowModifier = 64;
+            var row = 0;
+            var rowModifier = 64;
 
-            for (int i = 0; i < 7; i++)
+            for (var i = 0; i < 7; i++)
             {
                 if (data[i] == 'B')
                 {
@@ -37,9 +37,9 @@ namespace AdventOfCode.Year2020.Solutions
                 rowModifier /= 2;
             }
 
-            int column = 0;
-            int columnModifier = 4;
-            for (int i = 7; i < 10; i++)
+            var column = 0;
+            var columnModifier = 4;
+            for (var i = 7; i < 10; i++)
             {
                 if (data[i] == 'R')
                 {

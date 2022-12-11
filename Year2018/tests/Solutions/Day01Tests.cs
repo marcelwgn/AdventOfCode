@@ -11,7 +11,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             string[] data = { "1", "-2", "3" };
 
-            int[] dataConverted = Day01.Convert(data);
+            var dataConverted = Day01.Convert(data);
 
             Assert.AreEqual(1, dataConverted[0]);
             Assert.AreEqual(-2, dataConverted[1]);
@@ -23,7 +23,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { 1, 1, 1 };
 
-            int result = Day01.FirstProblem(data);
+            var result = Day01.FirstProblem(data);
 
             Assert.AreEqual(3, result);
         }
@@ -33,7 +33,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { 1, 1, -2 };
 
-            int result = Day01.FirstProblem(data);
+            var result = Day01.FirstProblem(data);
 
             Assert.AreEqual(0, result);
         }
@@ -43,7 +43,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { -1, -2, -3 };
 
-            int result = Day01.FirstProblem(data);
+            var result = Day01.FirstProblem(data);
 
             Assert.AreEqual(-6, result);
         }
@@ -53,7 +53,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { 1, -2, 3, 1 };
 
-            int result = Day01.SecondProblem(data);
+            var result = Day01.SecondProblem(data);
 
             Assert.AreEqual(2, result);
         }
@@ -63,7 +63,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { 1, -1 };
 
-            int result = Day01.SecondProblem(data);
+            var result = Day01.SecondProblem(data);
 
             Assert.AreEqual(0, result);
         }
@@ -73,7 +73,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { 3, 3, 4, -2, -4 };
 
-            int result = Day01.SecondProblem(data);
+            var result = Day01.SecondProblem(data);
 
             Assert.AreEqual(10, result);
         }
@@ -83,7 +83,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { -6, 3, 8, 5, -6 };
 
-            int result = Day01.SecondProblem(data);
+            var result = Day01.SecondProblem(data);
 
             Assert.AreEqual(5, result);
         }
@@ -93,7 +93,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             int[] data = { 7, 7, -2, -7, -4 };
 
-            int result = Day01.SecondProblem(data);
+            var result = Day01.SecondProblem(data);
 
             Assert.AreEqual(14, result);
         }

@@ -10,7 +10,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
         public void VerifyFirstProblem()
         {
             var data = new long[30];
-            for (int i = 1; i < 26; i++)
+            for (var i = 1; i < 26; i++)
             {
                 data[i - 1] = i;
             }
@@ -27,7 +27,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
         public void VerifySecondProblemOrdered()
         {
             var data = new long[30];
-            for (int i = 1; i < 26; i++)
+            for (var i = 1; i < 26; i++)
             {
                 data[i - 1] = i;
             }
@@ -44,7 +44,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
         public void VerifySecondProblemUnOrdered()
         {
             var data = new long[30];
-            for (int i = 1; i < 26; i++)
+            for (var i = 1; i < 26; i++)
             {
                 data[i - 1] = i;
             }

@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Transactions;
-using AdventOfCode.Year2020.Solutions;
+﻿using AdventOfCode.Year2020.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace AdventOfCode.Year2020.Tests.Solutions
 {
@@ -104,7 +103,6 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 (2, 2, 1, -1),
                 (1, 3, 1, -1),
 
-
                 (0, 1, -1, 0),
                 (2, 2, -1, 0),
                 (1, 3, -1, 0),
@@ -118,7 +116,6 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 (0, 1, 1, 0),
                 (2, 2, 1, 0),
                 (1, 3, 1, 0),
-
 
                 (0, 1, -1, 1),
                 (2, 2, -1, 1),

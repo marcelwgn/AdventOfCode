@@ -5,7 +5,7 @@
 
         public static int FirstProblem(int[] data)
         {
-            int sum = 0;
+            var sum = 0;
             foreach (var mass in data)
             {
                 sum += CalculateFuelFirstProblem(mass);
@@ -15,7 +15,7 @@
 
         public static int SecondProblem(int[] data)
         {
-            int sum = 0;
+            var sum = 0;
             foreach (var mass in data)
             {
                 sum += CalculateFuelSecondProblem(mass);
@@ -30,8 +30,8 @@
 
         public static int CalculateFuelSecondProblem(int mass)
         {
-            int fuelRequired = 0;
-            int prevFuel = CalculateFuelFirstProblem(mass);
+            var fuelRequired = 0;
+            var prevFuel = CalculateFuelFirstProblem(mass);
             while (prevFuel > 0)
             {
                 fuelRequired += prevFuel;

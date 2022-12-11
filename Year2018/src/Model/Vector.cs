@@ -21,7 +21,6 @@ namespace AdventOfCode.Year2018.Model
             Name = name;
         }
 
-
         public int GetDistance(int xTest, int yTest)
         {
             return Math.Abs(X - xTest) + Math.Abs(Y - yTest);

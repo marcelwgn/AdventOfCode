@@ -1,6 +1,6 @@
-﻿using System;
-using AdventOfCode.Common;
+﻿using AdventOfCode.Common;
 using AdventOfCode.Year2018.Model;
+using System;
 
 namespace AdventOfCode.Year2018.Solutions
 {
@@ -8,14 +8,14 @@ namespace AdventOfCode.Year2018.Solutions
     {
         public static ChangingVector[] Convert(string[] data)
         {
-            ChangingVector[] vectors = new ChangingVector[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            var vectors = new ChangingVector[data.Length];
+            for (var i = 0; i < data.Length; i++)
             {
-                string result = data[i][10..];
+                var result = data[i][10..];
                 result = result.Replace(" velocity=", "");
                 result = result.Replace(">", "");
                 result = result.Replace("<", ",");
-                int[] split = Converters.GetNumbers(result, ",");
+                var split = Converters.GetNumbers(result, ",");
                 vectors[i] = new ChangingVector(split[0], split[1], split[2], split[3]);
             }
 
@@ -25,9 +25,9 @@ namespace AdventOfCode.Year2018.Solutions
         public static void PrintVectors(int maxValue, int offset, ChangingVector[] vectors)
         {
 #pragma warning disable CA1814
-            bool[,] field = new bool[maxValue - offset, maxValue - offset];
+            var field = new bool[maxValue - offset, maxValue - offset];
 #pragma warning restore CA1814
-            for (int i = 0; i < vectors.Length; i++)
+            for (var i = 0; i < vectors.Length; i++)
             {
                 try
                 {
@@ -37,13 +37,13 @@ namespace AdventOfCode.Year2018.Solutions
                 catch (IndexOutOfRangeException) { }
             }
 
-            string line = "";
+            var line = "";
 
-            int gridSize = (int)Math.Sqrt(field.Length);
+            var gridSize = (int)Math.Sqrt(field.Length);
 
-            for (int i = 0; i < gridSize; i++)
+            for (var i = 0; i < gridSize; i++)
             {
-                for (int j = 0; j < gridSize; j++)
+                for (var j = 0; j < gridSize; j++)
                 {
                     if (field[j, i])
                     {
@@ -60,70 +60,66 @@ namespace AdventOfCode.Year2018.Solutions
 
         }
 
-
         public static bool FirstProblem(ChangingVector[] vectors)
         {
-            for (int i = 0; i < vectors.Length; i++)
+            for (var i = 0; i < vectors.Length; i++)
             {
                 vectors[i].GoNSteps(10518);
             }
 
-            int maxValue = 0;
-            int offset = 0;
+            var maxValue = 0;
+            var offset = 0;
 
-            for (int i = 0; i < vectors.Length; i++)
+            for (var i = 0; i < vectors.Length; i++)
             {
-                int maxVector = Math.Max(vectors[i].Location.X, vectors[i].Location.Y);
+                var maxVector = Math.Max(vectors[i].Location.X, vectors[i].Location.Y);
                 maxValue = Math.Max(maxValue, maxVector);
 
-                int minVector = Math.Min(vectors[i].Location.X, vectors[i].Location.Y);
+                var minVector = Math.Min(vectors[i].Location.X, vectors[i].Location.Y);
                 offset = Math.Min(offset, minVector);
             }
-            for (int iterations = 0; iterations < 10; iterations++)
+            for (var iterations = 0; iterations < 10; iterations++)
             {
 
                 PrintVectors(maxValue, offset, vectors);
-                for (int i = 0; i < vectors.Length; i++)
+                for (var i = 0; i < vectors.Length; i++)
                 {
                     vectors[i].GoStep();
                 }
                 Console.WriteLine("---------------");
             }
 
-
             return true;
         }
 
-
         public static bool SecondProblem(ChangingVector[] vectors)
         {
-            for (int i = 0; i < vectors.Length; i++)
+            for (var i = 0; i < vectors.Length; i++)
             {
                 vectors[i].GoNSteps(10518);
             }
 
-            int maxValue = 0;
-            int offset = 0;
+            var maxValue = 0;
+            var offset = 0;
 
-            for (int i = 0; i < vectors.Length; i++)
+            for (var i = 0; i < vectors.Length; i++)
             {
-                int maxVector = Math.Max(vectors[i].Location.X, vectors[i].Location.Y);
+                var maxVector = Math.Max(vectors[i].Location.X, vectors[i].Location.Y);
                 maxValue = Math.Max(maxValue, maxVector);
 
-                int minVector = Math.Min(vectors[i].Location.X, vectors[i].Location.Y);
+                var minVector = Math.Min(vectors[i].Location.X, vectors[i].Location.Y);
                 offset = Math.Min(offset, minVector);
             }
-            for (int iterations = 0; iterations < 10; iterations++)
+            for (var iterations = 0; iterations < 10; iterations++)
             {
 
                 PrintVectors(maxValue, offset, vectors);
-                for (int i = 0; i < vectors.Length; i++)
+                for (var i = 0; i < vectors.Length; i++)
                 {
                     vectors[i].GoStep();
                 }
                 Console.WriteLine("---------------          " + (iterations + 10500));
             }
-
 
             return true;
         }

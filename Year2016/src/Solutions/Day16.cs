@@ -1,7 +1,5 @@
-﻿using AdventOfCode.Common;
-using System;
+﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -31,7 +29,7 @@ namespace AdventOfCode.Year2016.Solutions
 
         public static byte[] CalculatePattern(byte[] input)
         {
-            for (int i = 0; i < input.Length; i += 2)
+            for (var i = 0; i < input.Length; i += 2)
             {
                 input[i / 2] = input[i] != input[i + 1] ? (byte)0 : (byte)1;
             }
@@ -50,7 +48,7 @@ namespace AdventOfCode.Year2016.Solutions
             while (currentLastIndex < desiredLength - 1)
             {
                 target[currentLastIndex + 1] = 0;
-                for (int i = 0; i < Math.Min(currentLastIndex, desiredLength - currentLastIndex - 1); i++)
+                for (var i = 0; i < Math.Min(currentLastIndex, desiredLength - currentLastIndex - 1); i++)
                 {
                     target[i + currentLastIndex + 1] = target[currentLastIndex - i - 1] == 0 ? (byte)1 : (byte)0;
                 }

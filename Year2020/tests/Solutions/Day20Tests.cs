@@ -105,9 +105,9 @@ namespace AdventOfCode.Year2020.Tests.Solutions
 
             var tiles = Day20.GetTiles(data);
 
-            Assert.AreEqual(1, Day20.GetNeighbors(tiles[0],tiles).Count());
-            Assert.AreEqual(1, Day20.GetNeighbors(tiles[1],tiles).Count());
-            Assert.AreEqual(0, Day20.GetNeighbors(tiles[2],tiles).Count());
+            Assert.AreEqual(1, Day20.GetNeighbors(tiles[0], tiles).Count());
+            Assert.AreEqual(1, Day20.GetNeighbors(tiles[1], tiles).Count());
+            Assert.AreEqual(0, Day20.GetNeighbors(tiles[2], tiles).Count());
         }
 
         [TestMethod]

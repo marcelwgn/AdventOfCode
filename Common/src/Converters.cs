@@ -7,8 +7,8 @@ namespace AdventOfCode.Common
     {
         public static int[] ToIntArray(this string[] data)
         {
-            int[] numbers = new int[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            var numbers = new int[data.Length];
+            for (var i = 0; i < data.Length; i++)
             {
                 try
                 {
@@ -24,8 +24,8 @@ namespace AdventOfCode.Common
 
         public static long[] ToLongArray(this string[] data)
         {
-            long[] numbers = new long[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            var numbers = new long[data.Length];
+            for (var i = 0; i < data.Length; i++)
             {
                 try
                 {

@@ -1,5 +1,4 @@
-﻿using AdventOfCode.Year2018.Model;
-using AdventOfCode.Year2018.Solutions;
+﻿using AdventOfCode.Year2018.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2018.Tests.Solutions
@@ -19,8 +18,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                       "5, 5",
                       "8, 9"
                       };
-            System.Tuple<Vector[], string[,]> converted = Day06.Convert(data);
-            int value = Day06.FirstProblem(converted);
+            var converted = Day06.Convert(data);
+            var value = Day06.FirstProblem(converted);
 
             Assert.AreEqual(17, value);
 
@@ -36,8 +35,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                       "5, 5",
                       "8, 9"
                       };
-            System.Tuple<Vector[], string[,]> converted = Day06.Convert(data);
-            int value = Day06.SecondProblem(converted);
+            var converted = Day06.Convert(data);
+            var value = Day06.SecondProblem(converted);
 
             Assert.AreEqual(160000, value);
 

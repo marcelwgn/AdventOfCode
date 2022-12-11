@@ -20,9 +20,9 @@ namespace AdventOfCode.Year2020.Solutions
         private static HashSet<(int X, int Y, int Z, int W)> ProcessProblem(string[] data, bool useW)
         {
             var dictionary = new HashSet<(int X, int Y, int Z, int W)>();
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
-                for (int j = 0; j < data[i].Length; j++)
+                for (var j = 0; j < data[i].Length; j++)
                 {
                     if (data[i][j] == '#')
                     {
@@ -31,7 +31,7 @@ namespace AdventOfCode.Year2020.Solutions
                 }
             }
 
-            for (int i = 0; i < 6; i++)
+            for (var i = 0; i < 6; i++)
             {
                 dictionary = Transform(dictionary, useW);
             }
@@ -57,15 +57,15 @@ namespace AdventOfCode.Year2020.Solutions
 
             var newValues = new HashSet<(int X, int Y, int Z, int W)>();
 
-            for (int i = xStart - 1; i <= xEnd + 1; i++)
+            for (var i = xStart - 1; i <= xEnd + 1; i++)
             {
-                for (int j = yStart - 1; j <= yEnd + 1; j++)
+                for (var j = yStart - 1; j <= yEnd + 1; j++)
                 {
-                    for (int k = zStart - 1; k <= zEnd + 1; k++)
+                    for (var k = zStart - 1; k <= zEnd + 1; k++)
                     {
                         if (useW)
                         {
-                            for (int l = wStart - 1; l <= wEnd + 1; l++)
+                            for (var l = wStart - 1; l <= wEnd + 1; l++)
                             {
                                 ProcessCount(newValues, (i, j, k, l),
                                     NeighborCount((i, j, k, l)),
@@ -86,16 +86,16 @@ namespace AdventOfCode.Year2020.Solutions
             int NeighborCount((int X, int Y, int Z, int W) position)
             {
                 // We might find one item: the coordinate its self; Account for that now.
-                int count = active.Contains(position) ? -1 : 0;
-                for (int i = position.X - 1; i <= position.X + 1; i++)
+                var count = active.Contains(position) ? -1 : 0;
+                for (var i = position.X - 1; i <= position.X + 1; i++)
                 {
-                    for (int j = position.Y - 1; j <= position.Y + 1; j++)
+                    for (var j = position.Y - 1; j <= position.Y + 1; j++)
                     {
-                        for (int k = position.Z - 1; k <= position.Z + 1; k++)
+                        for (var k = position.Z - 1; k <= position.Z + 1; k++)
                         {
                             if (useW)
                             {
-                                for (int l = position.W - 1; l <= position.W + 1; l++)
+                                for (var l = position.W - 1; l <= position.W + 1; l++)
                                 {
                                     if (active.Contains((i, j, k, l)))
                                     {

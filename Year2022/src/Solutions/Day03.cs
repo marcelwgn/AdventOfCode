@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode.Year2022.Solutions
@@ -31,7 +30,7 @@ namespace AdventOfCode.Year2022.Solutions
         public static long SecondProblem(string[] items)
         {
             long score = 0;
-            for (int i = 0; i < items.Length; i += 3)
+            for (var i = 0; i < items.Length; i += 3)
             {
                 var firstItems = items[i];
                 var secondItems = items[i + 1];

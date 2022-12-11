@@ -13,12 +13,12 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static Tuple<string, bool> Polymer(string data)
         {
-            bool changed = false;
-            for (int i = 97; i < 123; i++)
+            var changed = false;
+            for (var i = 97; i < 123; i++)
             {
-                char current = (char)i;
-                char curUpper = char.ToUpper(current);
-                string act = new string(new char[] { current, curUpper });
+                var current = (char)i;
+                var curUpper = char.ToUpper(current);
+                var act = new string(new char[] { current, curUpper });
 
                 if (data.IndexOf(act) > -1)
                 {
@@ -42,9 +42,9 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int FirstProblem(string data)
         {
-            Tuple<string, bool> result = Polymer(data);
+            var result = Polymer(data);
 
-            bool changed = result.Item2;
+            var changed = result.Item2;
 
             while (changed)
             {
@@ -57,16 +57,16 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int SecondProblem(string data)
         {
-            int result = data.Length;
+            var result = data.Length;
             Parallel.For(97, 123, index =>
             {
-                char current = (char)index;
-                char curUpper = char.ToUpper(current);
+                var current = (char)index;
+                var curUpper = char.ToUpper(current);
 
-                string newData = data.Replace(new string(new char[] { current }), "");
+                var newData = data.Replace(new string(new char[] { current }), "");
                 newData = newData.Replace(new string(new char[] { curUpper }), "");
 
-                int foldingTry = FirstProblem(newData);
+                var foldingTry = FirstProblem(newData);
                 if (result > foldingTry)
                 {
                     result = foldingTry;

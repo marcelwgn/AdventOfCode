@@ -36,7 +36,6 @@ namespace AdventOfCode.Year2018.Model
             Data = data;
         }
 
-
         public void AddParent(Node<T> nodeToAdd)
         {
             Parents.Add(nodeToAdd);
@@ -84,9 +83,9 @@ namespace AdventOfCode.Year2018.Model
 
         public static bool operator ==(Node<T>? left, Node<T>? right)
         {
-            if (ReferenceEquals(left, null))
+            if (left is null)
             {
-                return ReferenceEquals(right, null);
+                return right is null;
             }
 
             return left.Equals(right);

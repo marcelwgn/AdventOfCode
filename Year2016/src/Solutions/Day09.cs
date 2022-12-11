@@ -1,8 +1,4 @@
-﻿using AdventOfCode.Common;
-using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace AdventOfCode.Year2016.Solutions
+﻿namespace AdventOfCode.Year2016.Solutions
 {
     public static class Day09
     {
@@ -19,7 +15,7 @@ namespace AdventOfCode.Year2016.Solutions
         public static long Uncompress(string input, bool recursive)
         {
             var result = 0L;
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 var currentChar = input[i];
                 if (currentChar == '(')
@@ -31,12 +27,12 @@ namespace AdventOfCode.Year2016.Solutions
                     var repeatCount = int.Parse(input[(split + 1)..endPosition]);
 
                     var repeatedString = input[(endPosition + 1)..(endPosition + stringLength + 1)];
-                    result += recursive ? Uncompress(input[(endPosition+1)..(endPosition + stringLength + 1)], true) * repeatCount : repeatCount * repeatedString.Length;
+                    result += recursive ? Uncompress(input[(endPosition + 1)..(endPosition + stringLength + 1)], true) * repeatCount : repeatCount * repeatedString.Length;
                     i = endPosition + stringLength;
                 }
                 else
                 {
-                    result ++;
+                    result++;
                 }
             }
             return result;

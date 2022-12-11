@@ -29,7 +29,7 @@
 
             var split = busLines.Split(",");
             var busNumbers = new long[split.Length];
-            for (int i = 0; i < split.Length; i++)
+            for (var i = 0; i < split.Length; i++)
             {
                 if (int.TryParse(split[i], out var parsed))
                 {
@@ -37,8 +37,8 @@
                 }
             }
 
-            long nProd = busNumbers[0]; // 'N' defined as product of all 'n_i' aka bus numbers
-            for (int i = 1; i < busNumbers.Length; i++)
+            var nProd = busNumbers[0]; // 'N' defined as product of all 'n_i' aka bus numbers
+            for (var i = 1; i < busNumbers.Length; i++)
             {
                 if (busNumbers[i] != 0)
                 {
@@ -46,7 +46,7 @@
                 }
             }
 
-            long[] nProds = new long[busNumbers.Length]; // 'N_i' defined as 'N / n_i'
+            var nProds = new long[busNumbers.Length]; // 'N_i' defined as 'N / n_i'
             for (var i = 0; i < busNumbers.Length; i++)
             {
                 if (busNumbers[i] != 0)
@@ -55,8 +55,8 @@
                 }
             }
 
-            long[] remainders = new long[busNumbers.Length]; // 'b_i' defined as offset to start aka wanted remainder
-            for (int i = 0; i < busNumbers.Length; i++)
+            var remainders = new long[busNumbers.Length]; // 'b_i' defined as offset to start aka wanted remainder
+            for (var i = 0; i < busNumbers.Length; i++)
             {
                 if (busNumbers[i] != 0)
                 {
@@ -64,12 +64,12 @@
                 }
             }
 
-            int[] xVals = new int[busNumbers.Length]; // 'x_i' defined as smallest number such that 'N_i * x_i % b_i == 1'
-            for (int i = 0; i < busNumbers.Length; i++)
+            var xVals = new int[busNumbers.Length]; // 'x_i' defined as smallest number such that 'N_i * x_i % b_i == 1'
+            for (var i = 0; i < busNumbers.Length; i++)
             {
                 if (busNumbers[i] != 0)
                 {
-                    int j = 1;
+                    var j = 1;
                     while (true)
                     {
                         if (nProds[i] * j % busNumbers[i] == 1)
@@ -84,7 +84,7 @@
 
             long total = 0;
             // Solution is sum of 'b_i * N_i * x_i % N'
-            for (int i = 0; i < busNumbers.Length; i++)
+            for (var i = 0; i < busNumbers.Length; i++)
             {
                 if (busNumbers[i] != 0)
                 {

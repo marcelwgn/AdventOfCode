@@ -8,10 +8,10 @@ namespace AdventOfCode.Year2020.Solutions
         {
             Array.Sort(data);
 
-            int prevIndex = 0;
-            int oneJumps = 0;
-            int threeJumps = 1;
-            for (int i = 0; i < data.Length; i++)
+            var prevIndex = 0;
+            var oneJumps = 0;
+            var threeJumps = 1;
+            for (var i = 0; i < data.Length; i++)
             {
                 if (data[i] - prevIndex == 3)
                 {
@@ -42,7 +42,7 @@ namespace AdventOfCode.Year2020.Solutions
             {
                 return cacheArray[index];
             }
-            for (int i = 0; i < predecessors.Length; i++)
+            for (var i = 0; i < predecessors.Length; i++)
             {
                 if (predecessors[i] == -1)
                 {

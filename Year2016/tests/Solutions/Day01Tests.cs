@@ -1,10 +1,5 @@
 ﻿using AdventOfCode.Year2016.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Tests.Solutions
 {

@@ -10,7 +10,7 @@ namespace AdventOfCode.Year2020.Solutions
             var mask = data[0].Split(" ")[2].ToCharArray();
             var result = new Dictionary<int, long>();
 
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 if (data[i].Contains("mask"))
                 {
@@ -24,7 +24,7 @@ namespace AdventOfCode.Year2020.Solutions
 
                     // Calculate number mask
                     var numBin = Convert.ToString(num, 2).PadLeft(36, '0').ToCharArray();
-                    for (int j = 0; j < mask.Length; j++)
+                    for (var j = 0; j < mask.Length; j++)
                     {
                         if (mask[j] != 'X')
                         {
@@ -32,7 +32,7 @@ namespace AdventOfCode.Year2020.Solutions
                         }
                     }
 
-                    long numSum = ConvertToLong(numBin);
+                    var numSum = ConvertToLong(numBin);
 
                     if (!result.ContainsKey(address))
                     {
@@ -58,7 +58,7 @@ namespace AdventOfCode.Year2020.Solutions
             var mask = data[0].Split(" ")[2].ToCharArray();
             var result = new Dictionary<long, long>();
 
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 if (data[i].Contains("mask"))
                 {
@@ -72,7 +72,7 @@ namespace AdventOfCode.Year2020.Solutions
 
                     // Get address mask
                     var addressBin = Convert.ToString(address, 2).PadLeft(36, '0').ToCharArray();
-                    for (int j = 0; j < mask.Length; j++)
+                    for (var j = 0; j < mask.Length; j++)
                     {
                         if (mask[j] != '0')
                         {
@@ -82,10 +82,10 @@ namespace AdventOfCode.Year2020.Solutions
 
                     // Get all possible addresses
                     var addresses = new List<string>() { new string(addressBin) };
-                    for (int bitIndex = 0; bitIndex < 36; bitIndex++)
+                    for (var bitIndex = 0; bitIndex < 36; bitIndex++)
                     {
                         var currentCount = addresses.Count;
-                        for (int addressIndex = 0; addressIndex < currentCount; addressIndex++)
+                        for (var addressIndex = 0; addressIndex < currentCount; addressIndex++)
                         {
                             if (addresses[addressIndex][bitIndex] == 'X')
                             {
@@ -126,7 +126,7 @@ namespace AdventOfCode.Year2020.Solutions
         {
             long numSum = 0;
             long multipleOfTwo = 1;
-            for (int j = numBin.Length - 1; j >= 0; j--)
+            for (var j = numBin.Length - 1; j >= 0; j--)
             {
                 if (numBin[j] == '1')
                 {

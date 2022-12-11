@@ -8,9 +8,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInTwiceTestContainsALetterTwice()
         {
-            string test = "bababc";
+            var test = "bababc";
 
-            bool result = test.ContainsLetterExactlyTwice();
+            var result = test.ContainsLetterExactlyTwice();
 
             Assert.IsTrue(result);
         }
@@ -18,9 +18,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInTwiceTestContainsALetterTwiceAtEnd()
         {
-            string test = "bacc";
+            var test = "bacc";
 
-            bool result = test.ContainsLetterExactlyTwice();
+            var result = test.ContainsLetterExactlyTwice();
 
             Assert.IsTrue(result);
         }
@@ -28,9 +28,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInTwiceTestContainsNoLetterTwice()
         {
-            string test = "abcdef";
+            var test = "abcdef";
 
-            bool result = test.ContainsLetterExactlyTwice();
+            var result = test.ContainsLetterExactlyTwice();
 
             Assert.IsFalse(result);
         }
@@ -38,9 +38,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInTwiceTestContainsALetterThrice()
         {
-            string test = "aaabcdef";
+            var test = "aaabcdef";
 
-            bool result = test.ContainsLetterExactlyTwice();
+            var result = test.ContainsLetterExactlyTwice();
 
             Assert.IsFalse(result);
         }
@@ -48,9 +48,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInThriceTestContainsALetterTwice()
         {
-            string test = "abcefhiklmnnopqqrstuvwxyzz";
+            var test = "abcefhiklmnnopqqrstuvwxyzz";
 
-            bool result = test.ContainsLetterExactlyThrice();
+            var result = test.ContainsLetterExactlyThrice();
 
             Assert.IsFalse(result);
         }
@@ -58,9 +58,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInThriceTestContainsALetterThriceAtEnd()
         {
-            string test = "abcefhiklmnnopqqrstuvwxyzzz";
+            var test = "abcefhiklmnnopqqrstuvwxyzzz";
 
-            bool result = test.ContainsLetterExactlyThrice();
+            var result = test.ContainsLetterExactlyThrice();
 
             Assert.IsTrue(result);
         }
@@ -68,9 +68,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInThriceTestContainsNoLetterTwice()
         {
-            string test = "abcdef";
+            var test = "abcdef";
 
-            bool result = test.ContainsLetterExactlyThrice();
+            var result = test.ContainsLetterExactlyThrice();
 
             Assert.IsFalse(result);
         }
@@ -78,9 +78,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void LetterIsInThriceTestContainsALetterThrice()
         {
-            string test = "aaabcdef";
+            var test = "aaabcdef";
 
-            bool result = test.ContainsLetterExactlyThrice();
+            var result = test.ContainsLetterExactlyThrice();
 
             Assert.IsTrue(result);
         }
@@ -88,10 +88,10 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void NumberOfLettersDifferentTestTwoLettersDifferent()
         {
-            string first = "abcde";
-            string second = "axcye";
+            var first = "abcde";
+            var second = "axcye";
 
-            int result = first.NumberOfLettersDifferent(second);
+            var result = first.NumberOfLettersDifferent(second);
 
             Assert.AreEqual(2, result);
         }
@@ -99,10 +99,10 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void NumberOfLettersDifferentTestOneLetterDifferent()
         {
-            string first = "fghij";
-            string second = "fguij";
+            var first = "fghij";
+            var second = "fguij";
 
-            int result = first.NumberOfLettersDifferent(second);
+            var result = first.NumberOfLettersDifferent(second);
 
             Assert.AreEqual(1, result);
         }
@@ -110,10 +110,10 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void GetCommonLettersTest()
         {
-            string first = "fghij";
-            string second = "fguij";
+            var first = "fghij";
+            var second = "fguij";
 
-            string result = first.GetCommonLetters(second);
+            var result = first.GetCommonLetters(second);
 
             Assert.AreEqual("fgij", result);
         }

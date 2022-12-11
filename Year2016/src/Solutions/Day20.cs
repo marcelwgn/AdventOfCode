@@ -1,9 +1,6 @@
-﻿using AdventOfCode.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -24,7 +21,7 @@ namespace AdventOfCode.Year2016.Solutions
         {
             var intervals = GetUniqueIntervals(data.OrderBy(x => x.Start).ToArray());
             long freeIPCount = 0;
-            for (int i = 0; i < intervals.Count - 1; i++)
+            for (var i = 0; i < intervals.Count - 1; i++)
             {
                 freeIPCount += intervals[i + 1].Start - intervals[i].Finish - 1;
             }
@@ -35,7 +32,7 @@ namespace AdventOfCode.Year2016.Solutions
         public static List<(long Start, long Finish)> GetUniqueIntervals((uint Start, uint Finish)[] data)
         {
             var intervals = new List<(long Start, long Finish)>();
-            int index = 0;
+            var index = 0;
             long intervalStart = data[0].Start;
             long curMaxValue = data[0].Finish;
             while (index < data.Length - 1)

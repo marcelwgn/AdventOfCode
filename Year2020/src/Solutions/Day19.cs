@@ -14,28 +14,28 @@ namespace AdventOfCode.Year2020.Solutions
             // Get initial 0 regex
             GetRegex(0, ruleMap, regexMap);
 
-            if(part2Modifications)
+            if (part2Modifications)
             {
                 // Modifications specifically for part 2 with theoretical infinite expansion
-                regexMap[8] = $"({GetRegex(42,ruleMap,regexMap)}+)";
+                regexMap[8] = $"({GetRegex(42, ruleMap, regexMap)}+)";
 
                 var rule42 = GetRegex(42, ruleMap, regexMap);
                 var rule31 = GetRegex(31, ruleMap, regexMap);
 
-                int expansionDepth = 10;
-                string result = "(";
-                for (int i = 1; i < expansionDepth; i++)
+                var expansionDepth = 10;
+                var result = "(";
+                for (var i = 1; i < expansionDepth; i++)
                 {
                     if (i > 1)
                     {
                         result += '|';
                     }
                     result += '(';
-                    for (int j = 0; j < i; j++)
+                    for (var j = 0; j < i; j++)
                     {
                         result += rule42;
                     }
-                    for (int j = 0; j < i; j++) 
+                    for (var j = 0; j < i; j++)
                     {
                         result += rule31;
                     }
@@ -45,10 +45,10 @@ namespace AdventOfCode.Year2020.Solutions
 
                 regexMap.Remove(0);
             }
-            
+
             var regex = $"^{GetRegex(0, ruleMap, regexMap)}$";
-            int count = 0;
-            for (int i = splitIndex; i < data.Length; i++)
+            var count = 0;
+            for (var i = splitIndex; i < data.Length; i++)
             {
                 if (Regex.IsMatch(data[i], regex))
                 {
@@ -57,7 +57,6 @@ namespace AdventOfCode.Year2020.Solutions
             }
             return count;
         }
-
 
         public static Dictionary<int, string> CreateRuleMap(string[] lines)
         {
@@ -84,10 +83,10 @@ namespace AdventOfCode.Year2020.Solutions
             }
             else
             {
-                string result = "(";
+                var result = "(";
                 foreach (var part in line.Split(' '))
                 {
-                    if (int.TryParse(part, out int n))
+                    if (int.TryParse(part, out var n))
                     {
                         result += GetRegex(n, ruleMap, regexMap);
                     }

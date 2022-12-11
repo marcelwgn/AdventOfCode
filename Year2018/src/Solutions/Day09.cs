@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AdventOfCode.Year2018.Model;
+using System;
 using System.Linq;
-using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions
 {
@@ -9,26 +8,26 @@ namespace AdventOfCode.Year2018.Solutions
     {
         public static Tuple<long[], int> Convert(string[] data)
         {
-            string[] split = data[0].Split(" ");
-            long[] playerValues = new long[int.Parse(split[0])];
-            int maxCountValue = int.Parse(split[6]);
+            var split = data[0].Split(" ");
+            var playerValues = new long[int.Parse(split[0])];
+            var maxCountValue = int.Parse(split[6]);
 
             return new Tuple<long[], int>(playerValues, maxCountValue);
         }
 
         public static long FirstProblem(Tuple<long[], int> data)
         {
-            long[] playerScores = data.Item1;
+            var playerScores = data.Item1;
 
-            int maxScore = data.Item2;
+            var maxScore = data.Item2;
 
-            int currentPlayerIndex = 2;
-            int currentNumberToAdd = 2;
+            var currentPlayerIndex = 2;
+            var currentNumberToAdd = 2;
 
-            CyclicList<int> field = new CyclicList<int>();
+            var field = new CyclicList<int>();
 
             field.AddFirst(0);
-            LinkedListNode<int> curNode = field.First;
+            var curNode = field.First;
 
             //Initializing first values
             curNode = field.GetNextNode(curNode);
@@ -45,14 +44,14 @@ namespace AdventOfCode.Year2018.Solutions
                 if (currentNumberToAdd % 23 == 0)
                 {
                     //Yay scoring
-                    for (int i = 0; i < 7; i++)
+                    for (var i = 0; i < 7; i++)
                     {
                         curNode = field.GetPreviousNode(curNode);
                     }
 
-                    int value = currentNumberToAdd + curNode.Value;
+                    var value = currentNumberToAdd + curNode.Value;
 
-                    LinkedListNode<int> nexNode = field.GetNextNode(curNode);
+                    var nexNode = field.GetNextNode(curNode);
 
                     field.Remove(curNode);
                     playerScores[currentPlayerIndex] += value;
@@ -77,19 +76,18 @@ namespace AdventOfCode.Year2018.Solutions
         //This is not the right solution ................... -.-
         public static long SecondProblem(Tuple<long[], int> data)
         {
-            long[] playerScores = data.Item1;
+            var playerScores = data.Item1;
 
-            int maxScore = data.Item2;
+            var maxScore = data.Item2;
 
-            int maxModified = maxScore * 100;
-            for (int i = 0; i < playerScores.Length; i++)
+            var maxModified = maxScore * 100;
+            for (var i = 0; i < playerScores.Length; i++)
             {
                 playerScores[i] = 0;
             }
-            Tuple<long[], int> newTuple = new Tuple<long[], int>(playerScores, maxModified);
+            var newTuple = new Tuple<long[], int>(playerScores, maxModified);
             return FirstProblem(newTuple);
         }
-
 
     }
 }

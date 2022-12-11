@@ -18,11 +18,11 @@
 
         public static long Algorithm(string[] lines, int moveRight, int moveDown)
         {
-            int rowWidth = lines[0].Length;
+            var rowWidth = lines[0].Length;
             long treeCount = 0;
-            int xPos = 0;
+            var xPos = 0;
 
-            for (int i = 0; i < lines.Length; i += moveDown)
+            for (var i = 0; i < lines.Length; i += moveDown)
             {
                 if (lines[i][xPos] == '#')
                 {

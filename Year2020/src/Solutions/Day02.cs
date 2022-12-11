@@ -8,12 +8,12 @@ namespace AdventOfCode.Year2020.Solutions
 
         public static int FirstProblem(string[] strings)
         {
-            return strings.AsParallel().Count(s => IsValidFirstProblem(s));
+            return strings.AsParallel().Count(IsValidFirstProblem);
         }
 
         public static int SecondProblem(string[] strings)
         {
-            return strings.AsParallel().Count(s => IsValidSecondProblem(s));
+            return strings.AsParallel().Count(IsValidSecondProblem);
         }
 
         static bool IsValidFirstProblem(string line)

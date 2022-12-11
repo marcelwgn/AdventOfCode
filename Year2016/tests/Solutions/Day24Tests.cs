@@ -28,8 +28,8 @@ namespace AdventOfCode.Year2016.Tests.Solutions
                 new char[]{'#','#','#','#','#','#','#','#','#','#','#'}
             };
 
-            char[][] actual = Day24.Convert(demoMaze);
-            for (int i = 0; i < expectedCharArray.Length; i++)
+            var actual = Day24.Convert(demoMaze);
+            for (var i = 0; i < expectedCharArray.Length; i++)
             {
                 CollectionAssert.AreEqual(expectedCharArray[i], actual[i]);
             }

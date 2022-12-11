@@ -1,11 +1,4 @@
-﻿using AdventOfCode.Common;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -26,13 +19,13 @@ namespace AdventOfCode.Year2016.Solutions
 
         public static int FirstProblem((string, int, string)[] data)
         {
-            return data.Select(x => Process(x)).Where(x => x.Item1).Sum(x => x.Item2);
+            return data.Select(Process).Where(x => x.Item1).Sum(x => x.Item2);
 
             static (bool, int) Process((string roomName, int roomId, string checkKeys) room)
             {
                 var sorted = room.roomName.Replace("-", "").GroupBy(x => x).Select(x => (Count: x.Count(), Character: x.Key)).OrderByDescending(x => x.Count).ThenBy(x => x.Character).ToArray();
 
-                for (int i = 0; i < 5; i++)
+                for (var i = 0; i < 5; i++)
                 {
                     if (sorted[i].Character != room.checkKeys[i])
                     {
@@ -45,7 +38,7 @@ namespace AdventOfCode.Year2016.Solutions
 
         public static int SecondProblem((string, int, string)[] data)
         {
-            return data.Select(x => Process(x)).Where(x => x.Item1.Contains("pole")).Select(x => x.Item2).First();
+            return data.Select(Process).Where(x => x.Item1.Contains("pole")).Select(x => x.Item2).First();
 
             static (string, int) Process((string roomName, int roomId, string checkKeys) room)
             {

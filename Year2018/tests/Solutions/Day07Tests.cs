@@ -1,5 +1,4 @@
-﻿using AdventOfCode.Year2018.Model;
-using AdventOfCode.Year2018.Solutions;
+﻿using AdventOfCode.Year2018.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Year2018.Tests.Solutions
@@ -21,17 +20,16 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "Step F must be finished before step E can begin."
             };
 
-            NodeList<string> converted = Day07.Convert(data);
+            var converted = Day07.Convert(data);
             converted.Sort();
             Assert.AreEqual(6, converted.Count);
 
-            for (int i = 0; i < 6; i++)
+            for (var i = 0; i < 6; i++)
             {
                 Assert.AreEqual(65 + i, converted[i].Name[0]);
 
             }
         }
-
 
         [TestMethod()]
         public void FirstProblemTest()
@@ -45,8 +43,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "Step D must be finished before step E can begin.",
                 "Step F must be finished before step E can begin."
             };
-            NodeList<string> converted = Day07.Convert(data);
-            string value = Day07.FirstProblem(converted);
+            var converted = Day07.Convert(data);
+            var value = Day07.FirstProblem(converted);
 
             Assert.AreEqual("CABDFE", value);
 
@@ -63,8 +61,8 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "Step D must be finished before step E can begin.",
                 "Step F must be finished before step E can begin."
             };
-            NodeList<string> converted = Day07.Convert(data);
-            int value = Day07.SecondProblem(converted);
+            var converted = Day07.Convert(data);
+            var value = Day07.SecondProblem(converted);
 
             Assert.AreEqual(253, value);
         }

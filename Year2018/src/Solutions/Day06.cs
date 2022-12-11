@@ -1,6 +1,6 @@
-﻿using System;
+﻿using AdventOfCode.Year2018.Model;
+using System;
 using System.Collections.Generic;
-using AdventOfCode.Year2018.Model;
 
 namespace AdventOfCode.Year2018.Solutions
 {
@@ -9,30 +9,30 @@ namespace AdventOfCode.Year2018.Solutions
     {
         public static Tuple<Vector[], string[,]> Convert(string[] data)
         {
-            Vector[] points = new Vector[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            var points = new Vector[data.Length];
+            for (var i = 0; i < data.Length; i++)
             {
-                string[] split = data[i].Split(",");
-                int first = int.Parse(split[0]);
-                int second = int.Parse(split[1]);
+                var split = data[i].Split(",");
+                var first = int.Parse(split[0]);
+                var second = int.Parse(split[1]);
                 points[i] = new Vector(first, second, i.ToString());
 
             }
 
-            int fieldSize = 400;
-            string[,] field = new string[fieldSize, fieldSize];
+            var fieldSize = 400;
+            var field = new string[fieldSize, fieldSize];
 
-            for (int i = 0; i < fieldSize; i++)
+            for (var i = 0; i < fieldSize; i++)
             {
-                for (int j = 0; j < fieldSize; j++)
+                for (var j = 0; j < fieldSize; j++)
                 {
-                    int bestDistance = int.MaxValue;
-                    int pointsBest = 0;
-                    bool isUndecided = false;
-                    for (int pointsIndex = 0; pointsIndex < data.Length; pointsIndex++)
+                    var bestDistance = int.MaxValue;
+                    var pointsBest = 0;
+                    var isUndecided = false;
+                    for (var pointsIndex = 0; pointsIndex < data.Length; pointsIndex++)
                     {
-                        Vector current = points[pointsIndex];
-                        int distance = current.GetDistance(j, i);
+                        var current = points[pointsIndex];
+                        var distance = current.GetDistance(j, i);
                         if (bestDistance == distance)
                         {
                             pointsBest = pointsIndex;
@@ -45,7 +45,6 @@ namespace AdventOfCode.Year2018.Solutions
                             bestDistance = distance;
                         }
                     }
-
 
                     if (isUndecided)
                     {
@@ -64,24 +63,24 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int FirstProblem(Tuple<Vector[], string[,]> data)
         {
-            Vector[] points = data.Item1;
-            string[,] field = data.Item2;
+            var points = data.Item1;
+            var field = data.Item2;
 
-            int fieldSize = (int)Math.Sqrt(field.Length);
+            var fieldSize = (int)Math.Sqrt(field.Length);
 
             //Getting list of points that have an area not limited by array bounds, so to speak are finite
-            List<string> finiteSets = new List<string>();
-            for (int label = 0; label < points.Length; label++)
+            var finiteSets = new List<string>();
+            for (var label = 0; label < points.Length; label++)
             {
                 finiteSets.Add(label.ToString());
             }
-            for (int i = 0; i < fieldSize; i++)
+            for (var i = 0; i < fieldSize; i++)
             {
-                string leftBorder = field[i, 0];
-                string rightBorder = field[i, fieldSize - 1];
+                var leftBorder = field[i, 0];
+                var rightBorder = field[i, fieldSize - 1];
 
-                string upperBorder = field[0, i];
-                string lowerBorder = field[fieldSize - 1, i];
+                var upperBorder = field[0, i];
+                var lowerBorder = field[fieldSize - 1, i];
 
                 finiteSets.Remove(leftBorder);
                 finiteSets.Remove(rightBorder);
@@ -89,13 +88,13 @@ namespace AdventOfCode.Year2018.Solutions
                 finiteSets.Remove(lowerBorder);
 
             }
-            int bestCount = 0;
-            foreach (string label in finiteSets)
+            var bestCount = 0;
+            foreach (var label in finiteSets)
             {
-                int count = 0;
-                for (int i = 0; i < fieldSize; i++)
+                var count = 0;
+                for (var i = 0; i < fieldSize; i++)
                 {
-                    for (int j = 0; j < fieldSize; j++)
+                    for (var j = 0; j < fieldSize; j++)
                     {
                         if (field[i, j] == label)
                         {
@@ -113,21 +112,21 @@ namespace AdventOfCode.Year2018.Solutions
 
         public static int SecondProblem(Tuple<Vector[], string[,]> data)
         {
-            Vector[] points = data.Item1;
-            string[,] field = data.Item2;
+            var points = data.Item1;
+            var field = data.Item2;
 
-            int fieldSize = (int)Math.Sqrt(field.Length);
+            var fieldSize = (int)Math.Sqrt(field.Length);
 
-            int suitableLocationsCount = 0;
+            var suitableLocationsCount = 0;
 
-            int maxDistance = 10000;
+            var maxDistance = 10000;
 
-            for (int i = 0; i < fieldSize; i++)
+            for (var i = 0; i < fieldSize; i++)
             {
-                for (int j = 0; j < fieldSize; j++)
+                for (var j = 0; j < fieldSize; j++)
                 {
-                    int count = 0;
-                    for (int pointIndex = 0; pointIndex < points.Length; pointIndex++)
+                    var count = 0;
+                    for (var pointIndex = 0; pointIndex < points.Length; pointIndex++)
                     {
                         count += points[pointIndex].GetDistance(j, i);
                     }

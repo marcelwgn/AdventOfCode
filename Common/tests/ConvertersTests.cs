@@ -10,7 +10,7 @@ namespace AdventOfCode.Common.Tests
         {
             string[] data = { "1", "-2", "+3", "text" };
 
-            int[] result = data.ToIntArray();
+            var result = data.ToIntArray();
 
             int[] expected = { 1, -2, 3, 0 };
 
@@ -22,7 +22,7 @@ namespace AdventOfCode.Common.Tests
         {
             string[] data = { "1000000000000", "-2", "+3", "text" };
 
-            long[] result = data.ToLongArray();
+            var result = data.ToLongArray();
 
             long[] expected = { 1000000000000, -2, 3, 0 };
 
@@ -44,18 +44,17 @@ namespace AdventOfCode.Common.Tests
                 new char[]{'A','B','C'}
             };
             var result = data.ToCharArray();
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
                 CollectionAssert.AreEqual(expected[i], result[i]);
             }
         }
 
-
         [TestMethod()]
         public void VerifyGetIntegersFromStringWorksCorrectly()
         {
 
-            int[] result = Converters.GetNumbers("100 -2 +3");
+            var result = Converters.GetNumbers("100 -2 +3");
 
             int[] expected = { 100, -2, 3 };
 

@@ -11,7 +11,7 @@ namespace AdventOfCode.Year2020.Solutions
 
             var number = data[0];
             spokenNumbers[number] = (-1, 1);
-            for (int i = 1; i < turns; i++)
+            for (var i = 1; i < turns; i++)
             {
                 if (i < data.Length)
                 {

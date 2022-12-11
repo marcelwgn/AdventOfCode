@@ -1,13 +1,8 @@
-﻿using AdventOfCode.Common;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2016.Solutions
 {
@@ -54,7 +49,7 @@ namespace AdventOfCode.Year2016.Solutions
                     tripletDictionary.Add((tripletChar.Value, index));
                 }
                 index++;
-                if(foundKeys.Count >= 64)
+                if (foundKeys.Count >= 64)
                 {
                     remainingRuns--;
                 }
@@ -70,12 +65,12 @@ namespace AdventOfCode.Year2016.Solutions
             while (iterations > 0)
             {
                 iterations--;
-                byte[] inputBytes = Encoding.ASCII.GetBytes(currentInput);
-                byte[] hashBytes = md5Hash.ComputeHash(inputBytes);
+                var inputBytes = Encoding.ASCII.GetBytes(currentInput);
+                var hashBytes = md5Hash.ComputeHash(inputBytes);
 
                 // Convert the byte array to hexadecimal string
-                StringBuilder sb = new StringBuilder();
-                for (int j = 0; j < hashBytes.Length; j++)
+                var sb = new StringBuilder();
+                for (var j = 0; j < hashBytes.Length; j++)
                 {
                     sb.Append(hashBytes[j].ToString("X2"));
                 }
@@ -86,11 +81,11 @@ namespace AdventOfCode.Year2016.Solutions
 
         private static char? FindNFoldChar(this string value, int consecutiveOccurence)
         {
-            for (int i = 0; i < value.Length - consecutiveOccurence + 1; i++)
+            for (var i = 0; i < value.Length - consecutiveOccurence + 1; i++)
             {
                 var curChar = value[i];
-                bool valid = true;
-                for (int j = 0; j < consecutiveOccurence; j++)
+                var valid = true;
+                for (var j = 0; j < consecutiveOccurence; j++)
                 {
                     if (curChar != value[i + j])
                     {

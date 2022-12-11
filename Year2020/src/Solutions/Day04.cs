@@ -11,12 +11,12 @@ namespace AdventOfCode.Year2020.Solutions
         public static int FirstProblem(string[] data)
         {
             var entries = string.Join(';', data).Split(";;");
-            return entries.Count(e => IsValidFirstProblem(e));
+            return entries.Count(IsValidFirstProblem);
         }
         public static int SecondProblem(string[] data)
         {
             var entries = string.Join(';', data).Split(";;");
-            return entries.Count(e => IsValidSecondProblem(e));
+            return entries.Count(IsValidSecondProblem);
         }
 
         private static bool IsValidFirstProblem(string passport)
@@ -82,7 +82,6 @@ namespace AdventOfCode.Year2020.Solutions
                 }
 #pragma warning restore CA1031
             });
-
 
         }
 
