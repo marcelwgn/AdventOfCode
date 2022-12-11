@@ -41,9 +41,9 @@ namespace AdventOfCode.Year2020.Solutions
 
         public static HashSet<(int X, int Y, int Z, int W)> Transform(HashSet<(int X, int Y, int Z, int W)> active, bool useW)
         {
-            var (xStart, xEnd, yStart, yEnd, zStart, zEnd, wStart, wEnd) = (0, 0, 0, 0, 0, 0, 0, 0);
+            (var xStart, var xEnd, var yStart, var yEnd, var zStart, var zEnd, var wStart, var wEnd) = (0, 0, 0, 0, 0, 0, 0, 0);
 
-            foreach (var (X, Y, Z, W) in active)
+            foreach ((var X, var Y, var Z, var W) in active)
             {
                 xStart = Math.Min(xStart, X);
                 xEnd = Math.Max(xEnd, X);

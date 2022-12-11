@@ -48,7 +48,7 @@ namespace AdventOfCode.Common.Tests
         [TestMethod]
         public void VerifyFirstAndSecondProblemWithoutConverter()
         {
-            var (firstSolution, secondSolution) = SolutionRunner.RunSolution(typeof(NoConverterSolver), "MockData/StringTestData.txt");
+            (var firstSolution, var secondSolution) = SolutionRunner.RunSolution(typeof(NoConverterSolver), "MockData/StringTestData.txt");
             Assert.AreEqual(firstSolution, "Text2");
             Assert.AreEqual(secondSolution, "Text3");
         }
@@ -56,7 +56,7 @@ namespace AdventOfCode.Common.Tests
         [TestMethod]
         public void VerifyFirstAndSecondProblemWithConverter()
         {
-            var (firstSolution, secondSolution) = SolutionRunner.RunSolution(typeof(SolverWithConverter), "MockData/StringTestData.txt");
+            (var firstSolution, var secondSolution) = SolutionRunner.RunSolution(typeof(SolverWithConverter), "MockData/StringTestData.txt");
             Assert.AreEqual(firstSolution, 10);
             Assert.AreEqual(secondSolution, 15);
         }

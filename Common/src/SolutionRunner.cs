@@ -36,11 +36,11 @@ namespace AdventOfCode.Common
                 Debug.WriteLine($"Converting data took {convertStopwatch.Elapsed}");
             }
 
-            var (firstResult, firstResultTime) = SolveProblem(classType, rawDataActual, FirstProblemName);
+            (var firstResult, var firstResultTime) = SolveProblem(classType, rawDataActual, FirstProblemName);
             Console.WriteLine($"First problem solution {firstResult} , execution time: {firstResultTime}");
             Debug.WriteLine($"First problem solution {firstResult} , execution time: {firstResultTime}");
 
-            var (secondResult, secondResultTime) = SolveProblem(classType, rawDataActual, SecondProblemName);
+            (var secondResult, var secondResultTime) = SolveProblem(classType, rawDataActual, SecondProblemName);
             Console.WriteLine($"Second problem solution {secondResult} , execution time: {secondResultTime}");
             Debug.WriteLine($"Second problem solution {secondResult} , execution time: {secondResultTime}");
 

@@ -1,6 +1,5 @@
 ﻿using AdventOfCode.Year2022.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace AdventOfCode.Year2022.Tests.Solutions
 {

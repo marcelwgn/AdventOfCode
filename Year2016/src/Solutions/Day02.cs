@@ -59,7 +59,7 @@ namespace AdventOfCode.Year2016.Solutions
 
         private static (int, int) NextPosition(string instructions, (int posX, int posY) lastPos, Func<(int, int), bool> isValidPosition)
         {
-            var (newPosX, newPosY) = lastPos;
+            (var newPosX, var newPosY) = lastPos;
 
             foreach (var character in instructions)
             {
