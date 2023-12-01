@@ -59,29 +59,6 @@ namespace AdventOfCode.Year2023.Solutions
 				}
 				return -1;
 			}
-
-			//(int Value, int Index) FindFirstDigit(bool fromEnd = false)
-			//{
-			//	for(int i = 0; i < input.Length; i++)
-			//	{
-			//		var index = fromEnd == false ? i : input.Length - i - 1;
-			//		if (char.IsNumber(input[index]))
-			//			return (Value: input[index] - 48, Index: index);
-			//	}
-			//	return (Value: -1, Index: -1);
-			//}
-
-			//(int Value, int Index) FindFirstSpelledNumber(bool fromEnd = false)
-			//{
-			//	if (fromEnd)
-			//	{
-			//		return NUMBERS.Select(x => (Value: x.Item1, Index: input.LastIndexOf(x.Item2))).OrderBy(x => x.Index).Last();
-			//	}
-			//	else
-			//	{
-			//		return NUMBERS.Select(x => (Value: x.Item1, Index: input.IndexOf(x.Item2))).OrderBy(x => x.Index).Last();
-			//	}
-			//}
 		}
 	}
 }
