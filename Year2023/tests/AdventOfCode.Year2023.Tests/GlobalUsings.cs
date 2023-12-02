@@ -1,0 +1,1 @@
+﻿global using AdventOfCode.Year2023.Solutions;
