@@ -8,9 +8,9 @@ namespace AdventOfCode.Year2022.Tests.Solutions
     public class Day07Tests
     {
 
-        private static readonly string[] DATA = new string[]
-        {
-            "$ cd /",
+        private static readonly string[] DATA =
+		[
+			"$ cd /",
             "$ ls",
             "dir a",
             "14848514 b.txt",
@@ -33,7 +33,7 @@ namespace AdventOfCode.Year2022.Tests.Solutions
             "8033020 d.log",
             "5626152 d.ext",
             "7214296 k",
-        };
+        ];
         [TestMethod]
         public void VerifyConvert()
         {

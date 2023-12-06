@@ -7,14 +7,14 @@ namespace AdventOfCode.Year2022.Tests.Solutions
     public class Day08Tests
     {
 
-        private static readonly string[] DATA = new string[]
-        {
-            "30373",
+        private static readonly string[] DATA =
+		[
+			"30373",
             "25512",
             "65332",
             "33549",
             "35390",
-        };
+        ];
 
         [TestMethod]
         public void VerifyConvert()

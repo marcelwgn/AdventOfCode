@@ -3,24 +3,24 @@ using System.Collections.Generic;
 
 namespace AdventOfCode.Year2022.Solutions
 {
+	public class Range
+	{
+		public int Min { get; set; }
+		public int Max { get; set; }
+
+		public bool ContainsRange(Range range)
+		{
+			return Min <= range.Min && Max >= range.Max;
+		}
+
+		public bool Overlaps(Range range)
+		{
+			return (range.Min <= Max && range.Min >= Min) || (range.Max <= Max && range.Max >= Min);
+		}
+	}
+	
     public static class Day04
     {
-        public class Range
-        {
-            public int Min { get; set; }
-            public int Max { get; set; }
-
-            public bool ContainsRange(Range range)
-            {
-                return Min <= range.Min && Max >= range.Max;
-            }
-
-            public bool Overlaps(Range range)
-            {
-                return (range.Min <= Max && range.Min >= Min) || (range.Max <= Max && range.Max >= Min);
-            }
-        }
-
         public static IEnumerable<Tuple<Range, Range>> Convert(string[] items)
         {
             {

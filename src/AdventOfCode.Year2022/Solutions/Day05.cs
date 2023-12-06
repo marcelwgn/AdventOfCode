@@ -4,60 +4,60 @@ using System.Linq;
 
 namespace AdventOfCode.Year2022.Solutions
 {
-    public static class Day05
+	public class Stacks
+	{
+		private readonly List<LinkedList<char>> stacks = [];
+
+		public void Insert(int stack, char value)
+		{
+			while (stacks.Count <= stack)
+			{
+				stacks.Add(new LinkedList<char>());
+			}
+			stacks[stack].AddFirst(value);
+		}
+
+		public char this[int i]
+		{
+			get
+			{
+				return stacks[i].Last();
+			}
+		}
+
+		public int Count => stacks.Count;
+
+		public void Move(int from, int to, int count, bool keepOrder)
+		{
+			var fromStack = stacks[from];
+			var toStack = stacks[to];
+			var tempStack = new LinkedList<char>();
+			for (var i = 0; i < count; i++)
+			{
+				tempStack.AddLast(fromStack.Last());
+				fromStack.RemoveLast();
+			}
+			for (var i = 0; i < count; i++)
+			{
+				if (keepOrder)
+				{
+					var nextItem = tempStack.Last!;
+					tempStack.RemoveLast();
+					toStack.AddLast(nextItem);
+				}
+				else
+				{
+					var nextItem = tempStack.First!;
+					tempStack.RemoveFirst();
+					toStack.AddLast(nextItem);
+				}
+			}
+
+		}
+	}
+
+	public static class Day05
     {
-        public class Stacks
-        {
-            private List<LinkedList<char>> stacks = new();
-
-            public void Insert(int stack, char value)
-            {
-                while (stacks.Count <= stack)
-                {
-                    stacks.Add(new LinkedList<char>());
-                }
-                stacks[stack].AddFirst(value);
-            }
-
-            public char this[int i]
-            {
-                get
-                {
-                    return stacks[i].Last();
-                }
-            }
-
-            public int Count => stacks.Count;
-
-            public void Move(int from, int to, int count, bool keepOrder)
-            {
-                var fromStack = stacks[from];
-                var toStack = stacks[to];
-                var tempStack = new LinkedList<char>();
-                for (var i = 0; i < count; i++)
-                {
-                    tempStack.AddLast(fromStack.Last());
-                    fromStack.RemoveLast();
-                }
-                for (var i = 0; i < count; i++)
-                {
-                    if (keepOrder)
-                    {
-                        var nextItem = tempStack.Last!;
-                        tempStack.RemoveLast();
-                        toStack.AddLast(nextItem);
-                    }
-                    else
-                    {
-                        var nextItem = tempStack.First!;
-                        tempStack.RemoveFirst();
-                        toStack.AddLast(nextItem);
-                    }
-                }
-
-            }
-        }
-
         public static Stacks CreateStack(string[] rows)
         {
             var stacks = new Stacks();

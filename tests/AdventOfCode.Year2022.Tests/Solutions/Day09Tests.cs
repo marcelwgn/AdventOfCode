@@ -7,9 +7,9 @@ namespace AdventOfCode.Year2022.Tests.Solutions
     public class Day09Tests
     {
 
-        private static readonly string[] DATA_SMALL = new string[]
-        {
-            "R 4",
+        private static readonly string[] DATA_SMALL =
+		[
+			"R 4",
             "U 4",
             "L 3",
             "D 1",
@@ -17,11 +17,11 @@ namespace AdventOfCode.Year2022.Tests.Solutions
             "D 1",
             "L 5",
             "R 2",
-        };
+        ];
 
-        private static readonly string[] DATA_LARGE = new string[]
-        {
-            "R 5",
+        private static readonly string[] DATA_LARGE =
+		[
+			"R 5",
             "U 8",
             "L 8",
             "D 3",
@@ -29,7 +29,7 @@ namespace AdventOfCode.Year2022.Tests.Solutions
             "D 10",
             "L 25",
             "U 20",
-        };
+        ];
 
         [TestMethod]
         public void VerifyFirstProblem()

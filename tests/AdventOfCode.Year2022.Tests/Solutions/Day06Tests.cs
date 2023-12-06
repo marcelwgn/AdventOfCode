@@ -13,7 +13,7 @@ namespace AdventOfCode.Year2022.Tests.Solutions
         [DataRow("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw", 11)]
         public void VerifyFirstProblem(string data, int expected)
         {
-            var result = Day06.FirstProblem(new string[] { data });
+            var result = Day06.FirstProblem([data]);
 
             Assert.AreEqual(expected, result);
         }
@@ -26,7 +26,7 @@ namespace AdventOfCode.Year2022.Tests.Solutions
         [DataRow("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw", 26)]
         public void VerifySecondProblem(string data, int expected)
         {
-            var result = Day06.SecondProblem(new string[] { data });
+            var result = Day06.SecondProblem([data]);
 
             Assert.AreEqual(expected, result);
         }

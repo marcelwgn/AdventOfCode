@@ -1,8 +1,9 @@
 ﻿namespace AdventOfCode.Year2022.Solutions
 {
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "We need a 2d grid here")]
     public static class Day02
-    {
-        public static long FirstProblem(string[] runs)
+	{
+		public static long FirstProblem(string[] runs)
         {
             // 0 = Rock, 1 = Paper, 2 = Scissors
             // First position: Opponent's move

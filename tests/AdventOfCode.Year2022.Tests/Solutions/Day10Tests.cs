@@ -8,16 +8,16 @@ namespace AdventOfCode.Year2022.Tests.Solutions
     public class Day10Tests
     {
 
-        private static readonly string[] DATA_SMALL = new string[]
-        {
-            "noop",
+        private static readonly string[] DATA_SMALL =
+		[
+			"noop",
             "addx 3",
             "addx -5",
-        };
+        ];
 
-        private static readonly string[] DATA_LARGE = new string[]
-        {
-            "addx 15",
+        private static readonly string[] DATA_LARGE =
+		[
+			"addx 15",
             "addx -11",
             "addx 6",
             "addx -3",
@@ -164,7 +164,7 @@ namespace AdventOfCode.Year2022.Tests.Solutions
             "noop",
             "noop",
 
-        };
+        ];
 
         [TestMethod]
         public void VerifyFirstProblem()

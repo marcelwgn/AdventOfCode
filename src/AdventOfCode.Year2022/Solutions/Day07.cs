@@ -4,24 +4,25 @@ using System.Linq;
 
 namespace AdventOfCode.Year2022.Solutions
 {
-    public static class Day07
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "We need to add items later so its fine")]
+	public class FileSystemNode
+	{
+		public FileSystemNode? Parent { get; set; }
+		public string Name { get; set; } = "/";
+		public List<FileSystemNode> Children { get; } = [];
+		public long Size { get; set; }
+		public long CalculatedSize => Children.Sum(x => x.CalculatedSize) + Size;
+		public bool IsFolder => Children.Count > 0;
+
+		public override string ToString()
+		{
+			return Name + ": " + CalculatedSize;
+		}
+	}
+	public static class Day07
     {
-        public class FileSystemNode
-        {
-            public FileSystemNode? Parent;
-            public string Name = "/";
-            public List<FileSystemNode> Children = new();
-            public long Size;
-            public long CalculatedSize => Children.Sum(x => x.CalculatedSize) + Size;
-            public bool IsFolder => Children.Count > 0;
 
-            public override string ToString()
-            {
-                return Name + ": " + CalculatedSize;
-            }
-        }
-
-        public const long MAX_SIZE = 40_000_000;
+        public const long MAXSIZE = 40_000_000;
 
         public static FileSystemNode Convert(string[] data)
         {
@@ -77,7 +78,7 @@ namespace AdventOfCode.Year2022.Solutions
 
         public static long SecondProblem(FileSystemNode node)
         {
-            var spaceToClearUp = node.CalculatedSize - MAX_SIZE;
+            var spaceToClearUp = node.CalculatedSize - MAXSIZE;
             var folders = ListFolders(node);
             foreach (var item in folders)
             {

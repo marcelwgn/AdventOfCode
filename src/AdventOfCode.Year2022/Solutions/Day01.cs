@@ -26,7 +26,7 @@ namespace AdventOfCode.Year2022.Solutions
             var curNum = 0L;
             for (var i = 0; i < numbers.Length; i++)
             {
-                if (numbers[i] != "")
+                if (!string.IsNullOrEmpty(numbers[i]))
                 {
                     curNum += long.Parse(numbers[i]);
                 }
