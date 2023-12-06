@@ -5,12 +5,12 @@ namespace AdventOfCode.Common.Tests
     [TestClass]
     public class SolutionRunnerTests
     {
-        private class EmptyClass
+        private static class EmptyClass
         {
 
         }
 
-        private class NoConverterSolver
+        private static class NoConverterSolver
         {
             public static string FirstProblem(string[] data)
             {
@@ -23,7 +23,7 @@ namespace AdventOfCode.Common.Tests
             }
         }
 
-        private class SolverWithConverter
+        private static class SolverWithConverter
         {
             public static int Convert(string[] data) => data.Length;
 

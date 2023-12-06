@@ -8,11 +8,11 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void VerifyGetIntegersWorksCorrectly()
         {
-            string[] data = { "1", "-2", "+3", "text" };
+            string[] data = ["1", "-2", "+3", "text"];
 
             var result = data.ToIntArray();
 
-            int[] expected = { 1, -2, 3, 0 };
+            int[] expected = [1, -2, 3, 0];
 
             CollectionAssert.AreEqual(expected, result);
         }
@@ -20,11 +20,11 @@ namespace AdventOfCode.Common.Tests
         [TestMethod()]
         public void VerifyGetLongsWorksCorrectly()
         {
-            string[] data = { "1000000000000", "-2", "+3", "text" };
+            string[] data = ["1000000000000", "-2", "+3", "text"];
 
             var result = data.ToLongArray();
 
-            long[] expected = { 1000000000000, -2, 3, 0 };
+            long[] expected = [1000000000000, -2, 3, 0];
 
             CollectionAssert.AreEqual(expected, result);
         }
@@ -39,9 +39,9 @@ namespace AdventOfCode.Common.Tests
 
             var expected = new char[][]
             {
-                new char[]{'t','e','x','t'},
-                new char[]{'1','2','3','4'},
-                new char[]{'A','B','C'}
+                ['t','e','x','t'],
+                ['1','2','3','4'],
+                ['A','B','C']
             };
             var result = data.ToCharArray();
             for (var i = 0; i < 3; i++)
@@ -56,7 +56,7 @@ namespace AdventOfCode.Common.Tests
 
             var result = Converters.GetNumbers("100 -2 +3");
 
-            int[] expected = { 100, -2, 3 };
+            int[] expected = [100, -2, 3];
 
             CollectionAssert.AreEqual(expected, result);
         }

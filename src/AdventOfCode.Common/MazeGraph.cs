@@ -1,123 +1,120 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode.Common
 {
-    public class MazeGraph
-    {
+	public class MazeGraph
+	{
 
-        public Dictionary<(int X, int Y), HashSet<(int X, int Y)>> Neighbors { get; private set; } = new();
-        public HashSet<(int X, int Y)> Vertices { get; private set; }
+		public Dictionary<(int X, int Y), HashSet<(int X, int Y)>> Neighbors { get; private set; } = [];
+		public HashSet<(int X, int Y)> Vertices { get; private set; }
 
-        public MazeGraph(char[][] grid, char wallCharacter = '#')
-        {
-            Vertices = new HashSet<(int X, int Y)>();
-            for (var i = 0; i < grid.Length; i++)
-            {
-                for (var j = 0; j < grid[i].Length; j++)
-                {
-                    var currentCell = grid[i][j];
+		public MazeGraph(char[][] grid, char wallCharacter = '#')
+		{
+			Vertices = [];
+			for (var i = 0; i < grid.Length; i++)
+			{
+				for (var j = 0; j < grid[i].Length; j++)
+				{
+					var currentCell = grid[i][j];
 
-                    if (currentCell != wallCharacter)
-                    {
-                        Vertices.Add((i, j));
-                        try
-                        {
-                            var leftNode = grid[i - 1][j];
-                            if (leftNode != wallCharacter)
-                            {
-                                AddNeighborhood((i, j), (i - 1, j));
-                            }
-                        }
-                        catch (Exception) { }
+					if (currentCell != wallCharacter)
+					{
+						Vertices.Add((i, j));
+						if(i > 0)
+						{
+							var leftNode = grid[i - 1][j];
+							if (leftNode != wallCharacter)
+							{
+								AddNeighborhood((i, j), (i - 1, j));
+							}
+						}
 
-                        try
-                        {
-                            var topNode = grid[i][j - 1];
+						if (j > 0)
+						{
+							var topNode = grid[i][j - 1];
 
-                            if (topNode != wallCharacter)
-                            {
-                                AddNeighborhood((i, j), (i, j - 1));
-                            }
-                        }
-                        catch (Exception) { }
-                    }
-                }
-            }
+							if (topNode != wallCharacter)
+							{
+								AddNeighborhood((i, j), (i, j - 1));
+							}
+						}
+					}
+				}
+			}
 
-            void AddNeighborhood((int X, int Y) firstPos, (int X, int Y) secondPos)
-            {
-                if (Neighbors.ContainsKey(firstPos))
-                {
-                    Neighbors[firstPos].Add(secondPos);
-                }
-                else
-                {
-                    Neighbors.Add(firstPos, new HashSet<(int X, int Y)> { secondPos });
-                }
+			void AddNeighborhood((int X, int Y) firstPos, (int X, int Y) secondPos)
+			{
+				if (Neighbors.TryGetValue(firstPos, out var valueSecondPos))
+				{
+					valueSecondPos.Add(secondPos);
+				}
+				else
+				{
+					Neighbors.Add(firstPos, [secondPos]);
+				}
 
-                if (Neighbors.ContainsKey(secondPos))
-                {
-                    Neighbors[secondPos].Add(firstPos);
-                }
-                else
-                {
-                    Neighbors.Add(secondPos, new HashSet<(int X, int Y)> { firstPos });
-                }
-            }
+				if (Neighbors.TryGetValue(secondPos, out var valueFirstPos))
+				{
+					valueFirstPos.Add(firstPos);
+				}
+				else
+				{
+					Neighbors.Add(secondPos, [firstPos]);
+				}
+			}
 
-        }
+		}
 
-        public int CalculateDistance((int firstX, int firstY) p1, (int secX, int secY) p2)
-        {
-            var remainingVertices = new HashSet<(int, int)>();
+		public int CalculateDistance((int firstX, int firstY) p1, (int secX, int secY) p2)
+		{
+			var remainingVertices = new HashSet<(int, int)>();
 
-            foreach (var vertex in Vertices)
-            {
-                remainingVertices.Add(vertex);
-            }
+			foreach (var vertex in Vertices)
+			{
+				remainingVertices.Add(vertex);
+			}
 
-            var distDictionary = new Dictionary<(int, int), int>()
-            {
-                {p1, 0 }
-            };
+			var distDictionary = new Dictionary<(int, int), int>()
+			{
+				{p1, 0 }
+			};
 
-            var prevVertices = new Dictionary<(int, int), (int, int)>();
+			var prevVertices = new Dictionary<(int, int), (int, int)>();
 
-            while (remainingVertices.Count > 0)
-            {
-                var next = remainingVertices.Select(v => (Vertex: v, Distance: GetDist(v))).OrderBy(x => x.Distance).First().Vertex;
-                remainingVertices.Remove(next);
+			while (remainingVertices.Count > 0)
+			{
+				var next = remainingVertices.Select(v => (Vertex: v, Distance: GetDist(v))).OrderBy(x => x.Distance).First().Vertex;
+				remainingVertices.Remove(next);
 
-                if (Neighbors.ContainsKey(next))
-                {
-                    foreach (var neighbor in Neighbors[next])
-                    {
-                        var altDist = GetDist(next) + 1;
-                        if (altDist < GetDist(neighbor))
-                        {
-                            distDictionary[neighbor] = altDist;
-                            prevVertices[neighbor] = next;
-                        }
-                        if (neighbor == p2)
-                        {
-                            return distDictionary[neighbor];
-                        }
-                    }
-                }
-            }
+				if (Neighbors.TryGetValue(next, out var neighbors))
+				{
+					foreach (var neighbor in neighbors)
+					{
+						var altDist = GetDist(next) + 1;
+						if (altDist < GetDist(neighbor))
+						{
+							distDictionary[neighbor] = altDist;
+							prevVertices[neighbor] = next;
+						}
+						if (neighbor == p2)
+						{
+							return distDictionary[neighbor];
+						}
+					}
+				}
+			}
 
-            return -1;
+			return -1;
 
-            int GetDist((int, int) vertex)
-            {
-                if (distDictionary.ContainsKey(vertex))
-                {
-                    return distDictionary[vertex];
-                }
-                return int.MaxValue;
-            }
-        }
-    }
+			int GetDist((int, int) vertex)
+			{
+				if (distDictionary.TryGetValue(vertex, out var distance))
+				{
+					return distance;
+				}
+				return int.MaxValue;
+			}
+		}
+	}
 }

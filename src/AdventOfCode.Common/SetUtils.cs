@@ -10,7 +10,7 @@ namespace AdventOfCode.Common
         public static T[][] FastPowerSet<T>(T[] seq)
         {
             var powerSet = new T[1 << seq.Length][];
-            powerSet[0] = Array.Empty<T>(); // starting only with empty set
+            powerSet[0] = []; // starting only with empty set
 
             for (var i = 0; i < seq.Length; i++)
             {
