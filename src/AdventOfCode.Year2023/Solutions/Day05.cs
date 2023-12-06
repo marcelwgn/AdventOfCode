@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace AdventOfCode.Year2023.Solutions
 {
@@ -17,9 +19,9 @@ namespace AdventOfCode.Year2023.Solutions
 			public Interval[] Intervals { get; set; }
 			public long GetMapped(long input)
 			{
-				foreach(var interval in Intervals)
+				foreach (var interval in Intervals)
 				{
-					if(interval.Start <= input && input <= interval.End)
+					if (interval.Start <= input && input <= interval.End)
 					{
 						return input - interval.Start + interval.Offset;
 					}
@@ -37,7 +39,7 @@ namespace AdventOfCode.Year2023.Solutions
 			var currentMapper = new Mapper();
 			var currentIntervals = new List<Interval>();
 
-			for(int i=3; i < data.Length; i++)
+			for (int i = 3; i < data.Length; i++)
 			{
 				var curRow = data[i];
 
@@ -50,7 +52,7 @@ namespace AdventOfCode.Year2023.Solutions
 				}
 
 				var numbers = data[i].Split(" ").Select(long.Parse).ToArray();
-				currentIntervals.Add(new Interval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0])); 
+				currentIntervals.Add(new Interval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0]));
 			}
 			AddMapper();
 
@@ -73,16 +75,37 @@ namespace AdventOfCode.Year2023.Solutions
 
 		public static long SecondProblem(ParsedInput parsedInput)
 		{
+			// Idea: split into smaller chunks by determining how much parallelization you can get on the current machine
 			var lowestValues = new ConcurrentBag<long>();
-			Parallel.For(0, parsedInput.Seeds.Length / 2, (index) =>
-			{
-				var startIndex = parsedInput.Seeds[index * 2];
-				var intervalLength= parsedInput.Seeds[index * 2 + 1];
 
-				var lowest = Map(startIndex, parsedInput.Mappers);
-				for (long i = 0; i < intervalLength; i++)
+			var totalNumberOfEntriesToCheck = 0L;
+			for (int i = 0; i < parsedInput.Seeds.Length / 2; i++)
+			{
+				totalNumberOfEntriesToCheck += parsedInput.Seeds[i * 2 + 1];
+			}
+
+			var idealIntervalSize = totalNumberOfEntriesToCheck / Environment.ProcessorCount;
+
+			var intervals = new List<(long Start, long Length)>();
+			for (int i = 0; i < parsedInput.Seeds.Length / 2; i++)
+			{
+				var maxEntry = parsedInput.Seeds[i * 2] + parsedInput.Seeds[i * 2 + 1];
+				var currentIndex = parsedInput.Seeds[i * 2];
+				while (currentIndex < maxEntry)
 				{
-					lowest = Math.Min(lowest, Map(i + startIndex, parsedInput.Mappers));
+					var curIntervalLength = Math.Min(maxEntry - currentIndex, idealIntervalSize);
+
+					intervals.Add(new(currentIndex, curIntervalLength));
+					currentIndex += curIntervalLength;
+				}
+			}
+
+			Parallel.ForEach(intervals, ((long Start, long Length) interval) =>
+			{
+				var lowest = Map(interval.Start, parsedInput.Mappers);
+				for (long i = 0; i < interval.Length; i++)
+				{
+					lowest = Math.Min(lowest, Map(i + interval.Start, parsedInput.Mappers));
 				}
 				lowestValues.Add(lowest);
 			});
@@ -95,7 +118,7 @@ namespace AdventOfCode.Year2023.Solutions
 		{
 			var curValue = input;
 
-			foreach(var mapper in mappers)
+			foreach (var mapper in mappers)
 			{
 				curValue = mapper.GetMapped(curValue);
 			}
