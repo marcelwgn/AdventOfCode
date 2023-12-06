@@ -9,7 +9,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = { "37", "8" };
+            string[] data = ["37", "8"];
 
             var converted = Day14.Convert(data);
 
@@ -23,7 +23,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest9Recipes()
         {
-            string[] data = { "37", "9" };
+            string[] data = ["37", "9"];
 
             var converted = Day14.Convert(data);
 
@@ -35,7 +35,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest5Recipes()
         {
-            string[] data = { "37", "5" };
+            string[] data = ["37", "5"];
 
             var converted = Day14.Convert(data);
 
@@ -47,7 +47,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest18Recipes()
         {
-            string[] data = { "37", "18" };
+            string[] data = ["37", "18"];
 
             var converted = Day14.Convert(data);
 
@@ -59,7 +59,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest2018Recipes()
         {
-            string[] data = { "37", "2018" };
+            string[] data = ["37", "2018"];
 
             var converted = Day14.Convert(data);
 
@@ -71,7 +71,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest51589()
         {
-            string[] data = { "37", "51589" };
+            string[] data = ["37", "51589"];
 
             var converted = Day14.Convert(data);
 
@@ -83,7 +83,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest92510()
         {
-            string[] data = { "37", "92510" };
+            string[] data = ["37", "92510"];
 
             var converted = Day14.Convert(data);
 
@@ -95,7 +95,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest59414()
         {
-            string[] data = { "37", "59414" };
+            string[] data = ["37", "59414"];
 
             var converted = Day14.Convert(data);
 

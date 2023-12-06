@@ -11,7 +11,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FindMetaStartTestNoChild()
         {
-            int[] data = { 0, 3, 1, 2, 3 };
+            int[] data = [0, 3, 1, 2, 3];
             var result = Day08.FindMetaData(data, 0);
             Assert.AreEqual(2, result);
         }
@@ -19,14 +19,14 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FindMetaStartTestSingleChild()
         {
-            int[] data = { 1, 3, 0, 1, 1, 1, 2, 3 };
+            int[] data = [1, 3, 0, 1, 1, 1, 2, 3];
             var result = Day08.FindMetaData(data, 0);
             Assert.AreEqual(5, result);
         }
         [TestMethod()]
         public void FindMetaStartTestTowAdjacentChildren()
         {
-            int[] data = { 2, 3, 0, 1, 1, 0, 1, 1, 1, 2, 3 };
+            int[] data = [2, 3, 0, 1, 1, 0, 1, 1, 1, 2, 3];
             var result = Day08.FindMetaData(data, 0);
             Assert.AreEqual(8, result);
         }
@@ -34,7 +34,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FindMetaStartTestSingleSingleChildren()
         {
-            int[] data = { 1, 3, 1, 1, 0, 1, 1, 1, 1, 2, 3 };
+            int[] data = [1, 3, 1, 1, 0, 1, 1, 1, 1, 2, 3];
             var result = Day08.FindMetaData(data, 0);
             Assert.AreEqual(8, result);
         }
@@ -42,7 +42,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FindMetaStartTestTowAdjacentChildrenOneIsDeep()
         {
-            int[] data = { 2, 3, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 2, 3 };
+            int[] data = [2, 3, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 2, 3];
             var result = Day08.FindMetaData(data, 0);
             Assert.AreEqual(11, result);
         }
@@ -50,12 +50,12 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void GetNodeTestNoChildren()
         {
-            int[] data = { 0, 3, 1, 2, 3 };
+            int[] data = [0, 3, 1, 2, 3];
 
             var result = Day08.GetNode(data, 0);
             result.Data!.Sort();
 
-            int[] metaExpected = { 1, 2, 3 };
+            int[] metaExpected = [1, 2, 3];
 
             var metaFromCalculation = result.Data.ToArray();
 
@@ -70,12 +70,12 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void GetNodeTestSingleChild()
         {
-            int[] data = { 1, 3, 0, 1, 1, 1, 2, 3 };
+            int[] data = [1, 3, 0, 1, 1, 1, 2, 3];
 
             var result = Day08.GetNode(data, 0);
             result.Data!.Sort();
 
-            int[] metaExpected = { 1, 2, 3 };
+            int[] metaExpected = [1, 2, 3];
 
             var metaFromCalculation = result.Data.ToArray();
 
@@ -92,12 +92,12 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void GetNodeTestTwoChildren()
         {
-            int[] data = { 2, 3, 0, 1, 8, 0, 1, 9, 1, 2, 3 };
+            int[] data = [2, 3, 0, 1, 8, 0, 1, 9, 1, 2, 3];
 
             var result = Day08.GetNode(data, 0);
             result.Data!.Sort();
 
-            int[] metaExpected = { 1, 2, 3 };
+            int[] metaExpected = [1, 2, 3];
             var metaFromCalculation = result.Data.ToArray();
             Assert.AreEqual(2, result.Children.Count);
             for (var i = 0; i < Math.Max(metaExpected.Length, metaFromCalculation.Length); i++)
@@ -111,12 +111,12 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = { "2 3 0 1 8 0 1 9 1 2 3" };
+            string[] data = ["2 3 0 1 8 0 1 9 1 2 3"];
 
             var result = Day08.Convert(data);
             result.Data!.Sort();
 
-            int[] metaExpected = { 1, 2, 3 };
+            int[] metaExpected = [1, 2, 3];
             var metaFromCalculation = result.Data.ToArray();
             Assert.AreEqual(2, result.Children.Count);
             for (var i = 0; i < Math.Max(metaExpected.Length, metaFromCalculation.Length); i++)
@@ -130,7 +130,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTestSingleNode()
         {
-            int[] data = { 0, 3, 1, 2, 3 };
+            int[] data = [0, 3, 1, 2, 3];
             var converted = Day08.GetNode(data, 0);
 
             var result = Day08.FirstProblem(converted);
@@ -141,7 +141,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTestSingleChild()
         {
-            int[] data = { 1, 3, 0, 1, 9, 1, 2, 3 };
+            int[] data = [1, 3, 0, 1, 9, 1, 2, 3];
             var converted = Day08.GetNode(data, 0);
 
             var result = Day08.FirstProblem(converted);
@@ -151,7 +151,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTestTwoChildren()
         {
-            int[] data = { 2, 3, 0, 1, 9, 0, 1, 9, 1, 2, 3 };
+            int[] data = [2, 3, 0, 1, 9, 0, 1, 9, 1, 2, 3];
             var converted = Day08.GetNode(data, 0);
 
             var result = Day08.FirstProblem(converted);
@@ -162,7 +162,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest()
         {
-            string[] data = { "2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2" };
+            string[] data = ["2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2"];
             var converted = Day08.Convert(data);
 
             var result = Day08.SecondProblem(converted);

@@ -10,7 +10,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = { "position=< 9,  1> velocity=< 0,  2>" };
+            string[] data = ["position=< 9,  1> velocity=< 0,  2>"];
 
             var converted = Day10.Convert(data);
 
@@ -25,7 +25,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             //No really useful test ...
             //We just expect stuff to not crash
-            string[] data = {
+            string[] data = [
                 "position=< 9,  1> velocity=< 0,  2>",
                 "position=< 7,  0> velocity=<-1,  0>",
                 "position=< 3, -2> velocity=<-1,  1>",
@@ -57,7 +57,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "position=< 5,  9> velocity=< 1, -2>",
                 "position=<14,  7> velocity=<-2,  0>",
                 "position=<-3,  6> velocity=< 2, -1>"
-            };
+            ];
             var _ = Day10.Convert(data);
 
             //Comment in next line to run real test 
@@ -70,7 +70,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         {
             //No really useful test ...
             //We just expect stuff to not crash
-            string[] data = {
+            string[] data = [
                 "position=< 9,  1> velocity=< 0,  2>",
                 "position=< 7,  0> velocity=<-1,  0>",
                 "position=< 3, -2> velocity=<-1,  1>",
@@ -102,7 +102,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "position=< 5,  9> velocity=< 1, -2>",
                 "position=<14,  7> velocity=<-2,  0>",
                 "position=<-3,  6> velocity=< 2, -1>"
-            };
+            ];
             var _ = Day10.Convert(data);
 
             //Comment in next line to run real test 

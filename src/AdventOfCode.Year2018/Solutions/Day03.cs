@@ -23,7 +23,8 @@ namespace AdventOfCode.Year2018.Solutions
             return rects;
         }
 
-        private static int[,] GenerateField(Rectangle[] data)
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "<Pending>")]
+		private static int[,] GenerateField(Rectangle[] data)
         {
             var values = new int[1000, 1000];
             for (var index = 0; index < data.Length; index++)

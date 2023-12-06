@@ -136,12 +136,10 @@ namespace AdventOfCode.Year2018.Solutions
 
     public class PatternMatcher
     {
-#pragma warning disable CA1819
         public bool[] Values { get; private set; } = new bool[5];
-#pragma warning restore CA1819
-        public bool Result { get; private set; } = false;
+		public bool Result { get; private set; }
 
-        public PatternMatcher(string label)
+		public PatternMatcher(string label)
         {
             for (var i = 0; i < Values.Length; i++)
             {

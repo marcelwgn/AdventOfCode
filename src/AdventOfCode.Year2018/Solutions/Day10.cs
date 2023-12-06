@@ -22,11 +22,10 @@ namespace AdventOfCode.Year2018.Solutions
             return vectors;
         }
 
-        public static void PrintVectors(int maxValue, int offset, ChangingVector[] vectors)
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "We actually want a 2d grid here")]
+		public static void PrintVectors(int maxValue, int offset, ChangingVector[] vectors)
         {
-#pragma warning disable CA1814
             var field = new bool[maxValue - offset, maxValue - offset];
-#pragma warning restore CA1814
             for (var i = 0; i < vectors.Length; i++)
             {
                 try

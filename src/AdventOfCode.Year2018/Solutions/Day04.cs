@@ -6,7 +6,7 @@ namespace AdventOfCode.Year2018.Solutions
     public static class Day04
     {
 
-        public static List<Guard> Convert(string[] data)
+        public static IList<Guard> Convert(string[] data)
         {
             var events = new GuardEvent[data.Length];
             Array.Sort(data);
@@ -71,7 +71,7 @@ namespace AdventOfCode.Year2018.Solutions
             return guards;
         }
 
-        public static int FirstProblem(List<Guard> guards)
+        public static int FirstProblem(IList<Guard> guards)
         {
             var mostSlept = guards[0];
             for (var i = 0; i < guards.Count; i++)
@@ -92,7 +92,7 @@ namespace AdventOfCode.Year2018.Solutions
             return mostSlept.Id * highestMinuteIndex;
         }
 
-        public static int SecondProblem(List<Guard> guards)
+        public static int SecondProblem(IList<Guard> guards)
         {
             var mostSlept = guards[0];
             var highestMinuteIndex = 0;
@@ -136,7 +136,7 @@ namespace AdventOfCode.Year2018.Solutions
             TimeEvent = DateTime.Parse(date);
 
             var actualEvent = eventString[19..];
-            if (actualEvent.IndexOf("#") > -1)
+            if (actualEvent.IndexOf('#') > -1)
             {
                 var guardIdWithHashtag = actualEvent.Split(" ")[1];
                 var guardId = guardIdWithHashtag[1..];
@@ -157,19 +157,13 @@ namespace AdventOfCode.Year2018.Solutions
 
     }
 
-    public class Guard
-    {
-        public int Id { get; set; }
-        public int MinutesSlept { get; set; }
-#pragma warning disable CA1819
+    public class Guard(int id)
+	{
+		public int Id { get; set; } = id;
+		public int MinutesSlept { get; set; }
         public int[] SleepingMinutes { get; set; } = new int[60];
-#pragma warning restore CA1819
 
-        public Guard(int id)
-        {
-            Id = id;
-        }
-        public void CalculateSleepTimes(DateTime start, DateTime end)
+		public void CalculateSleepTimes(DateTime start, DateTime end)
         {
             //Calculating minutes slept
             var minutes = (int)Math.Round(end.Subtract(start).TotalMinutes);

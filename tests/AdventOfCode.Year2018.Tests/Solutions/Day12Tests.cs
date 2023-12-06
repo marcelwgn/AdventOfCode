@@ -11,7 +11,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConverTest()
         {
-            string[] data = {
+            string[] data = [
                 "initial state: #..#.#..##......###...###",
                 "",
                 "...## => #",
@@ -28,7 +28,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "###.. => #",
                 "###.# => #",
                 "####. => #"
-            };
+            ];
 
             var converted = Day12.Convert(data);
 
@@ -50,7 +50,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest()
         {
-            string[] data = {
+            string[] data = [
                 "initial state: #..#.#..##......###...###",
                 "",
                 "...## => #",
@@ -67,7 +67,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "###.. => #",
                 "###.# => #",
                 "####. => #"
-            };
+            ];
 
             var converted = Day12.Convert(data);
             var result = Day12.FirstProblem(converted);

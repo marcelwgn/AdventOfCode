@@ -2,6 +2,7 @@
 
 namespace AdventOfCode.Year2018.Model
 {
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA5394:Do not use insecure randomness", Justification = "It's fine here since it is not used for cryptography")]
     public class Node<T> : IComparable<Node<T>>
     {
         public string Name { get; set; }
@@ -12,7 +13,7 @@ namespace AdventOfCode.Year2018.Model
         private readonly NodeList<T> parents = new();
         private readonly NodeList<T> children = new();
 
-        public Node()
+		public Node()
         {
             //Should generate unique names
             Name = (new Random().Next(0, 1000) + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()).ToString();
@@ -61,9 +62,9 @@ namespace AdventOfCode.Year2018.Model
             return Name.Equals(node.Name);
         }
 
-        public int CompareTo(Node<T>? node)
+        public int CompareTo(Node<T>? other)
         {
-            return node is null ? -1 : Name.CompareTo(node.Name);
+            return other is null ? -1 : Name.CompareTo(other.Name);
         }
 
         internal int Aggregate()

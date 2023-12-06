@@ -43,6 +43,5 @@ namespace AdventOfCode.Year2018.Solutions
             }
             return sum;
         }
-
     }
 }

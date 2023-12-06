@@ -1,17 +1,11 @@
 ﻿namespace AdventOfCode.Year2018.Model
 {
-    public class ChangingVector
-    {
-        public Vector Location { get; private set; }
-        public Vector Change { get; private set; }
+    public class ChangingVector(int x, int y, int changeX, int changeY)
+	{
+		public Vector Location { get; private set; } = new Vector(x, y);
+		public Vector Change { get; private set; } = new Vector(changeX, changeY);
 
-        public ChangingVector(int x, int y, int changeX, int changeY)
-        {
-            Location = new Vector(x, y);
-            Change = new Vector(changeX, changeY);
-        }
-
-        public void GoStep()
+		public void GoStep()
         {
             Location.X += Change.X;
             Location.Y += Change.Y;

@@ -2,7 +2,7 @@
 
 namespace AdventOfCode.Year2018.Solutions
 {
-#pragma warning disable CA1814
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "We actually need 2d grids here")]
     public static class Day11
     {
         public const int gridSize = 300;
@@ -72,7 +72,7 @@ namespace AdventOfCode.Year2018.Solutions
             return "BestX: " + bestX + " BestY: " + bestY;
         }
 
-        public static string SecondProblem(int[,] field)
+		public static string SecondProblem(int[,] field)
         {
             long best = 0;
             var bestX = 0;
@@ -101,5 +101,4 @@ namespace AdventOfCode.Year2018.Solutions
             return "BestX: " + bestX + " BestY: " + bestY + " BestSquare: " + bestSquareSize;
         }
     }
-#pragma warning restore CA1814
 }

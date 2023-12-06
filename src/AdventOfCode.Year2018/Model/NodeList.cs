@@ -5,7 +5,7 @@ namespace AdventOfCode.Year2018.Model
 
     public class NodeList<T>
     {
-        private readonly List<Node<T>> nodeList = new();
+        private readonly List<Node<T>> nodeList = [];
 
         public Node<T> this[int index]
         {
@@ -111,5 +111,4 @@ namespace AdventOfCode.Year2018.Model
             return result;
         }
     }
-
 }

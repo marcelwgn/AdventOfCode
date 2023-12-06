@@ -9,7 +9,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = { "1", "-2", "3" };
+            string[] data = ["1", "-2", "3"];
 
             var dataConverted = Day01.Convert(data);
 
@@ -21,7 +21,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTestAllPositive()
         {
-            int[] data = { 1, 1, 1 };
+            int[] data = [1, 1, 1];
 
             var result = Day01.FirstProblem(data);
 
@@ -31,7 +31,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTestPositiveAndNegative()
         {
-            int[] data = { 1, 1, -2 };
+            int[] data = [1, 1, -2];
 
             var result = Day01.FirstProblem(data);
 
@@ -41,7 +41,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTestAllNegative()
         {
-            int[] data = { -1, -2, -3 };
+            int[] data = [-1, -2, -3];
 
             var result = Day01.FirstProblem(data);
 
@@ -51,7 +51,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTestOne()
         {
-            int[] data = { 1, -2, 3, 1 };
+            int[] data = [1, -2, 3, 1];
 
             var result = Day01.SecondProblem(data);
 
@@ -61,7 +61,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTestTwo()
         {
-            int[] data = { 1, -1 };
+            int[] data = [1, -1];
 
             var result = Day01.SecondProblem(data);
 
@@ -71,7 +71,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTestThree()
         {
-            int[] data = { 3, 3, 4, -2, -4 };
+            int[] data = [3, 3, 4, -2, -4];
 
             var result = Day01.SecondProblem(data);
 
@@ -81,7 +81,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTestFour()
         {
-            int[] data = { -6, 3, 8, 5, -6 };
+            int[] data = [-6, 3, 8, 5, -6];
 
             var result = Day01.SecondProblem(data);
 
@@ -91,7 +91,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTestFive()
         {
-            int[] data = { 7, 7, -2, -7, -4 };
+            int[] data = [7, 7, -2, -7, -4];
 
             var result = Day01.SecondProblem(data);
 

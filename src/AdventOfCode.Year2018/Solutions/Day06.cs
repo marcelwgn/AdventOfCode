@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace AdventOfCode.Year2018.Solutions
 {
-#pragma warning disable CA1814
     public static class Day06
     {
-        public static Tuple<Vector[], string[,]> Convert(string[] data)
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "We actually want 2d grids here")]
+		public static Tuple<Vector[], string[,]> Convert(string[] data)
         {
             var points = new Vector[data.Length];
             for (var i = 0; i < data.Length; i++)
@@ -141,5 +141,4 @@ namespace AdventOfCode.Year2018.Solutions
 
         }
     }
-#pragma warning restore CA1814
 }

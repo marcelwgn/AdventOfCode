@@ -10,7 +10,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = {
+            string[] data = [
                 "[1518-11-01 00:00] Guard #10 begins shift",
                 "[1518-11-01 00:05] falls asleep",
                 "[1518-11-01 00:25] wakes up",
@@ -28,7 +28,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "[1518-11-05 00:03] Guard #99 begins shift",
                 "[1518-11-05 00:45] falls asleep",
                 "[1518-11-05 00:55] wakes up"
-            };
+            ];
 
             var converted = Day04.Convert(data);
 
@@ -50,17 +50,17 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             var first = new Guard(10)
             {
                 MinutesSlept = 50,
-                SleepingMinutes = new int[]{
+                SleepingMinutes = [
                     0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,
-                }
+                ]
             };
 
             var second = new Guard(99)
             {
                 MinutesSlept = 24,
-                SleepingMinutes = new int[]{
+                SleepingMinutes = [
                     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,2,3,2,2,2,2,1,1,1,1,1,0,0,0,0,0,
-                }
+                ]
             };
 
             data.Add(first);
@@ -78,17 +78,17 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             var first = new Guard(10)
             {
                 MinutesSlept = 50,
-                SleepingMinutes = new int[]{
+                SleepingMinutes = [
                     0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,
-                }
+                ]
             };
 
             var second = new Guard(99)
             {
                 MinutesSlept = 24,
-                SleepingMinutes = new int[]{
+                SleepingMinutes = [
                     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,2,3,2,2,2,2,1,1,1,1,1,0,0,0,0,0,
-                }
+                ]
             };
 
             data.Add(first);

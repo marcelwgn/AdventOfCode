@@ -10,7 +10,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = { "18" };
+            string[] data = ["18"];
 
             var converted = Day11.Convert(data);
 
@@ -22,7 +22,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest()
         {
-            string[] data = { "18" };
+            string[] data = ["18"];
 
             var converted = Day11.Convert(data);
 
@@ -34,7 +34,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest()
         {
-            string[] data = { "9445" };
+            string[] data = ["9445"];
 
             var converted = Day11.Convert(data);
 

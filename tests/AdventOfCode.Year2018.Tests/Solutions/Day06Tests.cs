@@ -10,14 +10,14 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest()
         {
-            string[] data = {
+            string[] data = [
                       "1, 1",
                       "1, 6",
                       "8, 3",
                       "3, 4",
                       "5, 5",
                       "8, 9"
-                      };
+                      ];
             var converted = Day06.Convert(data);
             var value = Day06.FirstProblem(converted);
 
@@ -27,14 +27,14 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest()
         {
-            string[] data = {
+            string[] data = [
                       "1, 1",
                       "1, 6",
                       "8, 3",
                       "3, 4",
                       "5, 5",
                       "8, 9"
-                      };
+                      ];
             var converted = Day06.Convert(data);
             var value = Day06.SecondProblem(converted);
 

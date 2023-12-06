@@ -10,7 +10,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = {
+            string[] data = [
                 "Step C must be finished before step A can begin.",
                 "Step C must be finished before step F can begin.",
                 "Step A must be finished before step B can begin.",
@@ -18,7 +18,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "Step B must be finished before step E can begin.",
                 "Step D must be finished before step E can begin.",
                 "Step F must be finished before step E can begin."
-            };
+            ];
 
             var converted = Day07.Convert(data);
             converted.Sort();
@@ -34,7 +34,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void FirstProblemTest()
         {
-            string[] data = {
+            string[] data = [
                 "Step C must be finished before step A can begin.",
                 "Step C must be finished before step F can begin.",
                 "Step A must be finished before step B can begin.",
@@ -42,7 +42,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "Step B must be finished before step E can begin.",
                 "Step D must be finished before step E can begin.",
                 "Step F must be finished before step E can begin."
-            };
+            ];
             var converted = Day07.Convert(data);
             var value = Day07.FirstProblem(converted);
 
@@ -52,7 +52,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void SecondProblemTest()
         {
-            string[] data = {
+            string[] data = [
                 "Step C must be finished before step A can begin.",
                 "Step C must be finished before step F can begin.",
                 "Step A must be finished before step B can begin.",
@@ -60,7 +60,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "Step B must be finished before step E can begin.",
                 "Step D must be finished before step E can begin.",
                 "Step F must be finished before step E can begin."
-            };
+            ];
             var converted = Day07.Convert(data);
             var value = Day07.SecondProblem(converted);
 

@@ -9,7 +9,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
         [TestMethod()]
         public void ConvertTest()
         {
-            string[] data = { "a", "b", "c" };
+            string[] data = ["a", "b", "c"];
 
             var converted = Day05.Convert(data);
 
