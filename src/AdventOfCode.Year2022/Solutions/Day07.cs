@@ -108,7 +108,7 @@ namespace AdventOfCode.Year2022.Solutions
             return folders;
         }
 
-        private class DuplicateKeyComparer<TKey> : IComparer<TKey> where TKey : IComparable
+        private sealed class DuplicateKeyComparer<TKey> : IComparer<TKey> where TKey : IComparable
         {
             public int Compare(TKey? x, TKey? y)
             {

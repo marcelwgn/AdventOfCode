@@ -1,30 +1,30 @@
 ﻿namespace AdventOfCode.Year2023.Solutions
 {
-	public class Day02SampleResult
+	public class RGBSampleResult
 	{
 		public int Red { get; set; }
 		public int Green { get; set; }
 		public int Blue { get; set; }
 	}
-	public class Day02CubeGameState
+	public class CubeGameState
 	{
 		public int Id { get; set; }
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "<Pending>")]
-		public List<Day02SampleResult> Samples { get; } = [];
+		public List<RGBSampleResult> Samples { get; } = [];
 	}
 
 	public static class Day02
 	{
-		public static Day02CubeGameState[] Convert(string[] data)
+		public static CubeGameState[] Convert(string[] data)
 		{
-			var cubeGameStates = new Day02CubeGameState[data.Length];
+			var cubeGameStates = new CubeGameState[data.Length];
 
 			for (int i = 0; i < data.Length; i++)
 			{
 				var endOfNumber = data[i].IndexOf(':', StringComparison.InvariantCulture);
 				var gameId = int.Parse(data[i][5..endOfNumber]);
-				var cubeGameState = new Day02CubeGameState
+				var cubeGameState = new CubeGameState
 				{
 					Id = gameId
 				};
@@ -32,7 +32,7 @@
 				var samples = data[i][(endOfNumber + 2)..].Replace(",", "").Split("; ");
 				foreach (var sample in samples)
 				{
-					var sampleResult = new Day02SampleResult();
+					var sampleResult = new RGBSampleResult();
 					var split = sample.Split(" ");
 					for (int splitIndex = 0; splitIndex < split.Length; splitIndex += 2)
 					{
@@ -57,16 +57,16 @@
 			return cubeGameStates;
 		}
 
-		public static int FirstProblem(Day02CubeGameState[] cubeGameStates)
+		public static int FirstProblem(CubeGameState[] cubeGameStates)
 		{
 			return cubeGameStates.Where(x => x.Samples.All(sample => sample.Red <= 12 && sample.Green <= 13 && sample.Blue <= 14)).Sum(x => x.Id);
 		}
 
-		public static int SecondProblem(Day02CubeGameState[] cubeGameStates)
+		public static int SecondProblem(CubeGameState[] cubeGameStates)
 		{
 			return cubeGameStates.Sum(GetPowerOfMinimalSet);
-		
-			int GetPowerOfMinimalSet(Day02CubeGameState cubeGameState)
+
+			static int GetPowerOfMinimalSet(CubeGameState cubeGameState)
 			{
 
 				var minRed = cubeGameState.Samples.Max(x => x.Red);

@@ -1,16 +1,16 @@
 ﻿namespace AdventOfCode.Year2023.Solutions
 {
-    public record Day06Races(long[] Times, long[] Distances);
+    public record Races(long[] Times, long[] Distances);
 
 	public static class Day06
 	{
 
-		public static Day06Races Convert(string[] data)
+		public static Races Convert(string[] data)
 		{
 			var times = GetEntries(data[0]);
 			var distances = GetEntries(data[1]);
 
-			return new Day06Races(times, distances);
+			return new Races(times, distances);
 
 			static long[] GetEntries(string input)
 			{
@@ -18,7 +18,7 @@
 			}
 		}
 
-		public static long FirstProblem(Day06Races races)
+		public static long FirstProblem(Races races)
 		{
 			var product = 1L;
 			for (int i = 0; i < races.Times.Length; i++)
@@ -29,7 +29,7 @@
 			return product;
 		}
 
-		public static long SecondProblem(Day06Races races)
+		public static long SecondProblem(Races races)
 		{
 			var time = long.Parse(string.Join("", races.Times));
 			var distance = long.Parse(string.Join("", races.Distances));

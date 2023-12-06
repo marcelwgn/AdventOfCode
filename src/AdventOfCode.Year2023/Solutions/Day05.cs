@@ -3,12 +3,11 @@ using System.Runtime.CompilerServices;
 
 namespace AdventOfCode.Year2023.Solutions
 {
+    public record Interval(long Start, long End, long Offset);
 
-    public record Day05Interval(long Start, long End, long Offset);
-
-	public class Day05Mapper
+	public class Mapper
 	{
-		public Day05Interval[] Intervals { get; set; } = [];
+		public Interval[] Intervals { get; set; } = [];
 		public long GetMapped(long input)
 		{
 			foreach (var interval in Intervals)
@@ -22,7 +21,7 @@ namespace AdventOfCode.Year2023.Solutions
 		}
 	}
 
-	public record Day05ParsedInput(long[] Seeds, Day05Mapper[] Mappers);
+	public record Day05ParsedInput(long[] Seeds, Mapper[] Mappers);
 
 	public static class Day05
 	{
@@ -30,9 +29,9 @@ namespace AdventOfCode.Year2023.Solutions
 		public static Day05ParsedInput Convert(string[] data)
 		{
 			var seeds = data[0][7..].Split(" ").Select(long.Parse).ToArray();
-			var mappers = new List<Day05Mapper>();
-			var currentMapper = new Day05Mapper();
-			var currentIntervals = new List<Day05Interval>();
+			var mappers = new List<Mapper>();
+			var currentMapper = new Mapper();
+			var currentIntervals = new List<Interval>();
 
 			for (int i = 3; i < data.Length; i++)
 			{
@@ -47,7 +46,7 @@ namespace AdventOfCode.Year2023.Solutions
 				}
 
 				var numbers = data[i].Split(" ").Select(long.Parse).ToArray();
-				currentIntervals.Add(new Day05Interval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0]));
+				currentIntervals.Add(new Interval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0]));
 			}
 			AddMapper();
 
@@ -55,10 +54,10 @@ namespace AdventOfCode.Year2023.Solutions
 
 			void AddMapper()
 			{
-				currentMapper!.Intervals = currentIntervals!.ToArray();
+				currentMapper!.Intervals = [.. currentIntervals!];
 				mappers!.Add(currentMapper);
 
-				currentMapper = new Day05Mapper();
+				currentMapper = new Mapper();
 				currentIntervals.Clear();
 			}
 		}
@@ -109,7 +108,7 @@ namespace AdventOfCode.Year2023.Solutions
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		private static long Map(long input, Day05Mapper[] mappers)
+		private static long Map(long input, Mapper[] mappers)
 		{
 			var curValue = input;
 

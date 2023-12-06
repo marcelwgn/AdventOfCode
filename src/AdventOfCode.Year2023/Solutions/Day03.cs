@@ -1,17 +1,17 @@
 ﻿namespace AdventOfCode.Year2023.Solutions
 {
-	public record Day03NumberPosition(int X, int Y, int XEnd, int Value);
+	public record NumberPosition(int X, int Y, int XEnd, int Value);
 
-	public record Day03PartPosition(int X, int Y, bool IsGear);
+	public record PartPosition(int X, int Y, bool IsGear);
 
-	public record Day03PartNumberList(IList<Day03NumberPosition> Numbers, IList<Day03PartPosition> Parts);
+	public record PartNumberList(IList<NumberPosition> Numbers, IList<PartPosition> Parts);
 
 	public static class Day03
 	{
-		public static Day03PartNumberList Convert(string[] data)
+		public static PartNumberList Convert(string[] data)
 		{
-			var symbolPositions = new List<Day03PartPosition>();
-			var numberPositions = new List<Day03NumberPosition>();
+			var symbolPositions = new List<PartPosition>();
+			var numberPositions = new List<NumberPosition>();
 
 			for (int i = 0; i < data.Length; i++)
 			{
@@ -32,34 +32,34 @@
 					{
 						if (numberLength != 0)
 						{
-							numberPositions.Add(new Day03NumberPosition(lastNumberStart, i, lastNumberStart + numberLength - 1, int.Parse(data[i].Substring(lastNumberStart, numberLength))));
+							numberPositions.Add(new NumberPosition(lastNumberStart, i, lastNumberStart + numberLength - 1, int.Parse(data[i].Substring(lastNumberStart, numberLength))));
 
 							numberLength = 0;
 						}
 						if (curChar != '.' && !char.IsNumber(curChar))
 						{
-							symbolPositions.Add(new Day03PartPosition(j, i, curChar == '*'));
+							symbolPositions.Add(new PartPosition(j, i, curChar == '*'));
 						}
 					}
 				}
 
 				if (numberLength != 0)
 				{
-					numberPositions.Add(new Day03NumberPosition(
+					numberPositions.Add(new NumberPosition(
 						lastNumberStart, i, lastNumberStart + numberLength - 1, int.Parse(data[i].Substring(lastNumberStart, numberLength))));
 				}
 			}
 			var totalNumberCount = data.Select(x => string.Join(",", x.Split('.').Where(y => y.All(c => char.IsNumber(c)) && y.Length > 0).ToArray()));
 			var otherCount = numberPositions.GroupBy(x => x.Y).Select(x => string.Join(",", x.Select(y => y.Value).ToArray()));
-			return new Day03PartNumberList(numberPositions, symbolPositions);
+			return new PartNumberList(numberPositions, symbolPositions);
 		}
 
-		public static int FirstProblem(Day03PartNumberList parseResult)
+		public static int FirstProblem(PartNumberList parseResult)
 		{
 			return parseResult.Numbers.Where(n => parseResult.Parts.Any(p => IsAdjacent(n, p))).Sum(x => x.Value);
 		}
 
-		public static int SecondProblem(Day03PartNumberList parseResult)
+		public static int SecondProblem(PartNumberList parseResult)
 		{
 			var gears = parseResult.Parts.Where(p => p.IsGear);
 			var totalResult = 0;
@@ -74,7 +74,7 @@
 			return totalResult;
 		}
 
-		private static bool IsAdjacent(Day03NumberPosition number, Day03PartPosition part)
+		private static bool IsAdjacent(NumberPosition number, PartPosition part)
 		{
 			var yDistance = Math.Abs(part.Y - number.Y);
 			var xDistance = 0;
