@@ -1,43 +1,38 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 
 namespace AdventOfCode.Year2023.Solutions
 {
+
+    public record Day05Interval(long Start, long End, long Offset);
+
+	public class Day05Mapper
+	{
+		public Day05Interval[] Intervals { get; set; } = [];
+		public long GetMapped(long input)
+		{
+			foreach (var interval in Intervals)
+			{
+				if (interval.Start <= input && input <= interval.End)
+				{
+					return input - interval.Start + interval.Offset;
+				}
+			}
+			return input;
+		}
+	}
+
+	public record Day05ParsedInput(long[] Seeds, Day05Mapper[] Mappers);
+
 	public static class Day05
 	{
-		public record Interval(long Start, long End, long Offset);
 
-		public class Mapper
-		{
-			public Interval[] Intervals { get; set; }
-			public long GetMapped(long input)
-			{
-				foreach (var interval in Intervals)
-				{
-					if (interval.Start <= input && input <= interval.End)
-					{
-						return input - interval.Start + interval.Offset;
-					}
-				}
-				return input;
-			}
-		}
-
-		public record ParsedInput(long[] Seeds, Mapper[] Mappers);
-
-		public static ParsedInput Convert(string[] data)
+		public static Day05ParsedInput Convert(string[] data)
 		{
 			var seeds = data[0][7..].Split(" ").Select(long.Parse).ToArray();
-			var mappers = new List<Mapper>();
-			var currentMapper = new Mapper();
-			var currentIntervals = new List<Interval>();
+			var mappers = new List<Day05Mapper>();
+			var currentMapper = new Day05Mapper();
+			var currentIntervals = new List<Day05Interval>();
 
 			for (int i = 3; i < data.Length; i++)
 			{
@@ -52,28 +47,28 @@ namespace AdventOfCode.Year2023.Solutions
 				}
 
 				var numbers = data[i].Split(" ").Select(long.Parse).ToArray();
-				currentIntervals.Add(new Interval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0]));
+				currentIntervals.Add(new Day05Interval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0]));
 			}
 			AddMapper();
 
-			return new ParsedInput(seeds, [.. mappers]);
+			return new Day05ParsedInput(seeds, [.. mappers]);
 
 			void AddMapper()
 			{
 				currentMapper!.Intervals = currentIntervals!.ToArray();
 				mappers!.Add(currentMapper);
 
-				currentMapper = new Mapper();
+				currentMapper = new Day05Mapper();
 				currentIntervals.Clear();
 			}
 		}
 
-		public static long FirstProblem(ParsedInput parsedInput)
+		public static long FirstProblem(Day05ParsedInput parsedInput)
 		{
 			return parsedInput.Seeds.Select(x => Map(x, parsedInput.Mappers)).Min();
 		}
 
-		public static long SecondProblem(ParsedInput parsedInput)
+		public static long SecondProblem(Day05ParsedInput parsedInput)
 		{
 			// Idea: split into smaller chunks by determining how much parallelization you can get on the current machine
 			var lowestValues = new ConcurrentBag<long>();
@@ -114,7 +109,7 @@ namespace AdventOfCode.Year2023.Solutions
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		private static long Map(long input, Mapper[] mappers)
+		private static long Map(long input, Day05Mapper[] mappers)
 		{
 			var curValue = input;
 

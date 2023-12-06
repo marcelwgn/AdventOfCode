@@ -1,13 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Year2023.Tests.Solutions
 {
-	[TestClass]
+    [TestClass]
 	public class Day06Tests
 	{
 		private readonly string[] data = ["Time:      7  15   30", "Distance:  9  40  200"];

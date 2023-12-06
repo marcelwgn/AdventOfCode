@@ -49,7 +49,7 @@
 					}
 
 					var currentStringToEnd = input[positionInString..];
-					var (Digit, Name) = NUMBERS.Where(x => currentStringToEnd.StartsWith(x.Name, StringComparison.InvariantCulture)).FirstOrDefault((Digit: -1, Name: ""));
+					var (Digit, Name) = NUMBERS.Where(x => currentStringToEnd.StartsWith(x.Name)).FirstOrDefault((Digit: -1, Name: ""));
 					if (Digit != -1)
 					{
 						return Digit;

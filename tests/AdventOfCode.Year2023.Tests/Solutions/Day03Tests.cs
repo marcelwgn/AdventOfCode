@@ -5,9 +5,10 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 	[TestClass]
 	public class Day03Tests
 	{
-		int[] numbersToFind = [467, 114, 35, 633, 617, 58, 592, 755, 664, 598];
-		// Write as string array instead of using split
-		string[] data = [
+        private readonly int[] numbersToFind = [467, 114, 35, 633, 617, 58, 592, 755, 664, 598];
+
+        // Write as string array instead of using split
+        private readonly string[] data = [
 			"467..114..", 
 			"...*......", 
 			"..35..633.", 

@@ -1,12 +1,6 @@
 ﻿<Project>
   <PropertyGroup>
     <!--
-      CA1303: Do not pass literals as localized parameters
-      Ignore reason: All strings we use are templates or logging and are in english per design
-
-      CA1305: Specify IFormatProvider
-      Ignore reason: All strings are english
-      
       WMC1501: Property is for evaluation purposes
       Ignore reason: We are fine with that here
       
@@ -16,13 +10,16 @@
       CA1062: Parameters in public method not verified
       Ignore reason: Projects are not public APIs
 
-      CA1307: String.replace might vary based on locale
-      Ignore reason: All data is in english
+      CA1819: Properties should not return arrays
+      Ignore reason: Almost all classes are DTOs so having arrays as members is fine
 
-      CA1304: Behavior of char.ToUpper migh vary based on locale
-      Ignore reason: All data is in english
+      CA1303,CA1304,CA1305,CA1307,CA1308,CA1309,CA1310,CA1311: String localization rules
+      Ignore reason: We are fine with that here given we only deal with ASCII text.
       -->
 
-    <NoWarn>;$(NoWarn);CA1303;CA1305;WMC1501;CS8305;CA1062;CA1307;CA1304;</NoWarn>
+    <NoWarn>;$(NoWarn);
+      WMC1501;CS8305;CA1062;CA1819;
+      CA1303;CA1304;CA1305;CA1307;CA1308;CA1309;CA1310;CA1311; <!-- String localization rules -->
+      </NoWarn>
   </PropertyGroup>
 </Project>

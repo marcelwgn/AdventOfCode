@@ -1,10 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using AdventOfCode.Year2023.Solutions;
-
 namespace AdventOfCode.Year2023.Tests.Solutions
 {
-	[TestClass]
+    [TestClass]
 	public class Day01Tests
 	{
 		[TestMethod]
