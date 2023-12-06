@@ -27,23 +27,23 @@ namespace AdventOfCode.Year2020.Solutions
 
             int SpeakNumber(int number, int turn)
             {
-                if (spokenNumbers.ContainsKey(number))
+                if (spokenNumbers.TryGetValue(number, out var currentNumber))
                 {
-                    if (spokenNumbers[number].secondToLast == -1)
+                    if (currentNumber.secondToLast == -1)
                     {
                         spokenNumbers[0] = (spokenNumbers[0].last, turn + 1);
                         return 0;
                     }
                     else
                     {
-                        var nextNumber = spokenNumbers[number].last - spokenNumbers[number].secondToLast;
-                        if (!spokenNumbers.ContainsKey(nextNumber))
+                        var nextNumber = currentNumber.last - currentNumber.secondToLast;
+                        if (!spokenNumbers.TryGetValue(nextNumber, out var spokenNumber))
                         {
                             spokenNumbers[nextNumber] = (-1, turn + 1);
                         }
                         else
                         {
-                            spokenNumbers[nextNumber] = (spokenNumbers[nextNumber].last, turn + 1);
+                            spokenNumbers[nextNumber] = (spokenNumber.last, turn + 1);
                         }
                         return nextNumber;
                     }

@@ -43,9 +43,9 @@ namespace AdventOfCode.Year2020.Solutions
             {
                 foreach (var character in item)
                 {
-                    if (dict.ContainsKey(character))
+                    if (dict.TryGetValue(character, out var value))
                     {
-                        dict[character]++;
+                        dict[character] = ++value;
                     }
                     else
                     {

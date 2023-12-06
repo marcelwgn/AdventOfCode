@@ -67,32 +67,32 @@ namespace AdventOfCode.Year2020.Solutions
             {
                 if (index == 0 && data[index] < 3)
                 {
-                    return new int[] { -1 };
+                    return [-1];
                 }
                 else if (index == 1)
                 {
                     if (data[index] <= 3)
                     {
-                        return new int[] { -1, 0 };
+                        return [-1, 0];
                     }
                     else if (data[index] - data[index - 1] <= 3)
                     {
-                        return new int[] { 0 };
+                        return [0];
                     }
                 }
                 else if (index == 2)
                 {
                     if (data[index] <= 3)
                     {
-                        return new int[] { -1, 0, 1 };
+                        return [-1, 0, 1];
                     }
                     else if (data[index] - data[index - 2] <= 3)
                     {
-                        return new int[] { 0, 1 };
+                        return [0, 1];
                     }
                     else if (data[index] - data[index - 1] <= 3)
                     {
-                        return new int[] { 1 };
+                        return [1];
                     }
                 }
             }
@@ -100,18 +100,18 @@ namespace AdventOfCode.Year2020.Solutions
             {
                 if (currentValue - data[index - 3] <= 3)
                 {
-                    return new int[] { index - 3, index - 2, index - 1 };
+                    return [index - 3, index - 2, index - 1];
                 }
                 else if (currentValue - data[index - 2] <= 3)
                 {
-                    return new int[] { index - 2, index - 1 };
+                    return [index - 2, index - 1];
                 }
                 else if (currentValue - data[index - 1] <= 3)
                 {
-                    return new int[] { index - 1 };
+                    return [index - 1];
                 }
             }
-            return Array.Empty<int>();
+            return [];
         }
     }
 }

@@ -48,21 +48,15 @@ namespace AdventOfCode.Year2020.Solutions
         }
     }
 
-    public class Bag
-    {
-        public string Name { get; init; }
-        private readonly bool selfContainsGoldBag;
-        private readonly List<Bag> Bags = new();
+    public class Bag(string name, bool holdGoldBg)
+	{
+		public string Name { get; init; } = name;
+		private readonly bool selfContainsGoldBag = holdGoldBg;
+        private readonly List<Bag> Bags = [];
         private int? bagCountCached = 1;
-        private bool? canHoldGoldBagCached = null;
+        private bool? canHoldGoldBagCached;
 
-        public Bag(string name, bool holdGoldBg)
-        {
-            selfContainsGoldBag = holdGoldBg;
-            Name = name;
-        }
-
-        public void AddBag(Bag bag)
+		public void AddBag(Bag bag)
         {
             Bags.Add(bag);
             canHoldGoldBagCached = null;
@@ -71,10 +65,7 @@ namespace AdventOfCode.Year2020.Solutions
 
         public int GetBagCount()
         {
-            if (bagCountCached is null)
-            {
-                bagCountCached = Bags.Sum(x => x.GetBagCount()) + 1;
-            }
+            bagCountCached ??= Bags.Sum(x => x.GetBagCount()) + 1;
             return bagCountCached.Value;
         }
 
@@ -100,10 +91,7 @@ namespace AdventOfCode.Year2020.Solutions
                         }
                     }
                 }
-                if (canHoldGoldBagCached == null)
-                {
-                    canHoldGoldBagCached = false;
-                }
+                canHoldGoldBagCached ??= false;
             }
             return canHoldGoldBagCached.Value;
         }

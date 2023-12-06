@@ -6,7 +6,6 @@ namespace AdventOfCode.Year2020.Solutions
     public static class Day12
     {
         const double ToRadians = Math.PI / 180;
-        const double ToDegree = 1 / ToRadians;
 
         public static int FirstProblem(string[] data)
         {

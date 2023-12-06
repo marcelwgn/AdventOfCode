@@ -11,9 +11,9 @@ namespace AdventOfCode.Year2020.Tests.Solutions
         [TestMethod]
         public void VerifyGetTiles()
         {
-            var data = new string[]
-            {
-                "Tile 2311:",
+			string[] data =
+			[
+				"Tile 2311:",
                 "..##.#..#.",
                 "##..#.....",
                 "#...##..#.",
@@ -48,7 +48,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 "#.##.####.",
                 "####..#...",
                 ".....##..."
-            };
+            ];
 
             var tiles = Day20.GetTiles(data);
 

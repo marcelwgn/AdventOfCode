@@ -34,11 +34,7 @@ namespace AdventOfCode.Year2020.Solutions
 
                     var numSum = ConvertToLong(numBin);
 
-                    if (!result.ContainsKey(address))
-                    {
-                        result.Add(address, numSum);
-                    }
-                    else
+                    if (!result.TryAdd(address, numSum))
                     {
                         result[address] = numSum;
                     }
@@ -81,7 +77,7 @@ namespace AdventOfCode.Year2020.Solutions
                     }
 
                     // Get all possible addresses
-                    var addresses = new List<string>() { new string(addressBin) };
+                    var addresses = new List<string>() { new(addressBin) };
                     for (var bitIndex = 0; bitIndex < 36; bitIndex++)
                     {
                         var currentCount = addresses.Count;

@@ -59,7 +59,7 @@ namespace AdventOfCode.Year2020.Solutions
             for (var i = 0; i < propertyCount; i++)
             {
                 var label = data[i].Split(':')[0];
-                categories.Add(label, GetValidNumbers(new string[] { data[i] }));
+                categories.Add(label, GetValidNumbers([data[i]]));
             }
 
             // Get valid tickets
@@ -77,11 +77,7 @@ namespace AdventOfCode.Year2020.Solutions
             var categoryMap = new HashSet<string>[propertyCount];
             for (var i = 0; i < categoryMap.Length; i++)
             {
-                categoryMap[i] = new HashSet<string>();
-                foreach (var item in categories.Keys)
-                {
-                    categoryMap[i].Add(item);
-                }
+                categoryMap[i] = [.. categories.Keys];
             }
 
             // Remove entires that are not valid

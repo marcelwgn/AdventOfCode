@@ -14,20 +14,20 @@ namespace AdventOfCode.Year2020.Solutions
         public Tile(long id, string leftBorder, string topBorder, string rightBorder, string bottomBorder)
         {
             Id = id;
-            Borders = new string[]
-            {
-                leftBorder,
+            Borders =
+			[
+				leftBorder,
                 topBorder,
                 rightBorder,
                 bottomBorder
-            };
-            BordersFlipped = new string[]
-            {
-                Reverse(leftBorder),
+            ];
+            BordersFlipped =
+			[
+				Reverse(leftBorder),
                 Reverse(topBorder),
                 Reverse(rightBorder),
                 Reverse(bottomBorder)
-            };
+            ];
 
             static string Reverse(string s)
             {

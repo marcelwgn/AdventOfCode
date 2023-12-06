@@ -71,9 +71,9 @@ namespace AdventOfCode.Year2020.Solutions
 
         public static string GetRegex(int rule, Dictionary<int, string> ruleMap, Dictionary<int, string> regexMap)
         {
-            if (regexMap.ContainsKey(rule))
+            if (regexMap.TryGetValue(rule, out var value))
             {
-                return regexMap[rule];
+                return value;
             }
 
             var line = ruleMap[rule];
