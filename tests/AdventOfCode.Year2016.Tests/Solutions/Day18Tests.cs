@@ -6,10 +6,12 @@ namespace AdventOfCode.Year2016.Tests.Solutions
     [TestClass]
     public class Day18Tests
     {
-        [TestMethod]
-        public void ConvertTest()
+		private const string data = "^.^^^..^^...^.^..^^^^^.....^...^^^..^^^^.^^.^^^^^^^^.^^.^^^^...^^...^^^^.^.^..^^..^..^.^^.^.^.......";
+
+		[TestMethod]
+		public void ConvertTest()
         {
-            CollectionAssert.AreEqual(new bool[] { true, false, false }, Day18.Convert(new string[] { "^.." }));
+            CollectionAssert.AreEqual(new bool[] { true, false, false }, Day18.Convert(["^.."]));
         }
 
         [TestMethod]
@@ -23,7 +25,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void CountSaveTilesTest()
         {
-            var initialData = Day18.Convert(new string[] { ".^^.^.^^^^" });
+            var initialData = Day18.Convert([".^^.^.^^^^"]);
             Assert.AreEqual(38, Day18.CountSaveTiles(initialData, 9));
         }
 
@@ -39,13 +41,13 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void FirstProblemTest()
         {
-            Assert.AreEqual(1913, Day18.FirstProblem(Day18.Convert(new string[] { "^.^^^..^^...^.^..^^^^^.....^...^^^..^^^^.^^.^^^^^^^^.^^.^^^^...^^...^^^^.^.^..^^..^..^.^^.^.^......." })));
+            Assert.AreEqual(1913, Day18.FirstProblem(Day18.Convert([data])));
         }
 
         [TestMethod]
         public void SecondProblemTest()
         {
-            Assert.AreEqual(19993564, Day18.SecondProblem(Day18.Convert(new string[] { "^.^^^..^^...^.^..^^^^^.....^...^^^..^^^^.^^.^^^^^^^^.^^.^^^^...^^...^^^^.^.^..^^..^..^.^^.^.^......." })));
+            Assert.AreEqual(19993564, Day18.SecondProblem(Day18.Convert([data])));
         }
 
     }

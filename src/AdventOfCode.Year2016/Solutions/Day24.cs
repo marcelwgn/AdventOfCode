@@ -36,7 +36,8 @@ namespace AdventOfCode.Year2016.Solutions
             return CoreAlgorithm(maze, true);
         }
 
-        private static int CoreAlgorithm(char[][] maze, bool returnToZero)
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "We need 2 dimensional grids")]
+		private static int CoreAlgorithm(char[][] maze, bool returnToZero)
         {
             var graph = new MazeGraph(maze);
 

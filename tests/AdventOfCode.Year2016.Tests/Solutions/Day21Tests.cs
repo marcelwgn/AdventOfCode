@@ -1,6 +1,7 @@
 ﻿using AdventOfCode.Year2016.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventOfCode.Year2016.Tests.Solutions
 {
@@ -23,60 +24,60 @@ namespace AdventOfCode.Year2016.Tests.Solutions
                 "rotate based on position of letter d",
             };
 
-            var expected = new Day21.TextInstruction[]
+            var expected = new Day21TextInstruction[]
             {
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "SWAP",
                     FirstIndex = 4,
                     SecondIndex = 0,
                     IndexBased = true
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "SWAP",
                     FirstChar = 'd',
                     SecondChar= 'b',
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "REVERSE",
                     FirstIndex = 0,
                     SecondIndex = 4,
                     IndexBased = true
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "ROTATE",
                     FirstIndex = -1,
                     IndexBased = true
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "ROTATE",
                     FirstIndex = 1,
                     IndexBased = true
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "MOVE",
                     FirstIndex = 1,
                     SecondIndex = 4,
                     IndexBased = true
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "MOVE",
                     FirstIndex = 3,
                     SecondIndex = 0,
                     IndexBased = true
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "ROTATE",
                     FirstChar = 'b',
                 },
-                new Day21.TextInstruction()
+                new()
                 {
                     Operation = "ROTATE",
                     FirstChar = 'd',
@@ -90,14 +91,14 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void ProcessInstructionsMoveTest()
         {
-            var moveInstructionOne = new Day21.TextInstruction()
+            var moveInstructionOne = new Day21TextInstruction()
             {
                 Operation = "MOVE",
                 FirstIndex = 1,
                 SecondIndex = 4,
                 IndexBased = true
             };
-            var moveInstructionTwo = new Day21.TextInstruction()
+            var moveInstructionTwo = new Day21TextInstruction()
             {
                 Operation = "MOVE",
                 FirstIndex = 3,
@@ -112,14 +113,14 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void ProcessInstructionsSwapTest()
         {
-            var indexSwap = new Day21.TextInstruction()
+            var indexSwap = new Day21TextInstruction()
             {
                 Operation = "SWAP",
                 FirstIndex = 4,
                 SecondIndex = 0,
                 IndexBased = true
             };
-            var charSwap = new Day21.TextInstruction()
+            var charSwap = new Day21TextInstruction()
             {
                 Operation = "SWAP",
                 FirstChar = 'd',
@@ -133,14 +134,14 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void ProcessInstructionsReverseTest()
         {
-            var indexSwap = new Day21.TextInstruction()
+            var indexSwap = new Day21TextInstruction()
             {
                 Operation = "REVERSE",
                 FirstIndex = 1,
                 SecondIndex = 4,
                 IndexBased = true
             };
-            var completeStringReverse = new Day21.TextInstruction()
+            var completeStringReverse = new Day21TextInstruction()
             {
                 Operation = "REVERSE",
                 FirstIndex = 0,
@@ -155,24 +156,24 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void ProcessInstructionsRotateTest()
         {
-            var leftShift = new Day21.TextInstruction()
+            var leftShift = new Day21TextInstruction()
             {
                 Operation = "ROTATE",
                 FirstIndex = -1,
                 IndexBased = true
             };
-            var rightShift = new Day21.TextInstruction()
+            var rightShift = new Day21TextInstruction()
             {
                 Operation = "ROTATE",
                 FirstIndex = 10,
                 IndexBased = true
             };
-            var bShift = new Day21.TextInstruction()
+            var bShift = new Day21TextInstruction()
             {
                 Operation = "ROTATE",
                 FirstChar = 'b',
             };
-            var dShift = new Day21.TextInstruction()
+            var dShift = new Day21TextInstruction()
             {
                 Operation = "ROTATE",
                 FirstChar = 'd',
@@ -232,7 +233,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
                 (0,2),(4,8),(11,22),(25, uint.MaxValue - 10)
             };
 
-            CollectionAssert.AreEqual(expected, Day20.GetUniqueIntervals(data));
+            CollectionAssert.AreEqual(expected, Day20.GetUniqueIntervals(data).ToList());
         }
 
     }

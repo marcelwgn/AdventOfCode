@@ -5,7 +5,7 @@ namespace AdventOfCode.Year2016.Solutions
 {
     public static class Day03
     {
-        public static int[][] Convert(string[] data) => data.Select(x => x.Split(" ").Where(y => y != "").ToArray().ToIntArray()).ToArray();
+        public static int[][] Convert(string[] data) => data.Select(x => x.Split(" ").Where(y => !string.IsNullOrEmpty(y)).ToArray().ToIntArray()).ToArray();
 
         public static int FirstProblem(int[][] data)
         {
@@ -19,7 +19,7 @@ namespace AdventOfCode.Year2016.Solutions
             {
                 for (var j = 0; j < data[i].Length; j++)
                 {
-                    if (IsValidTriangle(new int[] { data[i][j], data[i + 1][j], data[i + 2][j] }))
+                    if (IsValidTriangle([data[i][j], data[i + 1][j], data[i + 2][j]]))
                     {
                         validCount++;
                     }

@@ -13,13 +13,13 @@ namespace AdventOfCode.Year2016.Solutions
         /// </summary>
         public static long FirstProblem((uint Start, uint Finish)[] data)
         {
-            var intervals = GetUniqueIntervals(data.OrderBy(x => x.Start).ToArray());
+            var intervals = GetUniqueIntervals([.. data.OrderBy(x => x.Start)]);
             return intervals[0].Finish + 1;
         }
 
         public static long SecondProblem((uint Start, uint Finish)[] data)
         {
-            var intervals = GetUniqueIntervals(data.OrderBy(x => x.Start).ToArray());
+            var intervals = GetUniqueIntervals([.. data.OrderBy(x => x.Start)]);
             long freeIPCount = 0;
             for (var i = 0; i < intervals.Count - 1; i++)
             {
@@ -29,7 +29,7 @@ namespace AdventOfCode.Year2016.Solutions
             return freeIPCount;
         }
 
-        public static List<(long Start, long Finish)> GetUniqueIntervals((uint Start, uint Finish)[] data)
+        public static IList<(long Start, long Finish)> GetUniqueIntervals((uint Start, uint Finish)[] data)
         {
             var intervals = new List<(long Start, long Finish)>();
             var index = 0;

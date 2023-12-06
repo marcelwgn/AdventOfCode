@@ -9,14 +9,14 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void FirstProblemTest()
         {
-            Assert.AreEqual(22728, Day14.FirstProblem(new string[] { "abc" }));
+            Assert.AreEqual(22728, Day14.FirstProblem(["abc"]));
         }
 
         // Disabled due to long runtime
         //[TestMethod]
         public void SecondProblemTest()
         {
-            Assert.AreEqual(22551, Day14.SecondProblem(new string[] { "abc" }));
+            Assert.AreEqual(22551, Day14.SecondProblem(["abc"]));
         }
     }
 }

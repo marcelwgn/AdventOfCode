@@ -12,7 +12,8 @@
             return RunProgram(data, 12);
         }
 
-        private static long RunProgram(string[] data, short initialAValue)
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "We need 2 dimensional grids")]
+		private static long RunProgram(string[] data, short initialAValue)
         {
             var instructionPointer = 0;
             // We are preprocessing everything to minimize CPU cost of every instruction.

@@ -48,9 +48,10 @@ namespace AdventOfCode.Year2016.Tests.Solutions
             Assert.AreEqual(11, Day13.FirstProblem(data));
         }
 
-        // Disabled because of performance
-        // [TestMethod]
-        public void SecondProblemTest()
+		// Disabled because of performance
+		// [TestMethod]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Usually a test, just disabled for performance reasons")]
+		public void SecondProblemTest()
         {
             var data = new string[]
             {

@@ -14,7 +14,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [DataRow("11", 7)]
         public void FirstProblemTest(string data, int solution)
         {
-            Assert.AreEqual(solution, Day19.FirstProblem(new string[] { data }));
+            Assert.AreEqual(solution, Day19.FirstProblem([data]));
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [DataRow("13", 4)]
         public void SecondProblemTest(string data, int solution)
         {
-            Assert.AreEqual(solution, Day19.SecondProblem(new string[] { data }));
+            Assert.AreEqual(solution, Day19.SecondProblem([data]));
         }
 
     }

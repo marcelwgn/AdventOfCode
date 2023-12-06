@@ -1,6 +1,7 @@
 ﻿using AdventOfCode.Year2016.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventOfCode.Year2016.Tests.Solutions
 {
@@ -75,8 +76,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
                 (0,2),(4,8),(11,22),(25, uint.MaxValue - 10)
             };
 
-            CollectionAssert.AreEqual(expected, Day20.GetUniqueIntervals(data));
+            CollectionAssert.AreEqual(expected, Day20.GetUniqueIntervals(data).ToList());
         }
-
     }
 }

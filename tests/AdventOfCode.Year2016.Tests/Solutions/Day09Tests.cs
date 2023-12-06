@@ -15,7 +15,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [DataRow("X(8x2)(3x3)ABCY", 18)]
         public void FirstProblemTest(string data, int expectedLength)
         {
-            Assert.AreEqual(expectedLength, Day09.FirstProblem(new string[] { data }));
+            Assert.AreEqual(expectedLength, Day09.FirstProblem([data]));
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [DataRow("(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN", 445)]
         public void SecondProblemTest(string data, int expectedLength)
         {
-            Assert.AreEqual(expectedLength, Day09.SecondProblem(new string[] { data }));
+            Assert.AreEqual(expectedLength, Day09.SecondProblem([data]));
         }
     }
 }

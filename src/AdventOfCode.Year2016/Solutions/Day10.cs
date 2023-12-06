@@ -35,7 +35,7 @@ namespace AdventOfCode.Year2016.Solutions
         {
             var maxNumberMovePartOne = input.Where(x => x[0] == 'b').Select(x => int.Parse(x.Split(' ')[6])).Max();
             var maxNumberMovePartTwo = input.Where(x => x[0] == 'b').Select(x => int.Parse(x.Split(' ')[11])).Max();
-            var botValueInstructions = input.Where(x => x[0] == 'v');
+            var botValueInstructions = input.Where(x => x[0] == 'v').ToArray();
             var maxNumberBotSetValue = botValueInstructions.Select(y => int.Parse(y.Split(" ")[5])).Max() + 1;
 
             var size = Math.Max(maxNumberBotSetValue, Math.Max(maxNumberMovePartOne, maxNumberMovePartTwo)) + 1;
@@ -58,7 +58,7 @@ namespace AdventOfCode.Year2016.Solutions
             (int?, int?) sortedComparison = (Math.Min(comparison.Item1, comparison.Item2), Math.Max(comparison.Item1, comparison.Item2));
             Array.Fill(outputs, null);
 
-            var moveInstructions = input.Where((x) => x[0] == 'b');
+            var moveInstructions = input.Where((x) => x[0] == 'b').ToHashSet();
 
             var twoEntrybot = FindTwoEntryBot(bots);
             while (twoEntrybot > -1)

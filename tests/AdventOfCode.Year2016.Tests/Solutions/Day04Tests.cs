@@ -11,7 +11,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         public void ConvertTests()
         {
             var expected = ("aaaaa-bbb-z-y-x", 123, "abxyz");
-            var actual = Day04.Convert(new string[] { "aaaaa-bbb-z-y-x-123[abxyz]" })[0];
+            var actual = Day04.Convert(["aaaaa-bbb-z-y-x-123[abxyz]"])[0];
             Assert.AreEqual(expected, actual);
         }
 

@@ -13,13 +13,14 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [DataRow("R5, L5, R5, R3", 12)]
         public void FirstProblemTest(string data, int expectedValue)
         {
-            Assert.AreEqual(expectedValue, Day01.FirstProblem(new string[] { data }));
+            Assert.AreEqual(expectedValue, Day01.FirstProblem([data]));
         }
 
-        [TestMethod]
+
+		[TestMethod]
         public void SecondProblemTest()
         {
-            Assert.AreEqual(4, Day01.SecondProblem(new string[] { "R8, R4, R4, R8" }));
+            Assert.AreEqual(4, Day01.SecondProblem(["R8, R4, R4, R8"]));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AdventOfCode.Year2016.Tests.Solutions
     {
 
         [TestMethod]
-        public void ConverterTest()
+		public void ConverterTest()
         {
             var data = new string[]
             {
@@ -31,11 +31,11 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         {
             var data = new int[][]
             {
-                new int[]{2,2,3},
-                new int[]{1000,2,3},
-                new int[]{1,2000,3},
-                new int[]{10,20,20},
-                new int[]{1,2,30000},
+                [2,2,3],
+                [1000,2,3],
+                [1,2000,3],
+                [10,20,20],
+                [1,2,30000],
             };
             Assert.AreEqual(2, Day03.FirstProblem(data));
         }
@@ -45,12 +45,12 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         {
             var data = new int[][]
             {
-                new int[]{2,20,3},
-                new int[]{2,200,3},
-                new int[]{3,10,3},
-                new int[]{10,20,20},
-                new int[]{1,20,1},
-                new int[]{1,20,1},
+                [2,20,3],
+                [2,200,3],
+                [3,10,3],
+                [10,20,20],
+                [1,20,1],
+                [1,20,1],
             };
             Assert.AreEqual(3, Day03.SecondProblem(data));
         }

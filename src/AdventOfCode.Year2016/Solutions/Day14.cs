@@ -8,8 +8,6 @@ namespace AdventOfCode.Year2016.Solutions
 {
     public static class Day14
     {
-        public static MD5 md5Hash = MD5.Create();
-
         public static long FirstProblem(string[] data)
         {
             return Algorithm(data[0]);
@@ -59,14 +57,15 @@ namespace AdventOfCode.Year2016.Solutions
             return foundKeys[63];
         }
 
-        private static string HashedInput(string data, int iterations = 1)
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA5351:Do Not Use Broken Cryptographic Algorithms", Justification = "<Pending>")]
+		private static string HashedInput(string data, int iterations = 1)
         {
             var currentInput = data;
             while (iterations > 0)
             {
                 iterations--;
                 var inputBytes = Encoding.ASCII.GetBytes(currentInput);
-                var hashBytes = md5Hash.ComputeHash(inputBytes);
+                var hashBytes = MD5.HashData(inputBytes);
 
                 // Convert the byte array to hexadecimal string
                 var sb = new StringBuilder();
