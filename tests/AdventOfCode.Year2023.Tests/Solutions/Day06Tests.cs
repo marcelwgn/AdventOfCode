@@ -1,0 +1,43 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AdventOfCode.Year2023.Tests.Solutions
+{
+	[TestClass]
+	public class Day06Tests
+	{
+		private readonly string[] data = ["Time:      7  15   30", "Distance:  9  40  200"];
+
+
+		[TestMethod]
+		public void VerifyConvert()
+		{
+			var parsed = Day06.Convert(data);
+
+			Assert.AreEqual(3, parsed.Times.Length);
+			Assert.AreEqual(3, parsed.Distances.Length);
+			Assert.AreEqual(7, parsed.Times[0]);
+			Assert.AreEqual(9, parsed.Distances[0]);
+		}
+
+		[TestMethod]
+		public void VerifyFirstProblem()
+		{
+			var parsed = Day06.Convert(data);
+
+			Assert.AreEqual(288, Day06.FirstProblem(parsed));
+		}
+
+		[TestMethod]
+		public void VerifySecondProblem()
+		{
+			var parsed = Day06.Convert(data);
+
+			Assert.AreEqual(71503, Day06.SecondProblem(parsed));
+		}
+	}
+}
