@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AdventOfCode.Runner.Infrastructure;
 
-namespace AdventOfCode.Common.Tests
+namespace AdventOfCode.Runner.Tests.Infrastructure
 {
     [TestClass]
     public class SolutionRunnerTests

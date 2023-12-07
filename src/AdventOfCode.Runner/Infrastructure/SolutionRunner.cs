@@ -1,7 +1,6 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
-namespace AdventOfCode.Common
+namespace AdventOfCode.Runner.Infrastructure
 {
     /// <summary>
     /// This class is designed to make running tests a lot easier by removing the boilerplate of invoking the correct functions.

@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AdventOfCode.Runner.Infrastructure;
 
-namespace AdventOfCode.Common.Tests
+namespace AdventOfCode.Runner.Tests.Infrastructure
 {
     [TestClass]
     public class ReadUtilsTests
@@ -8,9 +8,9 @@ namespace AdventOfCode.Common.Tests
         [TestMethod]
         public void VerifyReadsStringDataCorrectly()
         {
-			string[] expected =
-			[
-				"Text1",
+            string[] expected =
+            [
+                "Text1",
                 "Text2",
                 "Text3",
                 "Text4",

@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Linq;
-
-namespace AdventOfCode.Common
+﻿namespace AdventOfCode.Runner.Infrastructure
 {
     public static class ReadUtils
     {

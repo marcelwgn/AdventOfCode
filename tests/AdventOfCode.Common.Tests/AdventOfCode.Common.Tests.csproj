@@ -16,10 +16,4 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\AdventOfCode.Common\AdventOfCode.Common.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="MockData\StringTestData.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>
