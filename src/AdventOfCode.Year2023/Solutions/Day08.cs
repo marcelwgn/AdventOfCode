@@ -50,6 +50,12 @@ namespace AdventOfCode.Year2023.Solutions
 			// and then find the least common multiple of all loop sizes since iterating might take ages
 			var currentNodes = parsed.Nodes.Keys.Where(x => x[2] == 'A').ToArray();
 			var loopSizes = currentNodes.Select(CalculateLoopSize).ToArray();
+
+			for (int i = 0; i < currentNodes.Length; i++)
+			{
+				EnsureLoopSizeWorks(currentNodes[i], loopSizes[i]);
+			}
+
 			return LeastCommonMultiple(loopSizes);
 
 			long CalculateLoopSize(string node)
@@ -63,6 +69,34 @@ namespace AdventOfCode.Year2023.Solutions
 					currentNode = currentInstruction == 'L' ? left : right;
 				}
 				return stepCounter;
+			}
+
+			void EnsureLoopSizeWorks(string node, long loopSize)
+			{
+				var stepCounter = 0L;
+				var currentNode = node;
+				while (stepCounter < loopSize)
+				{
+					var (left, right) = parsed.Nodes[currentNode];
+					var currentInstruction = parsed.Instructions[(int)(stepCounter++ % parsed.Instructions.Length)];
+					currentNode = currentInstruction == 'L' ? left : right;
+				}
+				if (currentNode[2] != 'Z')
+				{
+					throw new ArgumentException("Does not adhere to LCM rule");
+				}
+
+				var currentSolution = currentNode;
+				while (stepCounter < loopSize * 2)
+				{
+					var (left, right) = parsed.Nodes[currentNode];
+					var currentInstruction = parsed.Instructions[(int)(stepCounter++ % parsed.Instructions.Length)];
+					currentNode = currentInstruction == 'L' ? left : right;
+				}
+				if (currentNode != currentSolution)
+				{
+					throw new ArgumentException("Does not adhere to LCM rule");
+				}
 			}
 		}
 
