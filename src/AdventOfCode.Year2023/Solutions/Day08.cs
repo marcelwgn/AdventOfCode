@@ -97,10 +97,6 @@ namespace AdventOfCode.Year2023.Solutions
 				{
 					throw new ArgumentException("Does not adhere to LCM rule");
 				}
-				if(loopSize % parsed.Instructions.Length != loopSize * 2 % parsed.Instructions.Length)
-				{
-					throw new ArgumentException("Does not adhere to LCM rule");
-				}
 			}
 		}
 
