@@ -1,20 +1,21 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AdventOfCode.Common.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace AdventOfCode.Common.Tests
+namespace AdventOfCode.Common.Tests.Extensions
 {
     [TestClass]
     public class SetUtilsTests
     {
-		private static readonly int[] seq = [1, 2, 3];
-		private static readonly int[] list = [1, 2, 3];
+        private static readonly int[] seq = [1, 2, 3];
+        private static readonly int[] list = [1, 2, 3];
 
-		[TestMethod]
+        [TestMethod]
         public void VerifyGeneratedPowerSet()
         {
             var expected = new int[][]
             {
-				[],
+                [],
                 [1],
                 [2],
                 [3],

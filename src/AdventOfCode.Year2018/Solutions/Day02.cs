@@ -1,4 +1,4 @@
-using AdventOfCode.Common;
+using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Year2018.Solutions
 {

@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AdventOfCode.Common.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Common.Tests
+namespace AdventOfCode.Common.Tests.Extensions
 {
     [TestClass()]
     public class StringUtilsTests

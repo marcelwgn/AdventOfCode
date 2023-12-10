@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace AdventOfCode.Common
+namespace AdventOfCode.Common.Extensions
 {
     public static class StringUtils
     {

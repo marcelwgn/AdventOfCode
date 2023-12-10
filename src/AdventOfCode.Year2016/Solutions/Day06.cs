@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Common;
+﻿using AdventOfCode.Common.Extensions;
 using System.Linq;
 
 namespace AdventOfCode.Year2016.Solutions

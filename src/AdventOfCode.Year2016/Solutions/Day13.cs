@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Common;
+﻿using AdventOfCode.Common.DataStructures;
 using System;
 using System.Linq;
 
