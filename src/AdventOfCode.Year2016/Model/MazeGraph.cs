@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode.Common.DataStructures
+namespace AdventOfCode.Year2016.Model
 {
 	public class MazeGraph
 	{
@@ -21,7 +21,7 @@ namespace AdventOfCode.Common.DataStructures
 					if (currentCell != wallCharacter)
 					{
 						Vertices.Add((i, j));
-						if(i > 0)
+						if (i > 0)
 						{
 							var leftNode = grid[i - 1][j];
 							if (leftNode != wallCharacter)

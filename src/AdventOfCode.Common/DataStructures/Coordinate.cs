@@ -12,4 +12,6 @@
 			return X >= 0 && X < data[0].Length && Y >= 0 && Y < data.Length;
 		}
 	}
+
+	
 }

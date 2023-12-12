@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode.Year2023.Solutions
 {
-    public class Day09
+    public static class Day09
 	{
 		public static int[][] Convert(string[] data)
 		{

@@ -1,5 +1,4 @@
 ﻿using AdventOfCode.Common.DataStructures;
-using System.Diagnostics;
 
 namespace AdventOfCode.Year2023.Solutions
 {
@@ -57,13 +56,12 @@ namespace AdventOfCode.Year2023.Solutions
 				visited.Add(currentCoordinate);
 
 				// Ignoring anything that would be a path
-				if (superSampled[currentCoordinate.Y][currentCoordinate.X] == 'X')
+				if (superSampled.Get(currentCoordinate) == 'X')
 				{
 					continue;
 				}
 
-
-				superSampled[currentCoordinate.Y][currentCoordinate.X] = '0';
+				superSampled.Set(currentCoordinate, '0');
 
 				var nextSteps = FindNeighbors(currentCoordinate);
 				foreach (var nextStep in nextSteps)
@@ -223,6 +221,7 @@ namespace AdventOfCode.Year2023.Solutions
 			}
 			return [];
 		}
+
 		private static Coordinate[] FindNeighbors(Coordinate coordinate)
 		{
 			return [

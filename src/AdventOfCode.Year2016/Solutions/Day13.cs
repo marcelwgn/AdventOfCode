@@ -1,10 +1,10 @@
-﻿using AdventOfCode.Common.DataStructures;
+﻿using AdventOfCode.Year2016.Model;
 using System;
 using System.Linq;
 
 namespace AdventOfCode.Year2016.Solutions
 {
-    public static class Day13
+	public static class Day13
     {
         public static MazeGraph Generate(int specialNum, int size)
         {
