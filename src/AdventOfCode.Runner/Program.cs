@@ -10,13 +10,13 @@ var readInput = Console.ReadLine();
 if (!string.IsNullOrEmpty(readInput))
 {
 	var split = readInput.Split(" ");
-	if (split.Length > 2)
+	if (split.Length > 0)
 	{
 		if (int.TryParse(split[0], out int enteredDay))
 		{
 			dayToRun = enteredDay;
 		}
-		if (int.TryParse(split[1], out int enteredYear))
+		if (split.Length > 1 && int.TryParse(split[1], out int enteredYear))
 		{
 			yearToRun = enteredYear;
 		}
