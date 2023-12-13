@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode.Common.DataStructures
 {
-	public record Coordinate(int X, int Y)
+	public record Coordinate(long X, long Y)
 	{
 		public bool IsInGrid<T>(T[][] data)
 		{
@@ -12,6 +12,4 @@
 			return X >= 0 && X < data[0].Length && Y >= 0 && Y < data.Length;
 		}
 	}
-
-	
 }

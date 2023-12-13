@@ -14,7 +14,7 @@
 
 		public static char Get(this string[] data, Coordinate coordinate)
 		{
-			return data[coordinate.Y][coordinate.X];
+			return data[coordinate.Y][(int)coordinate.X];
 		}
 	}
 }

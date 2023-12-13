@@ -192,7 +192,7 @@ namespace AdventOfCode.Year2023.Solutions
 
 		private static Coordinate[] FindNextSteps(Coordinate currentCoordinate, string[] data)
 		{
-			var character = data[currentCoordinate.Y][currentCoordinate.X];
+			var character = data.Get(currentCoordinate);
 			Coordinate north = new(currentCoordinate.X, currentCoordinate.Y - 1);
 			Coordinate east = new(currentCoordinate.X + 1, currentCoordinate.Y);
 			Coordinate south = new(currentCoordinate.X, currentCoordinate.Y + 1);
