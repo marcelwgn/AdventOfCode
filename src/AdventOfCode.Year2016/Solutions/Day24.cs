@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Common.Extensions;
+﻿using AdventOfCode.Common.DataStructures;
+using AdventOfCode.Common.Extensions;
 using AdventOfCode.Year2016.Model;
 using System.Linq;
 
@@ -8,11 +9,11 @@ namespace AdventOfCode.Year2016.Solutions
     {
         public static char[][] Convert(string[] data) => data.Select(x => x.ToCharArray()).ToArray();
 
-        public static (int, int)[] GetNumberPositions(char[][] data)
+        public static Coordinate[] GetNumberPositions(char[][] data)
         {
             var largestNumber = data.SelectMany(x => x).Where(x => int.TryParse(x.ToString(), out var num)).Select(x => int.Parse(x.ToString())).ToArray().Max();
 
-            var positions = new (int, int)[largestNumber + 1];
+            var positions = new Coordinate[largestNumber + 1];
 
             for (var i = 0; i < data.Length; i++)
             {
@@ -20,7 +21,7 @@ namespace AdventOfCode.Year2016.Solutions
                 {
                     if (int.TryParse(data[i][j].ToString(), out var num))
                     {
-                        positions[num] = (i, j);
+                        positions[num] = new(i, j);
                     }
                 }
             }

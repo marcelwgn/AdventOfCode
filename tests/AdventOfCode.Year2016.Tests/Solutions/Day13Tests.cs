@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Year2016.Solutions;
+﻿using AdventOfCode.Common.DataStructures;
+using AdventOfCode.Year2016.Solutions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +13,22 @@ namespace AdventOfCode.Year2016.Tests.Solutions
         [TestMethod]
         public void VerifyGeneratedGraph()
         {
-            var expectedVertexSet = new HashSet<(int, int)>
+            var expectedVertexSet = new HashSet<Coordinate>
             {
-                (0,0),
-                (2,0),
-                (0,1),
-                (1,1),
-                (3,1),
-                (4,1),
-                (1,2),
-                (2,2),
-                (3,2),
-                (4,2),
-                (3,3),
-                (0,4),
-                (3,4),
-                (4,4),
+                new(0,0),
+                new(2,0),
+                new(0,1),
+                new(1,1),
+                new(3,1),
+                new(4,1),
+                new(1,2),
+                new(2,2),
+                new(3,2),
+                new(4,2),
+                new(3,3),
+                new(0,4),
+                new(3,4),
+                new(4,4),
             };
 
             var graph = Day13.Generate(10, 5);

@@ -29,7 +29,7 @@ namespace AdventOfCode.Year2023.Solutions
 		}
 
 
-		private static readonly Dictionary<string, long> cache = new();
+		private static readonly Dictionary<string, long> cache = [];
 		private static long CalculateArrangements(string sequence, int[] criteria)
 		{
 			var key = sequence + ":" + string.Join(',', criteria);

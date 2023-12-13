@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventOfCode.Common.DataStructures;
+using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode.Year2016.Solutions
@@ -8,41 +9,41 @@ namespace AdventOfCode.Year2016.Solutions
     {
         public static string FirstProblem(string[] data)
         {
-            var lastPos = (1, 1);
+            var lastPos = new Coordinate(1, 1);
             var result = "";
             foreach (var item in data)
             {
                 lastPos = NextPosition(item, lastPos, IsValidPosition);
-                result += lastPos.Item1 + 1 + lastPos.Item2 * 3;
+                result += lastPos.X + 1 + lastPos.Y * 3;
             }
             return result;
 
-            static bool IsValidPosition((int posX, int posY) position)
+            static bool IsValidPosition(Coordinate position)
             {
-                return position.posX >= 0 && position.posX <= 2 && position.posY >= 0 && position.posY <= 2;
+                return position.X >= 0 && position.X <= 2 && position.Y >= 0 && position.Y <= 2;
             }
         }
 
         public static string SecondProblem(string[] data)
         {
-            Dictionary<(int, int), char> keypad = new()
+            Dictionary<Coordinate, char> keypad = new()
             {
-                { (0, 2), '5' },
-                { (1, 1), '2' },
-                { (1, 2), '6' },
-                { (1, 3), 'A' },
-                { (2, 0), '1' },
-                { (2, 1), '3' },
-                { (2, 2), '7' },
-                { (2, 3), 'B' },
-                { (2, 4), 'D' },
-                { (3, 1), '4' },
-                { (3, 2), '8' },
-                { (3, 3), 'C' },
-                { (4, 2), '9' },
+                { new(0, 2), '5' },
+                { new(1, 1), '2' },
+                { new(1, 2), '6' },
+                { new(1, 3), 'A' },
+                { new(2, 0), '1' },
+                { new(2, 1), '3' },
+                { new(2, 2), '7' },
+                { new(2, 3), 'B' },
+                { new(2, 4), 'D' },
+                { new(3, 1), '4' },
+                { new(3, 2), '8' },
+                { new(3, 3), 'C' },
+                { new(4, 2), '9' },
             };
 
-            var lastPos = (0, 2);
+            var lastPos = new Coordinate(0, 2);
             var result = "";
             foreach (var item in data)
             {
@@ -51,13 +52,13 @@ namespace AdventOfCode.Year2016.Solutions
             }
             return result;
 
-            bool IsValidPosition((int posX, int posY) position)
+            bool IsValidPosition(Coordinate position)
             {
                 return keypad.ContainsKey(position);
             }
         }
 
-        private static (int, int) NextPosition(string instructions, (int posX, int posY) lastPos, Func<(int, int), bool> isValidPosition)
+        private static Coordinate NextPosition(string instructions, Coordinate lastPos, Func<Coordinate, bool> isValidPosition)
         {
             (var newPosX, var newPosY) = lastPos;
 
@@ -66,28 +67,28 @@ namespace AdventOfCode.Year2016.Solutions
                 switch (character)
                 {
                     case 'U':
-                        if (!isValidPosition((newPosX, newPosY - 1)))
+                        if (!isValidPosition(new(newPosX, newPosY - 1)))
                         {
                             break;
                         }
                         newPosY--;
                         break;
                     case 'L':
-                        if (!isValidPosition((newPosX - 1, newPosY)))
+                        if (!isValidPosition(new(newPosX - 1, newPosY)))
                         {
                             break;
                         }
                         newPosX--;
                         break;
                     case 'D':
-                        if (!isValidPosition((newPosX, newPosY + 1)))
+                        if (!isValidPosition(new(newPosX, newPosY + 1)))
                         {
                             break;
                         }
                         newPosY++;
                         break;
                     case 'R':
-                        if (!isValidPosition((newPosX + 1, newPosY)))
+                        if (!isValidPosition(new(newPosX + 1, newPosY)))
                         {
                             break;
                         }
@@ -96,7 +97,7 @@ namespace AdventOfCode.Year2016.Solutions
                 }
             }
 
-            return (newPosX, newPosY);
+            return new(newPosX, newPosY);
         }
     }
 }

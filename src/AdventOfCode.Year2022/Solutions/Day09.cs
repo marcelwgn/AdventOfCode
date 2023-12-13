@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventOfCode.Common.DataStructures;
+using System;
 using System.Collections.Generic;
 
 namespace AdventOfCode.Year2022.Solutions
@@ -20,7 +21,7 @@ namespace AdventOfCode.Year2022.Solutions
             var xPositions = new int[ropeLength];
             var yPositions = new int[ropeLength];
 
-            var positions = new HashSet<(int x, int y)>() { (0, 0) };
+            var positions = new HashSet<Coordinate>() { new(0, 0) };
             foreach (var item in data)
             {
                 var split = item.Split(" ");
@@ -50,7 +51,7 @@ namespace AdventOfCode.Year2022.Solutions
                 {
                     ProcessSuccessorMovement(i);
                 }
-                positions!.Add((xPositions[^1], yPositions[^1]));
+                positions!.Add(new(xPositions[^1], yPositions[^1]));
 
                 void ProcessSuccessorMovement(int entry)
                 {

@@ -31,7 +31,7 @@ namespace AdventOfCode.Year2016.Solutions
             var luckyNumber = int.Parse(data[0]);
             var xCoord = int.Parse(data[1]);
             var yCoord = int.Parse(data[2]);
-            return Generate(luckyNumber, Math.Max(xCoord, yCoord) * 5).CalculateDistance((1, 1), (xCoord, yCoord));
+            return Generate(luckyNumber, Math.Max(xCoord, yCoord) * 5).CalculateDistance(new(1, 1), new(xCoord, yCoord));
         }
 
         public static long SecondProblem(string[] data)
@@ -43,7 +43,7 @@ namespace AdventOfCode.Year2016.Solutions
             {
                 for (var j = 0; j < 50; j++)
                 {
-                    var dist = graph.CalculateDistance((1, 1), (i, j));
+                    var dist = graph.CalculateDistance(new(1, 1), new(i, j));
                     if (dist >= 0 && dist <= 50)
                     {
                         inReachCount++;

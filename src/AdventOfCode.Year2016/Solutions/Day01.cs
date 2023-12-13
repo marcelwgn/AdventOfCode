@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventOfCode.Common.DataStructures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,7 +21,7 @@ namespace AdventOfCode.Year2016.Solutions
         public static int SecondProblem(string[] data)
         {
             var instructions = data[0].Replace(" ", "").Split(",");
-            var alreadyVisitedLocations = new HashSet<(int, int)>();
+            var alreadyVisitedLocations = new HashSet<Coordinate>();
             var lastPos = (0, 0, 0);
 
             foreach (var instruction in instructions)
@@ -28,13 +29,13 @@ namespace AdventOfCode.Year2016.Solutions
                 var visitedPositions = GenerateNextPosition(instruction, lastPos);
                 foreach (var pos in visitedPositions)
                 {
-                    if (alreadyVisitedLocations.Contains((pos.Item1, pos.Item2)))
+                    if (alreadyVisitedLocations.Contains(new(pos.Item1, pos.Item2)))
                     {
                         return Math.Abs(pos.Item1) + Math.Abs(pos.Item2);
                     }
                     else
                     {
-                        alreadyVisitedLocations.Add((pos.Item1, pos.Item2));
+                        alreadyVisitedLocations.Add(new(pos.Item1, pos.Item2));
                     }
                 }
                 lastPos = visitedPositions.Last();

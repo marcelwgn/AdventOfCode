@@ -34,9 +34,9 @@ namespace AdventOfCode.Year2016.Tests.Model
 			{
 				for (var j = 0; j < maze[i].Length; j++)
 				{
-					if (graph.Neighbors.ContainsKey((i, j)))
+					if (graph.Neighbors.ContainsKey(new(i, j)))
 					{
-						Assert.AreEqual(neighborCount[i][j], graph.Neighbors[(i, j)].Count);
+						Assert.AreEqual(neighborCount[i][j], graph.Neighbors[new(i, j)].Count);
 					}
 					else
 					{
@@ -63,7 +63,7 @@ namespace AdventOfCode.Year2016.Tests.Model
 
 			var graph = new MazeGraph(maze);
 
-			Assert.AreEqual(distance, graph.CalculateDistance((firstX, firstY), (secX, secY)));
+			Assert.AreEqual(distance, graph.CalculateDistance(new(firstX, firstY), new(secX, secY)));
 		}
 	}
 }

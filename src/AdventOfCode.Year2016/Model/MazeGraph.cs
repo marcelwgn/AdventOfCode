@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AdventOfCode.Common.DataStructures;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode.Year2016.Model
@@ -6,8 +7,8 @@ namespace AdventOfCode.Year2016.Model
 	public class MazeGraph
 	{
 
-		public Dictionary<(int X, int Y), HashSet<(int X, int Y)>> Neighbors { get; private set; } = [];
-		public HashSet<(int X, int Y)> Vertices { get; private set; }
+		public Dictionary<Coordinate, HashSet<Coordinate>> Neighbors { get; private set; } = [];
+		public HashSet<Coordinate> Vertices { get; private set; }
 
 		public MazeGraph(char[][] grid, char wallCharacter = '#')
 		{
@@ -20,13 +21,13 @@ namespace AdventOfCode.Year2016.Model
 
 					if (currentCell != wallCharacter)
 					{
-						Vertices.Add((i, j));
+						Vertices.Add(new(i, j));
 						if (i > 0)
 						{
 							var leftNode = grid[i - 1][j];
 							if (leftNode != wallCharacter)
 							{
-								AddNeighborhood((i, j), (i - 1, j));
+								AddNeighborhood(new(i, j), new(i - 1, j));
 							}
 						}
 
@@ -36,14 +37,14 @@ namespace AdventOfCode.Year2016.Model
 
 							if (topNode != wallCharacter)
 							{
-								AddNeighborhood((i, j), (i, j - 1));
+								AddNeighborhood(new(i, j), new(i, j - 1));
 							}
 						}
 					}
 				}
 			}
 
-			void AddNeighborhood((int X, int Y) firstPos, (int X, int Y) secondPos)
+			void AddNeighborhood(Coordinate firstPos, Coordinate secondPos)
 			{
 				if (Neighbors.TryGetValue(firstPos, out var valueSecondPos))
 				{
@@ -66,21 +67,21 @@ namespace AdventOfCode.Year2016.Model
 
 		}
 
-		public int CalculateDistance((int firstX, int firstY) p1, (int secX, int secY) p2)
+		public int CalculateDistance(Coordinate p1, Coordinate p2)
 		{
-			var remainingVertices = new HashSet<(int, int)>();
+			var remainingVertices = new HashSet<Coordinate>();
 
 			foreach (var vertex in Vertices)
 			{
 				remainingVertices.Add(vertex);
 			}
 
-			var distDictionary = new Dictionary<(int, int), int>()
+			var distDictionary = new Dictionary<Coordinate, int>()
 			{
 				{p1, 0 }
 			};
 
-			var prevVertices = new Dictionary<(int, int), (int, int)>();
+			var prevVertices = new Dictionary<Coordinate, Coordinate>();
 
 			while (remainingVertices.Count > 0)
 			{
@@ -107,7 +108,7 @@ namespace AdventOfCode.Year2016.Model
 
 			return -1;
 
-			int GetDist((int, int) vertex)
+			int GetDist(Coordinate vertex)
 			{
 				if (distDictionary.TryGetValue(vertex, out var distance))
 				{
