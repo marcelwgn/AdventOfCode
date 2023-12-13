@@ -2,78 +2,79 @@ namespace AdventOfCode.Year2023.Solutions
 {
 	public static class Day12
 	{
-		public static int FirstProblem(string[] data)
+		public static long FirstProblem(string[] data)
 		{
-			var totalSum = 0;
+			var totalSum = 0L;
 			foreach (var item in data)
 			{
 				var split = item.Split(" ");
 				var criteria = split[1].Split(',').Select(int.Parse).ToArray();
-				totalSum += CalculateArrangements(split[0], criteria);
+				var sum = CalculateArrangements(split[0], criteria);
+				totalSum += sum;
 			}
 			return totalSum;
 		}
 
 		public static long SecondProblem(string[] data)
 		{
-			var totalSum = 0;
+			var totalSum = 0L;
 			foreach (var item in data)
 			{
 				var split = item.Split(" ");
-				var sequenceTimesFive = string.Concat(Enumerable.Repeat(split[0], 5));
-				var criteriaTimesFive = string.Concat(Enumerable.Repeat(split[1], 5));
-				var criteria = criteriaTimesFive.Split(',').Select(int.Parse).ToArray();
-				totalSum += CalculateArrangements(sequenceTimesFive, criteria);
+				var sequenceTimesFive = string.Join("?", Enumerable.Repeat(split[0], 5));
+				var criteriaTimesFive = Enumerable.Repeat(split[1].Split(',').Select(int.Parse), 5).SelectMany(x => x).ToArray();
+				totalSum += CalculateArrangements(sequenceTimesFive, criteriaTimesFive);
 			}
 			return totalSum;
 		}
 
-		public static bool SatisfiesCriteria(string data, int[] criteria)
+
+		private static readonly Dictionary<string, long> cache = new();
+		private static long CalculateArrangements(string sequence, int[] criteria)
 		{
-			var split = data.Split('.').Where(x => x.Length > 0).ToArray();
-			if (split.Length != criteria.Length)
+			var key = sequence + ":" + string.Join(',', criteria);
+			if (cache.TryGetValue(key, out var value))
 			{
-				return false;
+				return value;
 			}
 
-			for (var i = 0; i < split.Length; i++)
-			{
-				if (split[i].Length != criteria[i])
-				{
-					return false;
-				}
-			}
-			return true;
+			var computed = CalculateCombinationCount(sequence, criteria);
+			cache.Add(key, computed);
+			return computed;
 		}
 
-		private static readonly HashSet<string> emptyHashset = [];
-
-		public static HashSet<string> GeneratePermutations(string data, int maxSprings)
+		private static long CalculateCombinationCount(string sequence, int[] criteria)
 		{
-			var firstIndex = data.IndexOf('?');
-			if (firstIndex == -1)
+			switch (sequence.FirstOrDefault())
 			{
-				if (maxSprings == 0)
-				{
-					return [data];
-				}
-				else
-				{
-					return emptyHashset;
-				}
-			}
-			if (maxSprings == 0)
-			{
-				return [data.Replace('?', '.')];
-			}
-			return new HashSet<string>(GeneratePermutations(string.Concat(data.AsSpan(0, firstIndex), ".", data.AsSpan(firstIndex + 1)), maxSprings - 1)
-				.Concat(GeneratePermutations(string.Concat(data.AsSpan(0, firstIndex), "#", data.AsSpan(firstIndex + 1)), maxSprings - 1)));
-		}
+				case '.': return CalculateArrangements(sequence[1..], criteria);
+				case '?': return CalculateArrangements('#' + sequence[1..], criteria) + CalculateArrangements('.' + sequence[1..], criteria);
+				case '#':
+					// Should not happen but we need to guard against empty array
+					if (criteria.Length == 0) return 0;
 
-		private static int CalculateArrangements(string sequence, int[] criteria)
-		{
-			var permutations = GeneratePermutations(sequence, criteria.Sum());
-			return permutations.Count(x => SatisfiesCriteria(x, criteria));
+					var expectedSpringCount = criteria[0];
+					var maximumNumberOfPossibleSpringsInSection = sequence.TakeWhile(s => s == '#' || s == '?').Count();
+
+					if (maximumNumberOfPossibleSpringsInSection < expectedSpringCount)
+					{
+						return 0;
+					}
+					else if (sequence.Length == expectedSpringCount)
+					{
+						return CalculateArrangements("", criteria[1..]);
+					}
+					else if (sequence[expectedSpringCount] == '#')
+					{
+						return 0; // dead spring follows the range -> not good
+					}
+					else
+					{
+						return CalculateArrangements(sequence[(expectedSpringCount + 1)..], criteria[1..]);
+					}
+				default:
+					return criteria.Length == 0 ? 1 : 0;
+			}
 		}
 	}
 }
