@@ -11,5 +11,15 @@
 		{
 			return X >= 0 && X < data[0].Length && Y >= 0 && Y < data.Length;
 		}
+
+		public static Coordinate operator +(Coordinate first, Coordinate second)
+		{
+			return new Coordinate(first.X + second.X, first.Y + second.Y);
+		}
+
+		public static Coordinate Add(Coordinate left, Coordinate right)
+		{
+			return left + right;
+		}
 	}
 }
