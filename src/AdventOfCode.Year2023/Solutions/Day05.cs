@@ -3,11 +3,11 @@ using System.Runtime.CompilerServices;
 
 namespace AdventOfCode.Year2023.Solutions
 {
-    public record Interval(long Start, long End, long Offset);
+    public record MappingInterval(long Start, long End, long Offset);
 
 	public class Mapper
 	{
-		public Interval[] Intervals { get; set; } = [];
+		public MappingInterval[] Intervals { get; set; } = [];
 		public long GetMapped(long input)
 		{
 			foreach (var interval in Intervals)
@@ -31,7 +31,7 @@ namespace AdventOfCode.Year2023.Solutions
 			var seeds = data[0][7..].Split(" ").Select(long.Parse).ToArray();
 			var mappers = new List<Mapper>();
 			var currentMapper = new Mapper();
-			var currentIntervals = new List<Interval>();
+			var currentIntervals = new List<MappingInterval>();
 
 			for (int i = 3; i < data.Length; i++)
 			{
@@ -46,7 +46,7 @@ namespace AdventOfCode.Year2023.Solutions
 				}
 
 				var numbers = data[i].Split(" ").Select(long.Parse).ToArray();
-				currentIntervals.Add(new Interval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0]));
+				currentIntervals.Add(new MappingInterval(numbers[1], numbers[1] + numbers[2] - 1, numbers[0]));
 			}
 			AddMapper();
 
