@@ -39,7 +39,17 @@ namespace AdventOfCode.Runner.Infrastructure
             Console.WriteLine($"First problem solution {firstResult} , execution time: {firstResultTime}");
             Debug.WriteLine($"First problem solution {firstResult} , execution time: {firstResultTime}");
 
-            (var secondResult, var secondResultTime) = SolveProblem(classType, rawDataActual, SecondProblemName);
+            if (classType.GetMethod(ConvertFunctionName) != null)
+			{
+				var convertStopwatch = new Stopwatch();
+				convertStopwatch.Start();
+				rawDataActual = classType.GetMethod(ConvertFunctionName)!.Invoke(null, new object[] { rawData })!;
+				convertStopwatch.Stop();
+				Console.WriteLine($"Converting data took {convertStopwatch.Elapsed}");
+				Debug.WriteLine($"Converting data took {convertStopwatch.Elapsed}");
+			}
+
+			(var secondResult, var secondResultTime) = SolveProblem(classType, rawDataActual, SecondProblemName);
             Console.WriteLine($"Second problem solution {secondResult} , execution time: {secondResultTime}");
             Debug.WriteLine($"Second problem solution {secondResult} , execution time: {secondResultTime}");
 
