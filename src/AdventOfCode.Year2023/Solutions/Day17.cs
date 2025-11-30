@@ -6,7 +6,7 @@ namespace AdventOfCode.Year2023.Solutions
 {
 	public static class Day17
 	{
-		private record Path(Coordinate Position, Coordinate Direction, int TotalLoss, int StepsRun);
+		private sealed record Path(Coordinate Position, Coordinate Direction, int TotalLoss, int StepsRun);
 
 		public static long FirstProblem(string[] data)
 		{

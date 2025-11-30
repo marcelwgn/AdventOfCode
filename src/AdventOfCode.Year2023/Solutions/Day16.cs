@@ -5,7 +5,7 @@ namespace AdventOfCode.Year2023.Solutions
 {
 	public static class Day16
 	{
-		private record Beam(Coordinate Position, Coordinate Direction);
+		private sealed record Beam(Coordinate Position, Coordinate Direction);
 
 		public static long FirstProblem(string[] data)
 		{

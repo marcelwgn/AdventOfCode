@@ -44,7 +44,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		[TestMethod]
 		public void VerifySecondProblemSecondField()
 		{
-			Assert.AreEqual(71, Day17.SecondProblem(fieldSecondProblem));
+			Assert.AreEqual(63, Day17.SecondProblem(fieldSecondProblem));
 		}
 	}
 }

@@ -12,10 +12,12 @@ namespace AdventOfCode.Year2016.Tests.Solutions
             Assert.AreEqual(22728, Day14.FirstProblem(["abc"]));
         }
 
-        // Disabled due to long runtime
-        //[TestMethod]
-        public void SecondProblemTest()
-        {
+		// Disabled due to long runtime
+		//[TestMethod]
+#pragma warning disable CA1822 // Mark members as static
+		public void SecondProblemTest()
+#pragma warning restore CA1822 // Mark members as static
+		{
             Assert.AreEqual(22551, Day14.SecondProblem(["abc"]));
         }
     }
