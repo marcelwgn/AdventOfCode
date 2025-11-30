@@ -1,0 +1,22 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AdventOfCode.Common/AdventOfCode.Common.csproj" />
+    <Project Path="src/AdventOfCode.Runner/AdventOfCode.Runner.csproj" />
+    <Project Path="src/AdventOfCode.Year2016/AdventOfCode.Year2016.csproj" />
+    <Project Path="src/AdventOfCode.Year2018/AdventOfCode.Year2018.csproj" />
+    <Project Path="src/AdventOfCode.Year2019/AdventOfCode.Year2019.csproj" />
+    <Project Path="src/AdventOfCode.Year2020/AdventOfCode.Year2020.csproj" />
+    <Project Path="src/AdventOfCode.Year2022/AdventOfCode.Year2022.csproj" />
+    <Project Path="src/AdventOfCode.Year2023/AdventOfCode.Year2023.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AdventOfCode.Common.Tests/AdventOfCode.Common.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Runner.Tests/AdventOfCode.Runner.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Year2016.Tests/AdventOfCode.Year2016.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Year2018.Tests/AdventOfCode.Year2018.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Year2019.Tests/AdventOfCode.Year2019.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Year2020.Tests/AdventOfCode.Year2020.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Year2022.Tests/AdventOfCode.Year2022.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Year2023.Tests/AdventOfCode.Year2023.Tests.csproj" />
+  </Folder>
+</Solution>
