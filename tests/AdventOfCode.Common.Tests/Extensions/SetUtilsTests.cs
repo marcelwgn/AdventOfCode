@@ -27,7 +27,7 @@ namespace AdventOfCode.Common.Tests.Extensions
 
             var actual = SetUtils.FastPowerSet(seq).OrderBy(x => x.Length).ToArray();
 
-            Assert.AreEqual(expected.Length, actual.Length);
+            Assert.HasCount(expected.Length, actual);
             for (var i = 0; i < expected.Length; i++)
             {
                 CollectionAssert.AreEqual(expected[i], actual[i]);
@@ -49,7 +49,7 @@ namespace AdventOfCode.Common.Tests.Extensions
 
             var actual = SetUtils.GetPermutations(list, 3).ToArray();
 
-            Assert.AreEqual(expected.Length, actual.Length);
+            Assert.HasCount(expected.Length, actual);
             for (var i = 0; i < expected.Length; i++)
             {
                 CollectionAssert.AreEqual(expected[i], actual[i].ToArray());

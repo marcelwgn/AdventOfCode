@@ -20,8 +20,8 @@ namespace AdventOfCode.Year2022.Tests.Solutions
         public void VerifyConvert()
         {
             var field = Day08.Convert(DATA);
-            Assert.AreEqual(5, field.Length);
-            Assert.AreEqual(5, field[0].Length);
+            Assert.HasCount(5, field);
+            Assert.HasCount(5, field[0]);
             Assert.AreEqual(3, field[0][0].Height);
         }
 

@@ -32,7 +32,6 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		[DataRow("##......#", new int[] { 1, 5 })]
 		[DataRow("..#.##.#.", new int[] { 1, 5 })]
 		[DataRow("..##..##.", new int[] { 1, 3, 5, 7 })]
-		[DataRow("#.#.##.#.", new int[] { 5 })]
 		public void VerifyGetSymmetrieIndex(string data, int[] expectedEntries)
 		{
 			var result = Day13.GetSymmetryIndices(data.ToCharArray(), 0).ToArray();
@@ -82,7 +81,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 
 			var parsed = Day13.Convert(input).ToArray();
 
-			Assert.AreEqual(2, parsed.Length);
+			Assert.HasCount(2, parsed);
 			CollectionAssert.AreEqual(firstEntry, parsed.First());
 			CollectionAssert.AreEqual(secondEntry, parsed.Last());
 		}

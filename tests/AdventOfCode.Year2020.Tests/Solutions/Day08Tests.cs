@@ -6,14 +6,13 @@ namespace AdventOfCode.Year2020.Tests.Solutions
     [TestClass]
     public class Day08Tests
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("nop +0", 0, 1)]
         [DataRow("acc +1", 1, 1)]
         [DataRow("jmp +4", 0, 4)]
         [DataRow("acc +3", 3, 1)]
         [DataRow("jmp -3", 0, -3)]
         [DataRow("acc -99", -99, 1)]
-        [DataRow("acc +1", 1, 1)]
         [DataRow("jmp -4", 0, -4)]
         [DataRow("acc +6", 6, 1)]
         public void VerifyLineProcessing(string line, int expectedValue, int expectedNextpos)

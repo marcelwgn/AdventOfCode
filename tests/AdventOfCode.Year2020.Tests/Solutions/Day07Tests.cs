@@ -25,7 +25,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
 
             var dict = Day07.ConvertData(data);
 
-            Assert.AreEqual(9, dict.Count);
+            Assert.HasCount(9, dict);
             Assert.IsTrue(dict["light red"].CanHoldGoldBag());
             Assert.IsTrue(dict["dark orange"].CanHoldGoldBag());
             Assert.IsTrue(dict["bright white"].CanHoldGoldBag());

@@ -6,7 +6,7 @@ namespace AdventOfCode.Year2019.Tests.Solutions
     [TestClass]
     public class Day02Tests
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(new int[] { 1, 0, 0, 0, 99 }, 2)]
         [DataRow(new int[] { 2, 3, 0, 3, 99 }, 2)]
         [DataRow(new int[] { 2, 4, 4, 5, 99, 0 }, 2)]

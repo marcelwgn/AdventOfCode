@@ -21,7 +21,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 			var parsed = Day04.Convert(data);
 			var entryOne = parsed.Where(x => x.Id == 1).First();
 
-			Assert.AreEqual(6, parsed.Length);
+			Assert.HasCount(6, parsed);
 			Assert.AreEqual(5, entryOne.WinningNumbers.Count());
 			Assert.IsTrue(entryOne.WinningNumbers.Contains(83));
 			Assert.AreEqual(8, entryOne.DrawnNumbers.Count());

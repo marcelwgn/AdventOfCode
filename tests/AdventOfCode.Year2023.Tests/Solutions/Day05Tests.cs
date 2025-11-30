@@ -51,7 +51,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 
 			CollectionAssert.AreEqual(expectedSeeds, converted.Seeds);
 			
-			Assert.AreEqual(7, converted.Mappers.Length);
+			Assert.HasCount(7, converted.Mappers);
 			Assert.AreEqual(50, converted.Mappers[0].GetMapped(98));
 			Assert.AreEqual(51, converted.Mappers[0].GetMapped(99));
 			Assert.AreEqual(100, converted.Mappers[0].GetMapped(100));

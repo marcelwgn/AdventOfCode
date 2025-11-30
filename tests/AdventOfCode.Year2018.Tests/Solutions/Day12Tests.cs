@@ -44,7 +44,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
             var firstPatternCorrect = new bool[] { false, false, false, true, true };
 
             CollectionAssert.AreEqual(firstPatternCorrect, converted.Item2[0].Values);
-            Assert.AreEqual(true, converted.Item2[0].Result);
+            Assert.IsTrue(converted.Item2[0].Result);
         }
 
         [TestMethod()]

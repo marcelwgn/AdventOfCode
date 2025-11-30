@@ -26,7 +26,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 
 			var actual = Day09.Convert(data);
 
-			Assert.AreEqual(expected.Length, actual.Length);
+			Assert.HasCount(expected.Length, actual);
 			for(int i = 0; i < expected.Length; i++)
 			{
 				CollectionAssert.AreEqual(expected[i], actual[i]);

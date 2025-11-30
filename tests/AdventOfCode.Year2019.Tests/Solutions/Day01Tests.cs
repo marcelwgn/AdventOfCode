@@ -6,7 +6,7 @@ namespace AdventOfCode.Year2019.Tests.Solutions
     [TestClass]
     public class Day01Tests
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(12, 2)]
         [DataRow(14, 2)]
         [DataRow(1969, 654)]
@@ -30,7 +30,7 @@ namespace AdventOfCode.Year2019.Tests.Solutions
             Assert.AreEqual(34241, Day01.FirstProblem(data));
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(12, 2)]
         [DataRow(14, 2)]
         [DataRow(1969, 966)]

@@ -42,23 +42,22 @@ namespace AdventOfCode.Runner.Tests.Infrastructure
         public void VerifyRunnerDoesNotCrashWithMissingFunctions()
         {
             SolutionRunner.RunSolution(typeof(EmptyClass), "MockData/StringTestData.txt");
-            Assert.IsTrue(true);
         }
 
         [TestMethod]
         public void VerifyFirstAndSecondProblemWithoutConverter()
         {
             (var firstSolution, var secondSolution) = SolutionRunner.RunSolution(typeof(NoConverterSolver), "MockData/StringTestData.txt");
-            Assert.AreEqual(firstSolution, "Text2");
-            Assert.AreEqual(secondSolution, "Text3");
+            Assert.AreEqual("Text2", firstSolution);
+            Assert.AreEqual("Text3", secondSolution);
         }
 
         [TestMethod]
         public void VerifyFirstAndSecondProblemWithConverter()
         {
             (var firstSolution, var secondSolution) = SolutionRunner.RunSolution(typeof(SolverWithConverter), "MockData/StringTestData.txt");
-            Assert.AreEqual(firstSolution, 10);
-            Assert.AreEqual(secondSolution, 15);
+            Assert.AreEqual(10,firstSolution);
+            Assert.AreEqual(15,secondSolution);
         }
     }
 }

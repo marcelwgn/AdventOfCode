@@ -14,11 +14,11 @@ namespace AdventOfCode.Year2018.Tests.Solutions
 
             var rects = Day03.Convert(data);
 
-            Assert.AreEqual(rects[0].X, 236);
-            Assert.AreEqual(rects[0].Y, 827);
-            Assert.AreEqual(rects[0].Width, 24);
-            Assert.AreEqual(rects[0].Height, 17);
-            Assert.AreEqual(rects[0].RootData, data[0]);
+            Assert.AreEqual(236, rects[0].X);
+            Assert.AreEqual(827, rects[0].Y);
+            Assert.AreEqual(24, rects[0].Width);
+            Assert.AreEqual(17, rects[0].Height);
+            Assert.AreEqual(data[0], rects[0].RootData);
         }
 
         [TestMethod()]

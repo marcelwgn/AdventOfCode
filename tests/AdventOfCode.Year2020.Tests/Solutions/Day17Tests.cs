@@ -65,7 +65,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 (1, 3, 1, 0)
             };
 
-            Assert.AreEqual(expected.Count, transformed.Count);
+            Assert.HasCount(expected.Count, transformed);
             foreach (var item in transformed)
             {
                 if (!expected.Contains(item))
@@ -130,7 +130,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
                 (1, 3, 1, 1)
             };
 
-            Assert.AreEqual(expectedTurnOne.Count, transformed.Count);
+            Assert.HasCount(expectedTurnOne.Count, transformed);
             foreach (var item in transformed)
             {
                 if (!expectedTurnOne.Contains(item))
@@ -141,7 +141,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
 
             transformed = Day17.Transform(transformed, true);
 
-            Assert.AreEqual(60, transformed.Count);
+            Assert.HasCount(60, transformed);
         }
     }
 }

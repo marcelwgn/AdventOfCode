@@ -30,9 +30,9 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		{
 			var parseResult = Day19.Convert(data);
 
-			Assert.AreEqual(11, parseResult.Rules.Count);
-			Assert.AreEqual(3, parseResult.Rules["px"].Conditions.Length);
-			Assert.AreEqual(5, parseResult.Presents.Length);
+			Assert.HasCount(11, parseResult.Rules);
+			Assert.HasCount(3, parseResult.Rules["px"].Conditions);
+			Assert.HasCount(5, parseResult.Presents);
 			Assert.AreEqual(new Present(787, 2655, 1222, 2876), parseResult.Presents[0]);
 		}
 

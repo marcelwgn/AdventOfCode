@@ -14,7 +14,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
 
             var converted = Day09.Convert(data);
 
-            Assert.AreEqual(10, converted.Item1.Length);
+            Assert.HasCount(10, converted.Item1);
             Assert.AreEqual(1618, converted.Item2);
         }
 

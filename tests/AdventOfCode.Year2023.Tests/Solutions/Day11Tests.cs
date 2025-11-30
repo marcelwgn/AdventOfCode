@@ -24,7 +24,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		{
 			var converted = Day11.Convert(data);
 
-			Assert.AreEqual(9, converted.Coordinates.Length);
+			Assert.HasCount(9, converted.Coordinates);
 			CollectionAssert.AreEquivalent(new long[] { 2, 5, 8 }, converted.XGaps);
 			CollectionAssert.AreEquivalent(new long[] { 3, 7 }, converted.YGaps);
 		}

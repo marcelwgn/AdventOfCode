@@ -32,7 +32,7 @@ namespace AdventOfCode.Year2018.Tests.Solutions
 
             var converted = Day04.Convert(data);
 
-            Assert.AreEqual(2, converted.Count);
+            Assert.HasCount(2, converted);
             var first = converted[0];
             var second = converted[1];
 

@@ -7,7 +7,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
     public class Day18Tests
     {
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("1 + 2 * 3 + 4 * 5 + 6", "71")]
         [DataRow("2 * 3 + (4 * 5)", "26")]
         [DataRow("1 + (2 * 3) + (4 * 11)", "51")]
@@ -17,7 +17,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
             Assert.AreEqual(expected, Day18.ProcessString(data, false));
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("1 + 2 * 3 + 4 * 5 + 6", "231")]
         [DataRow("2 * 3 + (4 * 5)", "46")]
         [DataRow("1 + (2 * 3) + (4 * 11)", "51")]

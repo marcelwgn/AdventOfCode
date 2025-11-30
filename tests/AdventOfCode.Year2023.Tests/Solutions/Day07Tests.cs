@@ -19,7 +19,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		{
 			var parsed = Day07.Convert(data).ToArray();
 
-			Assert.AreEqual(5, parsed.Length);
+			Assert.HasCount(5, parsed);
 
 			Assert.AreEqual(5, parsed[0].ScoreNormal);
 			Assert.AreEqual(7, parsed[1].ScoreNormal);

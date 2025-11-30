@@ -58,12 +58,12 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "position=<14,  7> velocity=<-2,  0>",
                 "position=<-3,  6> velocity=< 2, -1>"
             ];
-            var _ = Day10.Convert(data);
+            var day10Converted = Day10.Convert(data);
 
             //Comment in next line to run real test 
             //since it takes way to long to run for a unit test
-            //Day10.FirstProblem(converted);
-            Assert.AreEqual(1, 1);
+            //Day10.FirstProblem(day10Converted);
+            Assert.IsNotNull(day10Converted);
         }
         [TestMethod()]
         public void SecondProblemTest()
@@ -103,12 +103,12 @@ namespace AdventOfCode.Year2018.Tests.Solutions
                 "position=<14,  7> velocity=<-2,  0>",
                 "position=<-3,  6> velocity=< 2, -1>"
             ];
-            var _ = Day10.Convert(data);
+            var day10Converted = Day10.Convert(data);
 
             //Comment in next line to run real test 
             //since it takes way to long to run for a unit test
             //Day10.SecondProblem(converted);
-            Assert.AreEqual(1, 1);
+            Assert.IsNotNull(day10Converted);
         }
     }
 }

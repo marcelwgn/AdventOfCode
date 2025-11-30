@@ -28,7 +28,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		{
 			var parsed = Day20.Convert(firstExample);
 
-			Assert.AreEqual(5, parsed.Modules.Count);
+			Assert.HasCount(5, parsed.Modules);
 			Assert.AreEqual(1, GetCountOfType(parsed, typeof(BroadCastModule)));
 			Assert.AreEqual(3, GetCountOfType(parsed, typeof(FlipFlopModule)));
 			Assert.AreEqual(1, GetCountOfType(parsed, typeof(ConjunctionModule)));
@@ -50,7 +50,7 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		{
 			var parsed = Day20.Convert(secondExample);
 
-			Assert.AreEqual(6, parsed.Modules.Count);
+			Assert.HasCount(6, parsed.Modules);
 			Assert.AreEqual(1, GetCountOfType(parsed, typeof(BroadCastModule)));
 			Assert.AreEqual(2, GetCountOfType(parsed, typeof(FlipFlopModule)));
 			Assert.AreEqual(2, GetCountOfType(parsed, typeof(ConjunctionModule)));

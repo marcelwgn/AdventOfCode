@@ -130,7 +130,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
             Assert.AreEqual(19208L, Day10.SecondProblem(data));
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(0, new int[] { -1 })]
         [DataRow(1, new int[] { -1, 0 })]
         [DataRow(2, new int[] { 0, 1 })]
@@ -151,7 +151,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
             CollectionAssert.AreEqual(expectedData, result);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(0, 1)]
         [DataRow(1, 2)]
         [DataRow(2, 3)]
@@ -167,7 +167,7 @@ namespace AdventOfCode.Year2020.Tests.Solutions
             var result = Day10.GetPathsToZero(data, index, null);
             Assert.AreEqual(expectedCount, result);
         }
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(0, 1)]
         [DataRow(1, 2)]
         [DataRow(2, 3)]

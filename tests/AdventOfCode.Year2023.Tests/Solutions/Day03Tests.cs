@@ -26,11 +26,11 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 			var convertResult = Day03.Convert(data);
 
 			Assert.IsNotNull(convertResult);
-			Assert.AreEqual(10, convertResult.Numbers.Count);
+			Assert.HasCount(10, convertResult.Numbers);
 			Assert.IsTrue(convertResult.Numbers.Any(number => number.Value == 35 && number.X == 2 && number.Y == 2 && number.XEnd == 3));
 			Assert.IsTrue(numbersToFind.All(number => convertResult.Numbers.Any(numberPosition => numberPosition.Value == number)));
 
-			Assert.AreEqual(6, convertResult.Parts.Count);
+			Assert.HasCount(6, convertResult.Parts);
 			Assert.IsTrue(convertResult.Parts.Any(part => part.X == 3 && part.Y == 1));
 		}
 

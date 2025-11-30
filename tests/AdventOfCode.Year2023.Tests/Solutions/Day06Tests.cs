@@ -13,8 +13,8 @@ namespace AdventOfCode.Year2023.Tests.Solutions
 		{
 			var parsed = Day06.Convert(data);
 
-			Assert.AreEqual(3, parsed.Times.Length);
-			Assert.AreEqual(3, parsed.Distances.Length);
+			Assert.HasCount(3, parsed.Times);
+			Assert.HasCount(3, parsed.Distances);
 			Assert.AreEqual(7, parsed.Times[0]);
 			Assert.AreEqual(9, parsed.Distances[0]);
 		}
