@@ -8,6 +8,7 @@
     <Project Path="src/AdventOfCode.Year2020/AdventOfCode.Year2020.csproj" />
     <Project Path="src/AdventOfCode.Year2022/AdventOfCode.Year2022.csproj" />
     <Project Path="src/AdventOfCode.Year2023/AdventOfCode.Year2023.csproj" />
+    <Project Path="src/AdventOfCode.Year2025/AdventOfCode.Year2025.csproj" Id="9d1e3193-f32c-46ff-ab70-d77ff7002ae1" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/AdventOfCode.Common.Tests/AdventOfCode.Common.Tests.csproj" />
@@ -18,5 +19,6 @@
     <Project Path="tests/AdventOfCode.Year2020.Tests/AdventOfCode.Year2020.Tests.csproj" />
     <Project Path="tests/AdventOfCode.Year2022.Tests/AdventOfCode.Year2022.Tests.csproj" />
     <Project Path="tests/AdventOfCode.Year2023.Tests/AdventOfCode.Year2023.Tests.csproj" />
+    <Project Path="tests/AdventOfCode.Year2025.Tests/AdventOfCode.Year2025.Tests.csproj" Id="1a5559a5-3e41-4afe-bd21-5c415b07e9ea" />
   </Folder>
 </Solution>
