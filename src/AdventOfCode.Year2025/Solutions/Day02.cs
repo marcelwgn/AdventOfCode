@@ -20,7 +20,6 @@ public static class Day02
     private static string StCoreAlgorithm(string[] data, bool fOnlyCheckMiddleSplit)
     {
         long cAccumulatedInvalid = 0;
-        HashSet<long> setInvalids = new HashSet<long>();
         foreach (var st in data)
         {
             var rgstSplit = st.Split("-");
@@ -32,12 +31,12 @@ public static class Day02
                 var cMaxIterations = fOnlyCheckMiddleSplit ? 2 : sCur.Length;
                 for (int iRepetitions = 2; iRepetitions <= cMaxIterations; iRepetitions++)
                 {
-                    if (FIsRepeatingSequence(sCur, iRepetitions) && setInvalids.Add(iCur))
+                    if (FIsRepeatingSequence(sCur, iRepetitions))
                     {
                         cAccumulatedInvalid += iCur;
+                        break;
                     }
                 }
-                setInvalids.Clear();
             }
         }
 
