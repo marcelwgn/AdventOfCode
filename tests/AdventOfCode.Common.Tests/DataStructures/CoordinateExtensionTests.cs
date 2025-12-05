@@ -21,6 +21,22 @@ public class CoordinateExtensionTests
     }
 
     [TestMethod]
+    public void Verify2DArrayGetSafe()
+    {
+        var intArray = new int[4][];
+        for (int i = 0; i < intArray.Length; i++)
+        {
+            intArray[i] = [1 * i, 2 * i, 3 * i, 4 * i];
+        }
+
+        var coordinate = new Coordinate(1, 1);
+
+        Assert.AreEqual(2, intArray.GetSafe(coordinate));
+        Assert.AreEqual(0, intArray.GetSafe(new Coordinate(-1, -1)));
+        Assert.AreEqual(0, intArray.GetSafe(new Coordinate(5, 5)));
+    }
+
+    [TestMethod]
     public void Verify2DArraySet()
     {
         var intArray = new int[4][];
