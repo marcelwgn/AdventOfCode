@@ -1,36 +1,35 @@
-﻿namespace AdventOfCode.Year2020.Solutions
+﻿namespace AdventOfCode.Year2020.Solutions;
+
+public static class Day03
 {
-    public static class Day03
+    public static long FirstProblem(string[] lines)
     {
-        public static long FirstProblem(string[] lines)
-        {
-            return Algorithm(lines, 3, 1);
-        }
+        return Algorithm(lines, 3, 1);
+    }
 
-        public static long SecondProblem(string[] lines)
-        {
-            return Algorithm(lines, 1, 1)
-                * Algorithm(lines, 3, 1)
-                * Algorithm(lines, 5, 1)
-                * Algorithm(lines, 7, 1)
-                * Algorithm(lines, 1, 2);
-        }
+    public static long SecondProblem(string[] lines)
+    {
+        return Algorithm(lines, 1, 1)
+            * Algorithm(lines, 3, 1)
+            * Algorithm(lines, 5, 1)
+            * Algorithm(lines, 7, 1)
+            * Algorithm(lines, 1, 2);
+    }
 
-        public static long Algorithm(string[] lines, int moveRight, int moveDown)
-        {
-            var rowWidth = lines[0].Length;
-            long treeCount = 0;
-            var xPos = 0;
+    public static long Algorithm(string[] lines, int moveRight, int moveDown)
+    {
+        var rowWidth = lines[0].Length;
+        long treeCount = 0;
+        var xPos = 0;
 
-            for (var i = 0; i < lines.Length; i += moveDown)
+        for (var i = 0; i < lines.Length; i += moveDown)
+        {
+            if (lines[i][xPos] == '#')
             {
-                if (lines[i][xPos] == '#')
-                {
-                    treeCount++;
-                }
-                xPos = (xPos + moveRight) % rowWidth;
+                treeCount++;
             }
-            return treeCount;
+            xPos = (xPos + moveRight) % rowWidth;
         }
+        return treeCount;
     }
 }

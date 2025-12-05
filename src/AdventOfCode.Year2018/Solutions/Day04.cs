@@ -1,192 +1,187 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace AdventOfCode.Year2018.Solutions;
 
-namespace AdventOfCode.Year2018.Solutions
+public static class Day04
 {
-    public static class Day04
+
+    public static IList<Guard> Convert(string[] data)
     {
+        var events = new GuardEvent[data.Length];
+        Array.Sort(data);
 
-        public static IList<Guard> Convert(string[] data)
+        var guards = new List<Guard>();
+
+        for (var i = 0; i < data.Length; i++)
         {
-            var events = new GuardEvent[data.Length];
-            Array.Sort(data);
-
-            var guards = new List<Guard>();
-
-            for (var i = 0; i < data.Length; i++)
+            events[i] = new GuardEvent(data[i]);
+            if (events[i].GuardId > -1)
             {
-                events[i] = new GuardEvent(data[i]);
-                if (events[i].GuardId > -1)
+                var found = false;
+                guards.ForEach(delegate (Guard guard)
                 {
-                    var found = false;
-                    guards.ForEach(delegate (Guard guard)
+                    if (guard.Id == events[i].GuardId)
                     {
-                        if (guard.Id == events[i].GuardId)
-                        {
-                            found = true;
-                        }
-                    });
-                    if (!found)
-                    {
-                        guards.Add(new Guard(events[i].GuardId));
+                        found = true;
                     }
+                });
+                if (!found)
+                {
+                    guards.Add(new Guard(events[i].GuardId));
                 }
             }
-
-            var lastEvent = new DateTime();
-            var currentId = -1;
-            for (var i = 0; i < events.Length; i++)
-            {
-                var current = events[i];
-                if (current.GuardId > -1)
-                {
-                    currentId = current.GuardId;
-                    continue;
-                }
-
-                if (current.IsSleepStart)
-                {
-                    lastEvent = current.TimeEvent;
-                    continue;
-                }
-
-                if (current.IsSleepEnd)
-                {
-                    //Finding right guard:
-                    var guard = guards[0];
-                    for (var guardIndex = 0; guardIndex < guards.Count; guardIndex++)
-                    {
-                        if (guards[guardIndex].Id == currentId)
-                        {
-                            guard = guards[guardIndex];
-                        }
-                    }
-
-                    //Updating sleep times
-                    guard.CalculateSleepTimes(lastEvent, current.TimeEvent);
-
-                }
-            }
-
-            return guards;
         }
 
-        public static int FirstProblem(IList<Guard> guards)
+        var lastEvent = new DateTime();
+        var currentId = -1;
+        for (var i = 0; i < events.Length; i++)
         {
-            var mostSlept = guards[0];
-            for (var i = 0; i < guards.Count; i++)
+            var current = events[i];
+            if (current.GuardId > -1)
             {
-                if (guards[i].MinutesSlept > mostSlept.MinutesSlept)
-                {
-                    mostSlept = guards[i];
-                }
+                currentId = current.GuardId;
+                continue;
             }
-            var highestMinuteIndex = 0;
-            for (var i = 0; i < mostSlept.SleepingMinutes.Length; i++)
+
+            if (current.IsSleepStart)
             {
-                if (mostSlept.SleepingMinutes[i] > mostSlept.SleepingMinutes[highestMinuteIndex])
-                {
-                    highestMinuteIndex = i;
-                }
+                lastEvent = current.TimeEvent;
+                continue;
             }
-            return mostSlept.Id * highestMinuteIndex;
-        }
 
-        public static int SecondProblem(IList<Guard> guards)
-        {
-            var mostSlept = guards[0];
-            var highestMinuteIndex = 0;
-
-            for (var i = 0; i < guards.Count; i++)
+            if (current.IsSleepEnd)
             {
-                //Finding minute with highest sleep count
-                var localMax = 0;
-                for (var j = 0; j < guards[i].SleepingMinutes.Length; j++)
+                //Finding right guard:
+                var guard = guards[0];
+                for (var guardIndex = 0; guardIndex < guards.Count; guardIndex++)
                 {
-                    if (guards[i].SleepingMinutes[j] > guards[i].SleepingMinutes[localMax])
+                    if (guards[guardIndex].Id == currentId)
                     {
-                        localMax = j;
+                        guard = guards[guardIndex];
                     }
                 }
 
-                if (guards[i].SleepingMinutes[localMax] > mostSlept.SleepingMinutes[highestMinuteIndex])
-                {
-                    mostSlept = guards[i];
-                    highestMinuteIndex = localMax;
-                }
-            }
+                //Updating sleep times
+                guard.CalculateSleepTimes(lastEvent, current.TimeEvent);
 
-            return mostSlept.Id * highestMinuteIndex;
+            }
         }
 
+        return guards;
     }
 
-    public class GuardEvent
+    public static int FirstProblem(IList<Guard> guards)
     {
-        public DateTime TimeEvent { get; set; }
-        public int GuardId { get; set; } = -1;
-        public bool IsSleepStart { get; set; }
-        public bool IsSleepEnd { get; set; }
-
-        public GuardEvent(string eventString)
+        var mostSlept = guards[0];
+        for (var i = 0; i < guards.Count; i++)
         {
-            var date = eventString.Substring(1, 16);
-            date = date.Replace("-", "/");
-
-            TimeEvent = DateTime.Parse(date);
-
-            var actualEvent = eventString[19..];
-            if (actualEvent.IndexOf('#') > -1)
+            if (guards[i].MinutesSlept > mostSlept.MinutesSlept)
             {
-                var guardIdWithHashtag = actualEvent.Split(" ")[1];
-                var guardId = guardIdWithHashtag[1..];
-                GuardId = int.Parse(guardId);
+                mostSlept = guards[i];
             }
-            else
+        }
+        var highestMinuteIndex = 0;
+        for (var i = 0; i < mostSlept.SleepingMinutes.Length; i++)
+        {
+            if (mostSlept.SleepingMinutes[i] > mostSlept.SleepingMinutes[highestMinuteIndex])
             {
-                if (actualEvent.IndexOf("asleep") > -1)
+                highestMinuteIndex = i;
+            }
+        }
+        return mostSlept.Id * highestMinuteIndex;
+    }
+
+    public static int SecondProblem(IList<Guard> guards)
+    {
+        var mostSlept = guards[0];
+        var highestMinuteIndex = 0;
+
+        for (var i = 0; i < guards.Count; i++)
+        {
+            //Finding minute with highest sleep count
+            var localMax = 0;
+            for (var j = 0; j < guards[i].SleepingMinutes.Length; j++)
+            {
+                if (guards[i].SleepingMinutes[j] > guards[i].SleepingMinutes[localMax])
                 {
-                    IsSleepStart = true;
+                    localMax = j;
                 }
-                if (actualEvent.IndexOf("wakes") > -1)
-                {
-                    IsSleepEnd = true;
-                }
+            }
+
+            if (guards[i].SleepingMinutes[localMax] > mostSlept.SleepingMinutes[highestMinuteIndex])
+            {
+                mostSlept = guards[i];
+                highestMinuteIndex = localMax;
             }
         }
 
+        return mostSlept.Id * highestMinuteIndex;
     }
 
-    public class Guard(int id)
-	{
-		public int Id { get; set; } = id;
-		public int MinutesSlept { get; set; }
-        public int[] SleepingMinutes { get; set; } = new int[60];
+}
 
-		public void CalculateSleepTimes(DateTime start, DateTime end)
+public class GuardEvent
+{
+    public DateTime TimeEvent { get; set; }
+    public int GuardId { get; set; } = -1;
+    public bool IsSleepStart { get; set; }
+    public bool IsSleepEnd { get; set; }
+
+    public GuardEvent(string eventString)
+    {
+        var date = eventString.Substring(1, 16);
+        date = date.Replace("-", "/");
+
+        TimeEvent = DateTime.Parse(date);
+
+        var actualEvent = eventString[19..];
+        if (actualEvent.IndexOf('#') > -1)
         {
-            //Calculating minutes slept
-            var minutes = (int)Math.Round(end.Subtract(start).TotalMinutes);
-
-            var minuteStart = start.Minute;
-            if (start.Hour != 0)
+            var guardIdWithHashtag = actualEvent.Split(" ")[1];
+            var guardId = guardIdWithHashtag[1..];
+            GuardId = int.Parse(guardId);
+        }
+        else
+        {
+            if (actualEvent.IndexOf("asleep") > -1)
             {
-                minuteStart = 0;
+                IsSleepStart = true;
             }
-
-            var minuteEnd = end.Minute;
-            if (end.Hour != 0)
+            if (actualEvent.IndexOf("wakes") > -1)
             {
-                minuteEnd = 0;
+                IsSleepEnd = true;
             }
-
-            for (var minuteIndex = minuteStart; minuteIndex < minuteEnd; minuteIndex++)
-            {
-                SleepingMinutes[minuteIndex]++;
-            }
-            MinutesSlept += minutes;
-
         }
     }
 
+}
+
+public class Guard(int id)
+{
+    public int Id { get; set; } = id;
+    public int MinutesSlept { get; set; }
+    public int[] SleepingMinutes { get; set; } = new int[60];
+
+    public void CalculateSleepTimes(DateTime start, DateTime end)
+    {
+        //Calculating minutes slept
+        var minutes = (int)Math.Round(end.Subtract(start).TotalMinutes);
+
+        var minuteStart = start.Minute;
+        if (start.Hour != 0)
+        {
+            minuteStart = 0;
+        }
+
+        var minuteEnd = end.Minute;
+        if (end.Hour != 0)
+        {
+            minuteEnd = 0;
+        }
+
+        for (var minuteIndex = minuteStart; minuteIndex < minuteEnd; minuteIndex++)
+        {
+            SleepingMinutes[minuteIndex]++;
+        }
+        MinutesSlept += minutes;
+
+    }
 }

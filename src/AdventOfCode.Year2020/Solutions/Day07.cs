@@ -1,99 +1,95 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿namespace AdventOfCode.Year2020.Solutions;
 
-namespace AdventOfCode.Year2020.Solutions
+public static class Day07
 {
-    public static class Day07
+    public static int FirstProblem(string[] lines)
     {
-        public static int FirstProblem(string[] lines)
-        {
-            return ConvertData(lines).Values.Where(x => x.CanHoldGoldBag()).Count();
-        }
-        public static int SecondProblem(string[] data)
-        {
-            return ConvertData(data)["shiny gold"].GetBagCount() - 1;
-        }
-
-        public static Dictionary<string, Bag> ConvertData(string[] data)
-        {
-            var dictionary = new Dictionary<string, Bag>();
-            foreach (var item in data)
-            {
-                var split = item.Split(" ");
-                var name = split[0] + " " + split[1];
-                dictionary.Add(name, new Bag(name, item.IndexOf("shiny gold") > 3));
-            }
-
-            foreach (var item in data)
-            {
-                if (item.Contains("no other bags."))
-                {
-                    continue;
-                }
-                var newLine = item.Replace("contain ", "").Replace("bags, ", "").Replace("bag, ", "").Replace(" bag.", "").Replace(" bags.", "");
-                var dataSplit = newLine.Split(" ");
-                var bag = dictionary[dataSplit[0] + " " + dataSplit[1]];
-                var split = dataSplit[3..];
-                for (var i = 0; i < split.Length && split.Length > 2; i += 3)
-                {
-                    var amount = int.Parse(split[i]);
-                    var name = split[i + 1] + " " + split[i + 2];
-                    for (var j = 0; j < amount; j++)
-                    {
-                        bag.AddBag(dictionary[name]);
-                    }
-                }
-            }
-            return dictionary;
-        }
+        return ConvertData(lines).Values.Where(x => x.CanHoldGoldBag()).Count();
+    }
+    public static int SecondProblem(string[] data)
+    {
+        return ConvertData(data)["shiny gold"].GetBagCount() - 1;
     }
 
-    public class Bag(string name, bool holdGoldBg)
-	{
-		public string Name { get; init; } = name;
-		private readonly bool selfContainsGoldBag = holdGoldBg;
-        private readonly List<Bag> Bags = [];
-        private int? bagCountCached = 1;
-        private bool? canHoldGoldBagCached;
-
-		public void AddBag(Bag bag)
+    public static Dictionary<string, Bag> ConvertData(string[] data)
+    {
+        var dictionary = new Dictionary<string, Bag>();
+        foreach (var item in data)
         {
-            Bags.Add(bag);
-            canHoldGoldBagCached = null;
-            bagCountCached = null;
+            var split = item.Split(" ");
+            var name = split[0] + " " + split[1];
+            dictionary.Add(name, new Bag(name, item.IndexOf("shiny gold") > 3));
         }
 
-        public int GetBagCount()
+        foreach (var item in data)
         {
-            bagCountCached ??= Bags.Sum(x => x.GetBagCount()) + 1;
-            return bagCountCached.Value;
-        }
-
-        public bool CanHoldGoldBag()
-        {
-            if (canHoldGoldBagCached is null)
+            if (item.Contains("no other bags."))
             {
-                if (selfContainsGoldBag)
+                continue;
+            }
+            var newLine = item.Replace("contain ", "").Replace("bags, ", "").Replace("bag, ", "").Replace(" bag.", "").Replace(" bags.", "");
+            var dataSplit = newLine.Split(" ");
+            var bag = dictionary[dataSplit[0] + " " + dataSplit[1]];
+            var split = dataSplit[3..];
+            for (var i = 0; i < split.Length && split.Length > 2; i += 3)
+            {
+                var amount = int.Parse(split[i]);
+                var name = split[i + 1] + " " + split[i + 2];
+                for (var j = 0; j < amount; j++)
                 {
-                    canHoldGoldBagCached = true;
+                    bag.AddBag(dictionary[name]);
                 }
-                else
+            }
+        }
+        return dictionary;
+    }
+}
+
+public class Bag(string name, bool holdGoldBg)
+{
+    public string Name { get; init; } = name;
+    private readonly bool selfContainsGoldBag = holdGoldBg;
+    private readonly List<Bag> Bags = [];
+    private int? bagCountCached = 1;
+    private bool? canHoldGoldBagCached;
+
+    public void AddBag(Bag bag)
+    {
+        Bags.Add(bag);
+        canHoldGoldBagCached = null;
+        bagCountCached = null;
+    }
+
+    public int GetBagCount()
+    {
+        bagCountCached ??= Bags.Sum(x => x.GetBagCount()) + 1;
+        return bagCountCached.Value;
+    }
+
+    public bool CanHoldGoldBag()
+    {
+        if (canHoldGoldBagCached is null)
+        {
+            if (selfContainsGoldBag)
+            {
+                canHoldGoldBagCached = true;
+            }
+            else
+            {
+                foreach (var item in Bags)
                 {
-                    foreach (var item in Bags)
+                    if (Name != item.Name)
                     {
-                        if (Name != item.Name)
+                        if (item.CanHoldGoldBag())
                         {
-                            if (item.CanHoldGoldBag())
-                            {
-                                canHoldGoldBagCached = true;
-                                break;
-                            }
+                            canHoldGoldBagCached = true;
+                            break;
                         }
                     }
                 }
-                canHoldGoldBagCached ??= false;
             }
-            return canHoldGoldBagCached.Value;
+            canHoldGoldBagCached ??= false;
         }
+        return canHoldGoldBagCached.Value;
     }
 }

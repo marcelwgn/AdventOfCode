@@ -1,102 +1,99 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace AdventOfCode.Year2016.Solutions
+namespace AdventOfCode.Year2016.Solutions;
+
+public static class Day14
 {
-    public static class Day14
+    public static long FirstProblem(string[] data)
     {
-        public static long FirstProblem(string[] data)
+        return Algorithm(data[0]);
+    }
+
+    public static long SecondProblem(string[] data)
+    {
+        return Algorithm(data[0], 2017);
+    }
+
+    private static long Algorithm(string data, int hashIterations = 1)
+    {
+        var tripletDictionary = new List<(char, long)>();
+        long index = 0;
+        long remainingRuns = 1100;
+
+        var foundKeys = new List<long>();
+
+        while (remainingRuns > 0)
         {
-            return Algorithm(data[0]);
-        }
-
-        public static long SecondProblem(string[] data)
-        {
-            return Algorithm(data[0], 2017);
-        }
-
-        private static long Algorithm(string data, int hashIterations = 1)
-        {
-            var tripletDictionary = new List<(char, long)>();
-            long index = 0;
-            long remainingRuns = 1100;
-
-            var foundKeys = new List<long>();
-
-            while (remainingRuns > 0)
+            var hashedInput = HashedInput(data + index, hashIterations);
+            var tripletChar = hashedInput.FindNFoldChar(3);
+            var fiveFoldChar = hashedInput.FindNFoldChar(5);
+            if (fiveFoldChar.HasValue)
             {
-                var hashedInput = HashedInput(data + index, hashIterations);
-                var tripletChar = hashedInput.FindNFoldChar(3);
-                var fiveFoldChar = hashedInput.FindNFoldChar(5);
-                if (fiveFoldChar.HasValue)
+                foreach (var item in tripletDictionary.Where(x => x.Item1 == fiveFoldChar.Value).OrderBy(x => x.Item2))
                 {
-                    foreach (var item in tripletDictionary.Where(x => x.Item1 == fiveFoldChar.Value).OrderBy(x => x.Item2))
+                    if (item.Item2 + 1000 >= index)
                     {
-                        if (item.Item2 + 1000 >= index)
-                        {
-                            Debug.WriteLine(item.Item2);
-                            foundKeys.Add(item.Item2);
-                        }
+                        Debug.WriteLine(item.Item2);
+                        foundKeys.Add(item.Item2);
                     }
                 }
-                if (tripletChar.HasValue)
-                {
-                    tripletDictionary.Add((tripletChar.Value, index));
-                }
-                index++;
-                if (foundKeys.Count >= 64)
-                {
-                    remainingRuns--;
-                }
             }
-
-            foundKeys.Sort();
-            return foundKeys[63];
-        }
-
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA5351:Do Not Use Broken Cryptographic Algorithms", Justification = "<Pending>")]
-		private static string HashedInput(string data, int iterations = 1)
-        {
-            var currentInput = data;
-            while (iterations > 0)
+            if (tripletChar.HasValue)
             {
-                iterations--;
-                var inputBytes = Encoding.ASCII.GetBytes(currentInput);
-                var hashBytes = MD5.HashData(inputBytes);
-
-                // Convert the byte array to hexadecimal string
-                var sb = new StringBuilder();
-                for (var j = 0; j < hashBytes.Length; j++)
-                {
-                    sb.Append(hashBytes[j].ToString("X2"));
-                }
-                currentInput = sb.ToString().ToLower();
+                tripletDictionary.Add((tripletChar.Value, index));
             }
-            return currentInput;
-        }
-
-        private static char? FindNFoldChar(this string value, int consecutiveOccurence)
-        {
-            for (var i = 0; i < value.Length - consecutiveOccurence + 1; i++)
+            index++;
+            if (foundKeys.Count >= 64)
             {
-                var curChar = value[i];
-                var valid = true;
-                for (var j = 0; j < consecutiveOccurence; j++)
+                remainingRuns--;
+            }
+        }
+
+        foundKeys.Sort();
+        return foundKeys[63];
+    }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA5351:Do Not Use Broken Cryptographic Algorithms", Justification = "<Pending>")]
+    private static string HashedInput(string data, int iterations = 1)
+    {
+        var currentInput = data;
+        while (iterations > 0)
+        {
+            iterations--;
+            var inputBytes = Encoding.ASCII.GetBytes(currentInput);
+            var hashBytes = MD5.HashData(inputBytes);
+
+            // Convert the byte array to hexadecimal string
+            var sb = new StringBuilder();
+            for (var j = 0; j < hashBytes.Length; j++)
+            {
+                sb.Append(hashBytes[j].ToString("X2"));
+            }
+            currentInput = sb.ToString().ToLower();
+        }
+        return currentInput;
+    }
+
+    private static char? FindNFoldChar(this string value, int consecutiveOccurence)
+    {
+        for (var i = 0; i < value.Length - consecutiveOccurence + 1; i++)
+        {
+            var curChar = value[i];
+            var valid = true;
+            for (var j = 0; j < consecutiveOccurence; j++)
+            {
+                if (curChar != value[i + j])
                 {
-                    if (curChar != value[i + j])
-                    {
-                        valid = false;
-                    }
-                }
-                if (valid)
-                {
-                    return curChar;
+                    valid = false;
                 }
             }
-            return null;
+            if (valid)
+            {
+                return curChar;
+            }
         }
+        return null;
     }
 }

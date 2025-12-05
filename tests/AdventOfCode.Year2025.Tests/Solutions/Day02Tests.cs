@@ -1,5 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace AdventOfCode.Year2025.Tests.Solutions;
 
 [TestClass]

@@ -1,122 +1,120 @@
 ﻿using AdventOfCode.Common.Extensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Common.Tests.Extensions
+namespace AdventOfCode.Common.Tests.Extensions;
+
+[TestClass()]
+public class StringUtilsTests
 {
-    [TestClass()]
-    public class StringUtilsTests
+    [TestMethod()]
+    public void LetterIsInTwiceTestContainsALetterTwice()
     {
-        [TestMethod()]
-        public void LetterIsInTwiceTestContainsALetterTwice()
-        {
-            var test = "bababc";
+        var test = "bababc";
 
-            var result = test.ContainsLetterExactlyTwice();
+        var result = test.ContainsLetterExactlyTwice();
 
-            Assert.IsTrue(result);
-        }
+        Assert.IsTrue(result);
+    }
 
-        [TestMethod()]
-        public void LetterIsInTwiceTestContainsALetterTwiceAtEnd()
-        {
-            var test = "bacc";
+    [TestMethod()]
+    public void LetterIsInTwiceTestContainsALetterTwiceAtEnd()
+    {
+        var test = "bacc";
 
-            var result = test.ContainsLetterExactlyTwice();
+        var result = test.ContainsLetterExactlyTwice();
 
-            Assert.IsTrue(result);
-        }
+        Assert.IsTrue(result);
+    }
 
-        [TestMethod()]
-        public void LetterIsInTwiceTestContainsNoLetterTwice()
-        {
-            var test = "abcdef";
+    [TestMethod()]
+    public void LetterIsInTwiceTestContainsNoLetterTwice()
+    {
+        var test = "abcdef";
 
-            var result = test.ContainsLetterExactlyTwice();
+        var result = test.ContainsLetterExactlyTwice();
 
-            Assert.IsFalse(result);
-        }
+        Assert.IsFalse(result);
+    }
 
-        [TestMethod()]
-        public void LetterIsInTwiceTestContainsALetterThrice()
-        {
-            var test = "aaabcdef";
+    [TestMethod()]
+    public void LetterIsInTwiceTestContainsALetterThrice()
+    {
+        var test = "aaabcdef";
 
-            var result = test.ContainsLetterExactlyTwice();
+        var result = test.ContainsLetterExactlyTwice();
 
-            Assert.IsFalse(result);
-        }
+        Assert.IsFalse(result);
+    }
 
-        [TestMethod()]
-        public void LetterIsInThriceTestContainsALetterTwice()
-        {
-            var test = "abcefhiklmnnopqqrstuvwxyzz";
+    [TestMethod()]
+    public void LetterIsInThriceTestContainsALetterTwice()
+    {
+        var test = "abcefhiklmnnopqqrstuvwxyzz";
 
-            var result = test.ContainsLetterExactlyThrice();
+        var result = test.ContainsLetterExactlyThrice();
 
-            Assert.IsFalse(result);
-        }
+        Assert.IsFalse(result);
+    }
 
-        [TestMethod()]
-        public void LetterIsInThriceTestContainsALetterThriceAtEnd()
-        {
-            var test = "abcefhiklmnnopqqrstuvwxyzzz";
+    [TestMethod()]
+    public void LetterIsInThriceTestContainsALetterThriceAtEnd()
+    {
+        var test = "abcefhiklmnnopqqrstuvwxyzzz";
 
-            var result = test.ContainsLetterExactlyThrice();
+        var result = test.ContainsLetterExactlyThrice();
 
-            Assert.IsTrue(result);
-        }
+        Assert.IsTrue(result);
+    }
 
-        [TestMethod()]
-        public void LetterIsInThriceTestContainsNoLetterTwice()
-        {
-            var test = "abcdef";
+    [TestMethod()]
+    public void LetterIsInThriceTestContainsNoLetterTwice()
+    {
+        var test = "abcdef";
 
-            var result = test.ContainsLetterExactlyThrice();
+        var result = test.ContainsLetterExactlyThrice();
 
-            Assert.IsFalse(result);
-        }
+        Assert.IsFalse(result);
+    }
 
-        [TestMethod()]
-        public void LetterIsInThriceTestContainsALetterThrice()
-        {
-            var test = "aaabcdef";
+    [TestMethod()]
+    public void LetterIsInThriceTestContainsALetterThrice()
+    {
+        var test = "aaabcdef";
 
-            var result = test.ContainsLetterExactlyThrice();
+        var result = test.ContainsLetterExactlyThrice();
 
-            Assert.IsTrue(result);
-        }
+        Assert.IsTrue(result);
+    }
 
-        [TestMethod()]
-        public void NumberOfLettersDifferentTestTwoLettersDifferent()
-        {
-            var first = "abcde";
-            var second = "axcye";
+    [TestMethod()]
+    public void NumberOfLettersDifferentTestTwoLettersDifferent()
+    {
+        var first = "abcde";
+        var second = "axcye";
 
-            var result = first.NumberOfLettersDifferent(second);
+        var result = first.NumberOfLettersDifferent(second);
 
-            Assert.AreEqual(2, result);
-        }
+        Assert.AreEqual(2, result);
+    }
 
-        [TestMethod()]
-        public void NumberOfLettersDifferentTestOneLetterDifferent()
-        {
-            var first = "fghij";
-            var second = "fguij";
+    [TestMethod()]
+    public void NumberOfLettersDifferentTestOneLetterDifferent()
+    {
+        var first = "fghij";
+        var second = "fguij";
 
-            var result = first.NumberOfLettersDifferent(second);
+        var result = first.NumberOfLettersDifferent(second);
 
-            Assert.AreEqual(1, result);
-        }
+        Assert.AreEqual(1, result);
+    }
 
-        [TestMethod()]
-        public void GetCommonLettersTest()
-        {
-            var first = "fghij";
-            var second = "fguij";
+    [TestMethod()]
+    public void GetCommonLettersTest()
+    {
+        var first = "fghij";
+        var second = "fguij";
 
-            var result = first.GetCommonLetters(second);
+        var result = first.GetCommonLetters(second);
 
-            Assert.AreEqual("fgij", result);
-        }
+        Assert.AreEqual("fgij", result);
     }
 }

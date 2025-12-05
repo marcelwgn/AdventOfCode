@@ -9,18 +9,18 @@ var readInput = Console.ReadLine();
 
 if (!string.IsNullOrEmpty(readInput))
 {
-	var split = readInput.Split(" ");
-	if (split.Length > 0)
-	{
-		if (int.TryParse(split[0], out int enteredDay))
-		{
-			dayToRun = enteredDay;
-		}
-		if (split.Length > 1 && int.TryParse(split[1], out int enteredYear))
-		{
-			yearToRun = enteredYear;
-		}
-	}
+    var split = readInput.Split(" ");
+    if (split.Length > 0)
+    {
+        if (int.TryParse(split[0], out int enteredDay))
+        {
+            dayToRun = enteredDay;
+        }
+        if (split.Length > 1 && int.TryParse(split[1], out int enteredYear))
+        {
+            yearToRun = enteredYear;
+        }
+    }
 }
 
 Console.WriteLine($"Running solution for day {dayToRun} and year {yearToRun}...");
@@ -28,5 +28,5 @@ Console.WriteLine($"Running solution for day {dayToRun} and year {yearToRun}..."
 var type = SolutionResolver.FindSolutionSolver(dayToRun, yearToRun);
 if (type is not null)
 {
-	SolutionRunner.RunSolution(type);
+    SolutionRunner.RunSolution(type);
 }
